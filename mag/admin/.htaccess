@@ -1,0 +1,4 @@
+AuthType Basic
+AuthName "Admin Panel"
+AuthUserFile C:/xampp/htdocs/shop/admin/.htpasswd
+Require valid-user
