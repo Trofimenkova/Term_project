@@ -12,10 +12,9 @@ if(!empty($_POST['full_name']) && !empty($_POST['email']) && !empty($_POST['tele
 	$email=trim($_POST['email']);
 	$telephone=trim($_POST['telephone']);
 	$username=trim($_POST['username']);
-	$password=password_hash(trim($_POST['password']), PASSWORD_DEFAULT);
-	
-
-		
+	//$password=password_hash(trim($_POST['password']), PASSWORD_DEFAULT);
+	$password=crypt(trim($_POST['password']));
+			
 	$query=mysql_query("SELECT * FROM users WHERE username='".$username."'") or die(mysql_error());
 	$numrows=mysql_num_rows($query);
 	
@@ -65,11 +64,6 @@ if(!empty($_POST['full_name']) && !empty($_POST['email']) && !empty($_POST['tele
 		<label for="user_pass">Телефон<br />
 		<input type="text" name="telephone" id="telephone" class="input" value="" size="32" /></label>
 	</p>
-	<script type="text/javascript">
-   jQuery(function($){
-   $("#telephone").mask('+375(99)999-99-99');
-   });
-</script>
 	<p>
 		<label for="user_pass">Логин<br />
 		<input type="text" name="username" id="username" class="input" value="" size="32" /></label>

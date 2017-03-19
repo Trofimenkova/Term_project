@@ -1,4 +1,4 @@
-AuthType Basic
+﻿AuthType Basic
 AuthName "Admin Panel"
-AuthUserFile C:/xampp/htdocs/shop/admin/.htpasswd
+AuthUserFile B:/home/localhost/www/mag/admin/.htpasswd
 Require valid-user

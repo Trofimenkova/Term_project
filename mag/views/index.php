@@ -1,10 +1,4 @@
-﻿<?php 
-session_start();
-if(!isset($_SESSION["session_username"])) {
-$_SESSION["session_username"] = 0; }
-?>
-
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<title>Рыбин Гуд</title>
@@ -15,21 +9,7 @@ $_SESSION["session_username"] = 0; }
 	<![endif]-->
 	<link rel="shortcut icon" href="images/fish.png" type="image/png">
 	<script src="js/index.js"></script>
-<script>window.onload = function() {
-	var username = '<?php echo $_SESSION["session_username"];?>';
-	if (username!=0) {
-		document.getElementById("avt").innerHTML = "Личный кабинет";
-		document.getElementById("reg").innerHTML = "Выйти";
-		document.getElementById('reg').onclick = function() { "<?php 
-			session_start();
-			unset($_SESSION['session_username']);
-			session_destroy();
-			header("location:index.php");
-		?>"; 
-		}
-	}
-}
-</script>
+
 </head>
 <body>
 	<header id="header">
@@ -40,6 +20,7 @@ $_SESSION["session_username"] = 0; }
 					<li><a href="cart.html"><span class="ico-products"></span>3 товара, 100 BYN</a></li>
 					<li><a href="login.php" id="avt" target="_blank" onclick="return openWindow(this.href);"><span class="ico-account"></span>Авторизация</a></li>
 					<li><a href="register.php" id="reg" target="_blank" onclick="return openWindow(this.href);"><span class="ico-signout"></span>Регистрация</a></li>
+					<li><a href="logout.php"><span class="ico-signout"></span>Выйти</a></li>
 				</ul>
 			</div>
 		</div>

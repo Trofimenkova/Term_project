@@ -29,8 +29,8 @@ if(!empty($_POST['username']) && !empty($_POST['password'])) {
     $dbpassword=$row['password'];
     }
 
-    if(password_verify($password, $dbpassword))
-
+    //if(password_verify($password, $dbpassword))
+	if (crypt($password, $dbpassword) === $dbpassword)
     {
 
 

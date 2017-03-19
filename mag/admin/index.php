@@ -1,4 +1,4 @@
-<?php
+﻿<?php
     require_once("../database.php");
     require_once("../models/products.php");
         
@@ -25,8 +25,10 @@
             products_new($link, $_POST['Вид'], $_POST['Id_семейство'], $_POST['Размер'], $_POST['Размер_взрослой_особи'], $_POST['Продолжительность_жизни'], $_POST['Место_обитания'], $_POST['Уход'], $_POST['Цена'], $_POST['Количество'], "images/".$_POST['Изображение']);
 			header("Location: index.php");
         }
-        include("../views/product_admin.php");
-    }else if($action == 'edit'){
+        include("../views/product_admin.php");	
+    }
+	
+	else if($action == 'edit'){
         if(!isset($_GET['id']))
 			header('Location: index.php');
         $id = (int)$_GET['id'];
@@ -38,12 +40,15 @@
         
         $product = product_get($link, $id);
         include("../views/product_admin.php");  
-    }else if($action == 'delete'){
+    }
+	
+	else if($action == 'delete'){
         $id = $_GET['id'];
         $product = products_delete($link, $id);
         header('Location: index.php');
     }
-    else{
+    
+	else{
         $products = products_all($link);
         include("../views/products_admin.php");        
     }
