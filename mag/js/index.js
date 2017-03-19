@@ -7,6 +7,7 @@ function openWindow(url) {
 	features = 'top=' + 100 + ',left=' +left;
 	features += ',height=' + h + ',width=' + w + ', scrollbars=no, menubar=no,toolbar=no, location=no,status=no,resizable=no';
 	window.open(url,this.target,features);
+	return false;
 }
 
 function stopPrev(current_str) {
