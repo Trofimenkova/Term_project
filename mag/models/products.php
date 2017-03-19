@@ -1,6 +1,6 @@
 <?php
-    function products_view($link) {
-        $query = "SELECT * FROM товары inner join семейства on товары.Id_семейство=семейства.Id_семейство";
+    function products_view($link, $position) {
+        $query = sprintf("SELECT * FROM товары inner join семейства on товары.Id_семейство=семейства.Id_семейство limit 12 offset %d", (int)$position);
         $rezult = mysqli_query($link, $query);
         
         if (!$rezult) {
@@ -16,6 +16,8 @@
                
         return $products1;
     }
+	
+	
 
 	   function products_all($link) {
         $query = "SELECT * FROM товары";
