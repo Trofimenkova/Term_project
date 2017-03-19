@@ -1,39 +1,13 @@
-﻿<!DOCTYPE html>
-<head>
-	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<title>Рыбин Гуд</title>
-	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
-	<link rel="stylesheet" media="all" href="css/style.css">
-	<link rel="shortcut icon" href="images/fish.png" type="image/png">
-
-<script src="js/index.js"></script>
-</head>
-<body>
-
-	<header id="header">
-		<div class="container">
-			<a href="index.php" id="logo" title="Рыбин Гуд">Рыбин Гуд</a>
-			<div class="right-links">
-				<ul>
-					<li><a href="cart.html"><span class="ico-products"></span>3 товара, 100 BYN</a></li>
-					<li><a href="login.php" target="_blank" onclick="return openWindow(this.href);"><span class="ico-account"></span>Авторизация</a></li>
-					<li><a href="register.php" target="_blank" onclick="return openWindow(this.href);"><span class="ico-signout"></span>Регистрация</a></li>
-				</ul>
-			</div>
-		</div>
-		<!-- / container -->
-	</header>
-	<!-- / header -->
-
+﻿<?php include("header.php"); ?>
 	<nav id="menu">
 		<div class="container">
 			<div class="trigger"></div>
 			<ul>
 				<li><a href="index.php">Главная</a></li>
 				<li><a href="products.php">Каталог</a></li>
-				<li><a href="about.html">О магазине</a></li>
-				<li><a href="dostavka.html">Оплата и доставка</a></li>
-				<li><a href="contacts.html">Контакты</a></li>
+				<li><a href="about.php">О магазине</a></li>
+				<li><a href="dostavka.php">Оплата и доставка</a></li>
+				<li><a href="contacts.php">Контакты</a></li>
 			</ul>
 		</div>
 		<!-- / container -->
