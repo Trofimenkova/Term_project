@@ -37,7 +37,6 @@ if(!empty($_POST['username']) && !empty($_POST['password'])) {
     $_SESSION['session_username']=$username;
 	echo "<script>window.close();</script>";
 	
-	
     }
     } else {
 
