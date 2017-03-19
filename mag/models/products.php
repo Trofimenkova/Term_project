@@ -17,6 +17,18 @@
         return $products1;
     }
 	
+	    function products_count($link) {
+        $query = "SELECT * FROM товары";
+        $rezult = mysqli_query($link, $query);
+        
+        if (!$rezult) {
+            die(mysqli_error($link));
+		}
+        
+        return mysqli_num_rows($rezult);
+
+    }
+	
 	
 
 	   function products_all($link) {

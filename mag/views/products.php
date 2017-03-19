@@ -5,7 +5,7 @@
 			<div class="trigger"></div>
 			<ul>
 				<li><a href="index.php">Главная</a></li>
-				<li><a href="products.php">Каталог</a></li>
+				<li><a href="products.php?page=1">Каталог</a></li>
 				<li><a href="about.php">О магазине</a></li>
 				<li><a href="dostavka.php">Оплата и доставка</a></li>
 				<li><a href="contacts.php">Контакты</a></li>
@@ -30,13 +30,17 @@
 		<div class="container">
 			<div class="pagination">
 				<ul>
-					<li><a href="products.php?page=<?=($_GET['page']-1)?>"><span class="ico-prev"></span></a></li>
-					<li class="active"><a href="products.php?page=1">1</a></li>
-					<li><a href="products.php?page=2">2</a></li>
-					<li><a href="products.php?page=3">3</a></li>
-					<li><a href="products.php?page=4">4</a></li>
-					<li><a href="products.php?page=5">5</a></li>
-					<li><a href="products.php?page=<?=($_GET['page']+1)?>"><span class="ico-next"></span></a></li>
+				<li><a href="products.php?page=<?=($_GET['page']-1)?>" onclick="return stopPrev(<?=($_GET['page']-1)?>)"><span class="ico-prev"></span></a></li>
+				<?php
+				$str = 1;
+				while ($str <= ceil($amount/12)): 
+				?>
+				<li><a href="products.php?page=<?=$str?>"><?=$str?></a></li>
+				<?php
+				$str++;
+				endwhile;
+				?>
+				<li><a href="products.php?page=<?=($_GET['page']+1)?>" onclick="return stopNext(<?=($_GET['page']+1)?>, <?=ceil($amount/12)?>)"><span class="ico-next"></span></a></li>
 				</ul>
 			</div>
 			<div class="products-wrap">
@@ -87,13 +91,17 @@
 			</div>
 			<div class="pagination">
 				<ul>
-					<li><a href="products.php?page=<?=($_GET['page']-1)?>"><span class="ico-prev"></span></a></li>
-					<li class="active"><a href="products.php?page=1">1</a></li>
-					<li><a href="products.php?page=2">2</a></li>
-					<li><a href="products.php?page=3">3</a></li>
-					<li><a href="products.php?page=4">4</a></li>
-					<li><a href="products.php?page=5">5</a></li>
-					<li><a href="products.php?page=<?=($_GET['page']+1)?>"><span class="ico-next"></span></a></li>
+				<li><a href="products.php?page=<?=($_GET['page']-1)?>" onclick="return stopPrev(<?=($_GET['page']-1)?>)"><span class="ico-prev"></span></a></li>
+				<?php
+				$str = 1;
+				while ($str <= ceil($amount/12)): 
+				?>
+				<li><a href="products.php?page=<?=$str?>"><?=$str?></a></li>
+				<?php
+				$str++;
+				endwhile;
+				?>
+				<li><a href="products.php?page=<?=($_GET['page']+1)?>" onclick="return stopNext(<?=($_GET['page']+1)?>, <?=ceil($amount/12)?>)"><span class="ico-next"></span></a></li>
 				</ul>
 			</div>
 		</div>

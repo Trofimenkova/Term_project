@@ -7,6 +7,14 @@ function openWindow(url) {
 	features = 'top=' + top + ',left=' +left;
 	features += ',height=' + h + ',width=' + w + ', scrollbars=no, menubar=no,toolbar=no, location=no,status=no,resizable=no';
 	window.open(url,this.target,features);
-    return false;
 }
 
+function stopPrev(current_str) {
+	if (current_str <= 0) return false;
+	else return true;
+}
+
+function stopNext(current_str, all_amount) {
+	if (current_str > all_amount) return false;
+	else return true;
+}
