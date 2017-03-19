@@ -1,4 +1,4 @@
-﻿<?php include("header.php"); ?>
+<?php include("header.php"); ?>
 
 	<nav id="menu">
 		<div class="container">
@@ -25,7 +25,22 @@
 		<!-- / container -->
 	</div>
 	<!-- / body -->
+	<script>
+	window.onload = init;
 
+	function init() {
+	var button = document.getElementById("add_button");
+	button.onclick = addItem;	
+}
+
+function addItem() {
+	var vid = '<?php echo $product['Id_товар'];?>';
+    var amount = document.getElementById("amount").value;
+    localStorage.setItem(vid, amount);
+	return false;
+}
+
+	</script>
 	<div id="body">
 		<div class="container">
 			<div id="content" class="full">
@@ -64,9 +79,11 @@
 							</div>
 						</div>
 						<div class="actions">
+						<form>
 							<label>Количество:</label>
 							<input type="number" id="amount" min="0" max="<?=$product['Количество']?>" step="1" value="0">
-							<a href="" class="btn-grey">Добавить в корзину</a>
+							<input type="submit" id="add_button" class="btn-grey" value="Добавить в корзину">
+						</form>
 						</div>
 					</div>
 					
