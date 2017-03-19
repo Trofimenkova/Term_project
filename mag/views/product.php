@@ -5,7 +5,7 @@
 			<div class="trigger"></div>
 			<ul>
 				<li><a href="index.php">Главная</a></li>
-				<li><a href="products.php">Каталог</a></li>
+				<li><a href="products.php?page=1">Каталог</a></li>
 				<li><a href="about.php">О магазине</a></li>
 				<li><a href="dostavka.php">Оплата и доставка</a></li>
 				<li><a href="contacts.php">Контакты</a></li>
@@ -65,8 +65,8 @@
 						</div>
 						<div class="actions">
 							<label>Количество:</label>
-							<input type="number" min="0" max="<?=$product['Количество']?>" step="1" value="0">
-							<a href="#" class="btn-grey">Добавить в корзину</a>
+							<input type="number" id="amount" min="0" max="<?=$product['Количество']?>" step="1" value="0">
+							<a href="" class="btn-grey">Добавить в корзину</a>
 						</div>
 					</div>
 					
