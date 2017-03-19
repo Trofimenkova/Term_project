@@ -4,7 +4,7 @@
 			<div class="trigger"></div>
 			<ul>
 				<li><a href="index.php">Главная</a></li>
-				<li><a href="products.php">Каталог</a></li>
+				<li><a href="products.php?page=1">Каталог</a></li>
 				<li><a href="about.php">О магазине</a></li>
 				<li><a href="dostavka.php">Оплата и доставка</a></li>
 				<li><a href="contacts.php">Контакты</a></li>
@@ -19,27 +19,27 @@
 			<li class="yellow" style="background-image: url(images/0.jpg)">
 				<h3>А вы знаете, что</h3>
 				<h2>существует около 40 видов летучих рыб</h2>
-				<a href="products.php" class="btn-more">Купить</a>
+				<a href="products.php?page=1" class="btn-more">Купить</a>
 			</li>
 			<li class="yellow" style="background-image: url(images/01.jpg)">
 				<h3>А вы знаете, что</h3>
 				<h2>некоторые рыбы плавают задом наперед</h2>
-				<a href="products.php" class="btn-more">Купить</a>
+				<a href="products.php?page=1" class="btn-more">Купить</a>
 			</li>
 			<li class="yellow" style="background-image: url(images/02.jpg)">
 				<h3>А вы знаете, что</h3>
 				<h2>некоторые рыбы способны менять пол</h2>
-				<a href="products.php" class="btn-more">Купить</a>
+				<a href="products.php?page=1" class="btn-more">Купить</a>
 			</li>
 			<li class="yellow" style="background-image: url(images/03.jpg)">
 				<h3>А вы знаете, что</h3>
 				<h2>рыбы способны чувствовать боль</h2>
-				<a href="products.php" class="btn-more">Купить</a>
+				<a href="products.php?page=1" class="btn-more">Купить</a>
 			</li>
 			<li class="yellow" style="background-image: url(images/04.jpg)">
 				<h3>А вы знаете, что</h3>
 				<h2>существуют подводные "кукушки"</h2>
-				<a href="products.php" class="btn-more">Купить</a>
+				<a href="products.php?page=1" class="btn-more">Купить</a>
 			</li>
 		</ul>
 	</div>
