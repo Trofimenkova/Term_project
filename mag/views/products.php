@@ -30,13 +30,13 @@
 		<div class="container">
 			<div class="pagination">
 				<ul>
-					<li><a href="#"><span class="ico-prev"></span></a></li>
-					<li class="active"><a href="#">1</a></li>
-					<li><a href="#">2</a></li>
-					<li><a href="#">3</a></li>
-					<li><a href="#">4</a></li>
-					<li><a href="#">5</a></li>
-					<li><a href="#"><span class="ico-next"></span></a></li>
+					<li><a href="products.php?page=<?=($_GET['page']-1)?>"><span class="ico-prev"></span></a></li>
+					<li class="active"><a href="products.php?page=1">1</a></li>
+					<li><a href="products.php?page=2">2</a></li>
+					<li><a href="products.php?page=3">3</a></li>
+					<li><a href="products.php?page=4">4</a></li>
+					<li><a href="products.php?page=5">5</a></li>
+					<li><a href="products.php?page=<?=($_GET['page']+1)?>"><span class="ico-next"></span></a></li>
 				</ul>
 			</div>
 			<div class="products-wrap">
@@ -87,13 +87,13 @@
 			</div>
 			<div class="pagination">
 				<ul>
-					<li><a href="#"><span class="ico-prev"></span></a></li>
-					<li class="active"><a href="#">1</a></li>
-					<li><a href="#">2</a></li>
-					<li><a href="#">3</a></li>
-					<li><a href="#">4</a></li>
-					<li><a href="#">5</a></li>
-					<li><a href="#"><span class="ico-next"></span></a></li>
+					<li><a href="products.php?page=<?=($_GET['page']-1)?>"><span class="ico-prev"></span></a></li>
+					<li class="active"><a href="products.php?page=1">1</a></li>
+					<li><a href="products.php?page=2">2</a></li>
+					<li><a href="products.php?page=3">3</a></li>
+					<li><a href="products.php?page=4">4</a></li>
+					<li><a href="products.php?page=5">5</a></li>
+					<li><a href="products.php?page=<?=($_GET['page']+1)?>"><span class="ico-next"></span></a></li>
 				</ul>
 			</div>
 		</div>
