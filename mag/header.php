@@ -34,7 +34,7 @@ window.onload = function() {
 			<a href="index.php" id="logo" title="Рыбин Гуд">Рыбин Гуд</a>
 			<div class="right-links">
 				<ul>
-					<li><span class="ico-products"></span><a href="cart.php">3 товара, 100 BYN</a></li>
+					<li><span class="ico-products"></span><a href="cart.php">Корзина</a></li>
 					<li><span class="ico-account"></span><a href="login.php" id="avt" target="_blank" onclick="return openWindow(this.href);">Авторизация</a></li>
 					<li><span class="ico-signout"></span><a href="register.php" id="reg" target="_blank" onclick="return openWindow(this.href);">Регистрация</a></li>
 				</ul>
