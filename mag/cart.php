@@ -1,4 +1,64 @@
 ﻿<?php include("header.php"); ?>
+<script>
+window.onload = function() {
+	for (var i = 0; i<localStorage.length; i++) {
+	var key = localStorage.key(i);
+	var value = JSON.parse(localStorage[key]);
+	
+	var korzina = document.getElementsByTagName("table")[0];
+	var tr = document.createElement("tr");
+	korzina.appendChild(tr);
+	
+	var td1 = document.createElement("td");
+	td1.setAttribute("class", "items");
+	td1.innerHTML = key;
+	tr.appendChild(td1);
+	
+	var td2 = document.createElement("td");
+	td2.setAttribute("class", "price");
+	td2.innerHTML = value.price;
+	tr.appendChild(td2);
+	
+	var td3 = document.createElement("td");
+	td3.setAttribute("class", "qnt");
+	tr.appendChild(td3);
+	var input = document.createElement("input");
+	input.setAttribute("type", "number");
+	input.setAttribute("min", "0");
+	input.setAttribute("max", value.total_amount);
+	input.setAttribute("step", "1");
+	input.setAttribute("value", value.amount);
+	//td3.innerHTML = value.amount;
+	td3.appendChild(input);
+	
+	var td4 = document.createElement("td");
+	td4.setAttribute("class", "total");
+	td4.innerHTML = (value.price * value.amount).toFixed(2);
+	tr.appendChild(td4);
+	
+	var td5 = document.createElement("td");
+	td5.setAttribute("class", "delete");
+	tr.appendChild(td5);
+	var a = document.createElement("a");
+	a.setAttribute("class", "ico-del");
+	a.setAttribute("href", "#");
+	td5.appendChild(a);
+	}
+	
+	var reset = document.createElement("tr");
+	reset.setAttribute("colspan", "5");
+	korzina.appendChild(reset);
+	var button = document.createElement("button");
+	button.innerHTML = "Очистить корзину";
+	reset.appendChild(button);
+	button.onclick = delete_localStorage;
+}
+
+function delete_localStorage() {
+	localStorage.clear();
+	location.reload();
+}
+</script>
 
 	<nav id="menu">
 		<div class="container">
@@ -32,13 +92,13 @@
 				<div class="cart-table">
 					<table>
 						<tr>
-							<th class="items">Items</th>
-							<th class="price">Price</th>
-							<th class="qnt">Quantity</th>
-							<th class="total">Total</th>
+							<th class="items">Товар</th>
+							<th class="price">Цена, BYN</th>
+							<th class="qnt">Количество, шт</th>
+							<th class="total">Сумма, BYN</th>
 							<th class="delete"></th>
 						</tr>
-						<tr>
+						<!--<tr>
 							<td class="items">
 								<div class="image">
 									<img src="images/6.jpg" alt="">
@@ -50,33 +110,7 @@
 							<td class="qnt"><select><option>1</option><option>1</option></select></td>
 							<td class="total">$1 350.00</td>
 							<td class="delete"><a href="#" class="ico-del"></a></td>
-						</tr>
-						<tr>
-							<td class="items">
-								<div class="image">
-									<img src="images/61.jpg" alt="">
-								</div>
-								<h3><a href="#">illum qui dolorem eum fugiat</a></h3>
-								<p>Quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum.</p>
-							</td>
-							<td class="price">$2 100.00</td>
-							<td class="qnt"><select><option>1</option><option>1</option></select></td>
-							<td class="total">$2 100.00</td>
-							<td class="delete"><a href="#" class="ico-del"></a></td>
-						</tr>
-						<tr>
-							<td class="items">
-								<div class="image">
-									<img src="images/62.jpg" alt="">
-								</div>
-								<h3><a href="#">accusantium doloremque laudantium</a></h3>
-								<p>Quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum.</p>
-							</td>
-							<td class="price">$1 050.00</td>
-							<td class="qnt"><select><option>1</option><option>1</option></select></td>
-							<td class="total">$1 050.00</td>
-							<td class="delete"><a href="#" class="ico-del"></a></td>
-						</tr>
+						</tr>-->
 					</table>
 				</div>
 
