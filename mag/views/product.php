@@ -1,4 +1,28 @@
 <?php include("header.php"); ?>
+<script>
+	window.onload = init;
+
+	function init() {
+	var button = document.getElementById("add_button");
+	button.onclick = addItem;	
+}
+
+function addItem() {
+	//var id = '<?php echo $product['Id_товар'];?>';
+    //var amount = document.getElementById("amount").value;
+    //localStorage.setItem(id, amount);
+	
+	var vid = '<?php echo $product['Вид'];?>';
+	var data = {
+	amount: document.getElementById("amount").value,
+	price: '<?php echo $product['Цена'];?>', 
+	total_amount: '<?php echo $product['Количество'];?>'
+	}
+	if (data.amount == 0) { alert("Укажите количество товара!"); return false; }
+    localStorage.setItem(vid, JSON.stringify(data));
+	return false;
+}
+</script>
 
 	<nav id="menu">
 		<div class="container">
@@ -25,22 +49,7 @@
 		<!-- / container -->
 	</div>
 	<!-- / body -->
-	<script>
-	window.onload = init;
 
-	function init() {
-	var button = document.getElementById("add_button");
-	button.onclick = addItem;	
-}
-
-function addItem() {
-	var vid = '<?php echo $product['Id_товар'];?>';
-    var amount = document.getElementById("amount").value;
-    localStorage.setItem(vid, amount);
-	return false;
-}
-
-	</script>
 	<div id="body">
 		<div class="container">
 			<div id="content" class="full">
