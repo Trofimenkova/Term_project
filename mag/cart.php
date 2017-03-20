@@ -41,17 +41,25 @@ window.onload = function() {
 	tr.appendChild(td5);
 	var a = document.createElement("a");
 	a.setAttribute("class", "ico-del");
+	a.setAttribute("id", key);
 	a.setAttribute("href", "#");
 	td5.appendChild(a);
+	a.onclick = delete_item;
 	}
 	
 	var reset = document.createElement("tr");
 	reset.setAttribute("colspan", "5");
 	korzina.appendChild(reset);
+	
 	var button = document.createElement("button");
 	button.innerHTML = "Очистить корзину";
 	reset.appendChild(button);
 	button.onclick = delete_localStorage;
+}
+
+function delete_item(e) {
+	localStorage.removeItem(e.target.id);
+	location.reload();
 }
 
 function delete_localStorage() {
@@ -115,10 +123,8 @@ function delete_localStorage() {
 				</div>
 
 				<div class="total-count">
-					<h4>Subtotal: $4 500.00</h4>
-					<p>+shippment: $30.00</p>
-					<h3>Total to pay: <strong>$4 530.00</strong></h3>
-					<a href="#" class="btn-grey">Finalize and pay</a>
+					<h3>Итоговая сумма: <strong>200 BYN</strong></h3>
+					<a href="#" class="btn-grey">Перейти к оформлению заказа</a>
 				</div>
 		
 			</div>

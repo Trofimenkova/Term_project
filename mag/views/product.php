@@ -14,12 +14,13 @@ function addItem() {
 	
 	var vid = '<?php echo $product['Вид'];?>';
 	var data = {
+	id: '<?php echo $product['Id_товар'];?>', 
 	amount: document.getElementById("amount").value,
 	price: '<?php echo $product['Цена'];?>', 
 	total_amount: '<?php echo $product['Количество'];?>'
 	}
-	if (data.amount == 0) { alert("Укажите количество товара!"); return false; }
-    localStorage.setItem(vid, JSON.stringify(data));
+	if (data.amount == 0) alert("Укажите количество товара!");
+    else { localStorage.setItem(vid, JSON.stringify(data)); alert('<?php echo $product['Вид'];?> '+"добавлен в корзину!"); }
 	return false;
 }
 </script>
