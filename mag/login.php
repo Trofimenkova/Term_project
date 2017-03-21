@@ -35,7 +35,8 @@ if(!empty($_POST['username']) && !empty($_POST['password'])) {
 
 
     $_SESSION['session_username']=$username;
-	echo "<script>window.close();</script>";
+	header("location:index.php");
+	//echo "<script>window.close();</script>";
 	
     }
     } else {
@@ -69,7 +70,6 @@ if(!empty($_POST['username']) && !empty($_POST['password'])) {
     </p>
         <p class="regtext">Нет акаунта? <a href="register.php" target="_self" onclick="window.open(this.href,this.target);return false;">Зарегистрироваться!</a></p>
 </form>
-	<p>После закрытия окна авторизации перезагрузите, пожалуйста, страницу</p>
     </div>
 
     </div>

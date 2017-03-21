@@ -1,6 +1,40 @@
-﻿<?php include("header.php"); ?>
+﻿<?php 
+session_start();
+if(!isset($_SESSION["session_username"])) {
+$_SESSION["session_username"] = 0; }
+?>
+
+<!DOCTYPE html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>Рыбин Гуд</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
+	<link rel="stylesheet" href="css/style.css">
+	<link rel="shortcut icon" href="images/fish.png" type="image/png">
+	<script src="js/index.js"></script>
 <script>
 window.onload = function() {
+	var username = '<?php echo $_SESSION["session_username"];?>';
+	if (username!=0) {
+		document.getElementById("avt").innerHTML = "Личный кабинет";
+		document.getElementById("avt").href = "#";
+		document.getElementById("avt").setAttribute("target","_self");
+		document.getElementById("avt").onclick = function() { };
+		document.getElementById("reg").innerHTML = "Выйти";
+		document.getElementById("reg").href = "logout.php";
+		document.getElementById("reg").setAttribute("target","_self");
+		document.getElementById("reg").onclick = function() { location.reload(); };
+	}
+	basket();
+}
+
+function basket() {
+	if (localStorage.length == 0) {
+		document.getElementsByClassName("cart-table")[0].innerHTML = "Ваша корзина сейчас пуста. Воспользуйтесь нашим каталогом, чтобы ее заполнить.";
+	}
+	
+	else {
+	var total = 0;
 	for (var i = 0; i<localStorage.length; i++) {
 	var key = localStorage.key(i);
 	var value = JSON.parse(localStorage[key]);
@@ -11,12 +45,15 @@ window.onload = function() {
 	
 	var td1 = document.createElement("td");
 	td1.setAttribute("class", "items");
-	td1.innerHTML = key;
 	tr.appendChild(td1);
+	var hr = document.createElement("a");
+	hr.setAttribute("href", "product.php?id="+value.id);
+	td1.appendChild(hr);
+	hr.innerHTML = key;
 	
 	var td2 = document.createElement("td");
 	td2.setAttribute("class", "price");
-	td2.innerHTML = value.price;
+	td2.innerHTML = parseFloat(value.price);
 	tr.appendChild(td2);
 	
 	var td3 = document.createElement("td");
@@ -25,16 +62,17 @@ window.onload = function() {
 	var input = document.createElement("input");
 	input.setAttribute("type", "number");
 	input.setAttribute("min", "0");
-	input.setAttribute("max", value.total_amount);
+	input.setAttribute("max", parseInt(value.total_amount));
 	input.setAttribute("step", "1");
-	input.setAttribute("value", value.amount);
+	input.setAttribute("value", parseInt(value.amount));
 	//td3.innerHTML = value.amount;
 	td3.appendChild(input);
 	
 	var td4 = document.createElement("td");
 	td4.setAttribute("class", "total");
-	td4.innerHTML = (value.price * value.amount).toFixed(2);
+	td4.innerHTML = parseFloat((parseFloat(value.price) * parseInt(value.amount)).toFixed(2));
 	tr.appendChild(td4);
+	total+= parseFloat((parseFloat(value.price) * parseInt(value.amount)).toFixed(2));
 	
 	var td5 = document.createElement("td");
 	td5.setAttribute("class", "delete");
@@ -55,6 +93,9 @@ window.onload = function() {
 	button.innerHTML = "Очистить корзину";
 	reset.appendChild(button);
 	button.onclick = delete_localStorage;
+	
+	document.getElementsByTagName("strong")[0].innerHTML = total + " BYN";
+	}
 }
 
 function delete_item(e) {
@@ -67,6 +108,25 @@ function delete_localStorage() {
 	location.reload();
 }
 </script>
+</head>
+<body>
+	<header id="header">
+		<div class="container">
+			<a href="index.php" id="logo" title="Рыбин Гуд">Рыбин Гуд</a>
+			<div class="right-links">
+				<ul>
+					<li><span class="ico-products"></span><a href="cart.php">Корзина</a></li>
+					<li><span class="ico-account"></span><a href="login.php" id="avt">Авторизация</a></li>
+					<li><span class="ico-signout"></span><a href="register.php" id="reg">Регистрация</a></li>
+				    <!--<li><span class="ico-products"></span><a href="cart.php">Корзина</a></li>
+					<li><span class="ico-account"></span><a href="login.php" id="avt" target="_blank" onclick="return openWindow(this.href);">Авторизация</a></li>
+					<li><span class="ico-signout"></span><a href="register.php" id="reg" target="_blank" onclick="return openWindow(this.href);">Регистрация</a></li>-->
+				</ul>
+			</div>
+		</div>
+		<!-- / container -->
+	</header>
+	<!-- / header -->
 
 	<nav id="menu">
 		<div class="container">
@@ -123,8 +183,8 @@ function delete_localStorage() {
 				</div>
 
 				<div class="total-count">
-					<h3>Итоговая сумма: <strong>200 BYN</strong></h3>
-					<a href="#" class="btn-grey">Перейти к оформлению заказа</a>
+					<h3>Итоговая сумма: <strong>0 BYN</strong></h3>
+					<a href="#" class="btn-grey">Оформить заказ</a>
 				</div>
 		
 			</div>

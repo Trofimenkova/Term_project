@@ -1,4 +1,4 @@
-function openWindow(url) {
+/*function openWindow(url) {
     var features, w = 350, h = 450;
 	//var top = (document.documentElement.clientHeight - h)/4;
 	var	left = (document.documentElement.clientWidth - w)/2; 
@@ -8,7 +8,7 @@ function openWindow(url) {
 	features += ',height=' + h + ',width=' + w + ', scrollbars=no, menubar=no,toolbar=no, location=no,status=no,resizable=no';
 	window.open(url,this.target,features);
 	return false;
-}
+}*/
 
 function stopPrev(current_str) {
 	if (current_str <= 0) return false;

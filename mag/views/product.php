@@ -19,8 +19,9 @@ function addItem() {
 	price: '<?php echo $product['Цена'];?>', 
 	total_amount: '<?php echo $product['Количество'];?>'
 	}
-	if (data.amount == 0) alert("Укажите количество товара!");
-    else { localStorage.setItem(vid, JSON.stringify(data)); alert('<?php echo $product['Вид'];?> '+"добавлен в корзину!"); }
+	if (data.total_amount == 0) alert("К сожалению, данного товара нет в наличии");
+	else if (data.amount == 0) alert("Укажите количество товара!");
+    else { localStorage.setItem(vid, JSON.stringify(data)); alert('<?php echo $product['Вид'];?> '+"добавлен в корзину в количестве "+data.amount+" шт"); }
 	return false;
 }
 </script>
