@@ -1,7 +1,7 @@
 ﻿<?php 
 session_start();
 if(!isset($_SESSION["session_username"])) {
-$_SESSION["session_username"] = 0; }
+$_SESSION["session_username"] = ""; }
 ?>
 
 <!DOCTYPE html>
@@ -15,7 +15,7 @@ $_SESSION["session_username"] = 0; }
 <script>
 window.onload = function() {
 	var username = '<?php echo $_SESSION["session_username"];?>';
-	if (username!=0) {
+	if (username!="") {
 		document.getElementById("avt").innerHTML = "Личный кабинет";
 		document.getElementById("avt").href = "#";
 		document.getElementById("avt").setAttribute("target","_self");
@@ -25,6 +25,27 @@ window.onload = function() {
 		document.getElementById("reg").setAttribute("target","_self");
 		document.getElementById("reg").onclick = function() { location.reload(); };
 	}
+	
+	var button = document.getElementById("add_button");
+	button.onclick = addItem;
+}
+
+function addItem() {
+	//var id = '<?php echo $product['Id_товар'];?>';
+    //var amount = document.getElementById("amount").value;
+    //localStorage.setItem(id, amount);
+	
+	var vid = '<?php echo $product['Вид'];?>';
+	var data = {
+	id: '<?php echo $product['Id_товар'];?>', 
+	amount: document.getElementById("amount").value,
+	price: '<?php echo $product['Цена'];?>', 
+	total_amount: '<?php echo $product['Количество'];?>'
+	}
+	if (data.total_amount == 0) alert("К сожалению, данного товара нет в наличии");
+	else if (data.amount == 0) alert("Укажите количество товара!");
+    else { localStorage.setItem(vid, JSON.stringify(data)); alert('<?php echo $product['Вид'];?> '+"добавлен в корзину в количестве "+data.amount+" шт"); }
+	return false;
 }
 </script>
 </head>

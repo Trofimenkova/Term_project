@@ -145,7 +145,7 @@
 		mysqli_real_escape_string($link, $years), 
 		mysqli_real_escape_string($link, $description), $price, $amount, 
 		mysqli_real_escape_string($link, $image), $id);
-        
+		
         $result = mysqli_query($link, $query);
         
         if (!result)
@@ -174,4 +174,35 @@
     {
         return mb_substr($text, 0, $len);        
     }
+	
+	function methods_payment($link) {
+	$query = "SELECT * FROM способы_оплаты";
+        $rezult = mysqli_query($link, $query);
+        
+        if (!$rezult) {
+            die(mysqli_error($link));
+		}
+        
+        $n = mysqli_num_rows($rezult);
+        $methods = array();
+        for ($i = 0; $i < $n; $i++) {
+            $row = mysqli_fetch_assoc($rezult);
+            $methods[] = $row;
+        }
+               
+        return $methods;
+	}
+	
+	function user_get($link, $login){
+        $query = "SELECT * FROM users WHERE username='".$login."'";
+        $result = mysqli_query($link, $query);
+        
+        if (!$result)
+            die(mysqli_error($link));
+        
+        $user = mysqli_fetch_assoc($result);
+        
+        return $user;
+    }
+	
 ?>

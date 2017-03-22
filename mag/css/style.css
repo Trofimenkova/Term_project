@@ -1266,20 +1266,20 @@ h1 {
 
 #footer .col {
 	float: left;
-	width: 25.7%;
+	width: 24%;
 	padding-bottom: 37px;
 }
 
-#footer .col.media {
+/*#footer .col.media {
 	width: 17%;
-}
+}*/
 
-#footer .col.contact {
+/*#footer .col.contact {
 	width: 25.7%;
-}
+}*/
 
 #footer .col.newsletter {
-	width: 31.6%;
+	width: 28%;
 }
 
 #footer a {
@@ -1292,6 +1292,7 @@ h1 {
 	padding: 28px 0;
 	clear: both;
 	border-top: 1px solid #333336;
+	text-align: center;
 }
 
 

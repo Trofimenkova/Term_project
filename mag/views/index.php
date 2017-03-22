@@ -52,99 +52,21 @@
 				<section class="products">
 				<?php foreach($products as $p): ?>
 					<article>
-						<img src="<?=$p['Изображение']?>" alt="<?=$p['Вид']?>" width="auto" height="45%" height="43%" style="margin-top: -20px">
+						<a href="product.php?id=<?=$p['Id_товар']?>"><img src="<?=$p['Изображение']?>" alt="<?=$p['Вид']?>" width="auto" height="45%" height="43%" style="margin-top: -20px"></a>
 						<h3><?=$p['Вид']?></h3>
 						<h4><?=$p['Цена']?> BYN</h4>
-						<a href="cart.html" class="btn-add">Добавить в корзину</a>
+						<a href="product.php?id=<?=$p['Id_товар']?>" class="btn-add">Подробное описание</a>
 					</article>
 				<?php endforeach; ?>
 					
 				</section>
 			</div>
-			<section class="quick-links">
-				<article style="background-image: url(images/2.jpg)">
-					<a href="#" class="table">
-						<div class="cell">
-							<div class="text">
-								<h4>Lorem ipsum</h4>
-								<hr>
-								<h3>Dolor sit amet</h3>
-							</div>
-						</div>
-					</a>
-				</article>
-				<article class="red" style="background-image: url(images/3.jpg)">
-					<a href="#" class="table">
-						<div class="cell">
-							<div class="text">
-								<h4>consequatur</h4>
-								<hr>
-								<h3>voluptatem</h3>
-								<hr>
-								<p>Accusantium</p>
-							</div>
-						</div>
-					</a>
-				</article>
-				<article style="background-image: url(images/4.jpg)">
-					<a href="#" class="table">
-						<div class="cell">
-							<div class="text">
-								<h4>culpa qui officia</h4>
-								<hr>
-								<h3>magnam aliquam</h3>
-							</div>
-						</div>
-					</a>
-				</article>
-			</section>
 		</div>
 		<!-- / container -->
 	</div>
 	<!-- / body -->
 
-	<footer id="footer">
-		<div class="container">
-			<div class="cols">
-				<div class="col">
-					<h3>Frequently Asked Questions</h3>
-					<ul>
-						<li><a href="#">Fusce eget dolor adipiscing </a></li>
-						<li><a href="#">Posuere nisl eu venenatis gravida</a></li>
-						<li><a href="#">Morbi dictum ligula mattis</a></li>
-						<li><a href="#">Etiam diam vel dolor luctus dapibus</a></li>
-						<li><a href="#">Vestibulum ultrices magna </a></li>
-					</ul>
-				</div>
-				<div class="col media">
-					<h3>Social media</h3>
-					<ul class="social">
-						<li><a href="#"><span class="ico ico-fb"></span>Facebook</a></li>
-						<li><a href="#"><span class="ico ico-tw"></span>Twitter</a></li>
-						<li><a href="#"><span class="ico ico-gp"></span>Google+</a></li>
-						<li><a href="#"><span class="ico ico-pi"></span>Pinterest</a></li>
-					</ul>
-				</div>
-				<div class="col contact">
-					<h3>Contact us</h3>
-					<p>Diana’s Jewelry INC.<br>54233 Avenue Street<br>New York</p>
-					<p><span class="ico ico-em"></span><a href="#">contact@dianasjewelry.com</a></p>
-					<p><span class="ico ico-ph"></span>(590) 423 446 924</p>
-				</div>
-				<div class="col newsletter">
-					<h3>Join our newsletter</h3>
-					<p>Sed ut perspiciatis unde omnis iste natus sit voluptatem accusantium doloremque laudantium.</p>
-					<form action="#">
-						<input type="text" placeholder="Your email address...">
-						<button type="submit"></button>
-					</form>
-				</div>
-			</div>
-			<p class="copy">Copyright 2013 Jewelry. All rights reserved.</p>
-		</div>
-		<!-- / container -->
-	</footer>
-	<!-- / footer -->
+	<?php include("footer.php"); ?>
 
 
 	<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>

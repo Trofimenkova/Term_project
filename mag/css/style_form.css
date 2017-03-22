@@ -11,7 +11,7 @@ body {
 	/*background-image: url("http://сезоны-года.рф/sites/default/files/images/shkolnikam/ocean.jpg");*/
     font-family: 'Open Sans', sans-serif;
     color: #fff;
-    background-image: url("../images/04.jpg");
+    background-image: url("../images/01.jpg");
 }
 
 a {
@@ -56,7 +56,7 @@ span {
     overflow: hidden;
     width: 350px;
     height: auto;
-    background: rgb(0,153,204);
+    background: #003366;
     -webkit-box-shadow: 0 1px 3px rgba(0,0,0,.13);
     -moz-box-shadow: 0 1px 3px rgba(0,0,0,.13);
     box-shadow: 0 1px 3px rgba(0,0,0,.13);

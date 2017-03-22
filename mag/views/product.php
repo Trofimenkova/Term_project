@@ -1,30 +1,4 @@
 <?php include("header.php"); ?>
-<script>
-	window.onload = init;
-
-	function init() {
-	var button = document.getElementById("add_button");
-	button.onclick = addItem;	
-}
-
-function addItem() {
-	//var id = '<?php echo $product['Id_товар'];?>';
-    //var amount = document.getElementById("amount").value;
-    //localStorage.setItem(id, amount);
-	
-	var vid = '<?php echo $product['Вид'];?>';
-	var data = {
-	id: '<?php echo $product['Id_товар'];?>', 
-	amount: document.getElementById("amount").value,
-	price: '<?php echo $product['Цена'];?>', 
-	total_amount: '<?php echo $product['Количество'];?>'
-	}
-	if (data.total_amount == 0) alert("К сожалению, данного товара нет в наличии");
-	else if (data.amount == 0) alert("Укажите количество товара!");
-    else { localStorage.setItem(vid, JSON.stringify(data)); alert('<?php echo $product['Вид'];?> '+"добавлен в корзину в количестве "+data.amount+" шт"); }
-	return false;
-}
-</script>
 
 	<nav id="menu">
 		<div class="container">
@@ -106,48 +80,7 @@ function addItem() {
 	</div>
 	<!-- / body -->
 
-	<footer id="footer">
-		<div class="container">
-			<div class="cols">
-				<div class="col">
-					<h3>Frequently Asked Questions</h3>
-					<ul>
-						<li><a href="#">Fusce eget dolor adipiscing </a></li>
-						<li><a href="#">Posuere nisl eu venenatis gravida</a></li>
-						<li><a href="#">Morbi dictum ligula mattis</a></li>
-						<li><a href="#">Etiam diam vel dolor luctus dapibus</a></li>
-						<li><a href="#">Vestibulum ultrices magna </a></li>
-					</ul>
-				</div>
-				<div class="col media">
-					<h3>Social media</h3>
-					<ul class="social">
-						<li><a href="#"><span class="ico ico-fb"></span>Facebook</a></li>
-						<li><a href="#"><span class="ico ico-tw"></span>Twitter</a></li>
-						<li><a href="#"><span class="ico ico-gp"></span>Google+</a></li>
-						<li><a href="#"><span class="ico ico-pi"></span>Pinterest</a></li>
-					</ul>
-				</div>
-				<div class="col contact">
-					<h3>Contact us</h3>
-					<p>Diana’s Jewelry INC.<br>54233 Avenue Street<br>New York</p>
-					<p><span class="ico ico-em"></span><a href="#">contact@dianasjewelry.com</a></p>
-					<p><span class="ico ico-ph"></span>(590) 423 446 924</p>
-				</div>
-				<div class="col newsletter">
-					<h3>Join our newsletter</h3>
-					<p>Sed ut perspiciatis unde omnis iste natus sit voluptatem accusantium doloremque laudantium.</p>
-					<form action="#">
-						<input type="text" placeholder="Your email address...">
-						<button type="submit"></button>
-					</form>
-				</div>
-			</div>
-			<p class="copy">Copyright 2013 Jewelry. All rights reserved.</p>
-		</div>
-		<!-- / container -->
-	</footer>
-	<!-- / footer -->
+	<?php include("footer.php"); ?>
 
 
 	<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
