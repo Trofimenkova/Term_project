@@ -17,7 +17,7 @@ window.onload = function() {
 	var username = '<?php echo $_SESSION["session_username"];?>';
 	if (username!="") {
 		document.getElementById("avt").innerHTML = "Личный кабинет";
-		document.getElementById("avt").href = "#";
+		document.getElementById("avt").href = "kabinet.php";
 		document.getElementById("avt").setAttribute("target","_self");
 		document.getElementById("avt").onclick = function() { };
 		document.getElementById("reg").innerHTML = "Выйти";
@@ -43,6 +43,7 @@ function addItem() {
 	total_amount: '<?php echo $product['Количество'];?>'
 	}
 	if (data.total_amount == 0) alert("К сожалению, данного товара нет в наличии");
+    else if (parseInt(data.amount) < 0) alert("Указано отрицательное количество товара!");
 	else if (data.amount == 0) alert("Укажите количество товара!");
     else { localStorage.setItem(vid, JSON.stringify(data)); alert('<?php echo $product['Вид'];?> '+"добавлен в корзину в количестве "+data.amount+" шт"); }
 	return false;

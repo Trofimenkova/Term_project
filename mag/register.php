@@ -1,4 +1,4 @@
-﻿<?php require_once("includes/connection.php"); ?>
+<?php require_once("includes/connection.php"); ?>
 <?php include("includes/header.php"); ?>
 
 
@@ -84,6 +84,7 @@ if(!empty($_POST['full_name']) && !empty($_POST['email']) && !empty($_POST['tele
 	
 	</div>
 	</div>
-	
+	<body>
+</html>
 	
 	

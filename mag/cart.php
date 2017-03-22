@@ -1,7 +1,7 @@
 ﻿<?php 
 session_start();
 if(!isset($_SESSION["session_username"])) {
-$_SESSION["session_username"] = 0; }
+$_SESSION["session_username"] = ""; }
 ?>
 
 <!DOCTYPE html>
@@ -13,11 +13,12 @@ $_SESSION["session_username"] = 0; }
 	<link rel="shortcut icon" href="images/fish.png" type="image/png">
 	<script src="js/index.js"></script>
 <script>
+var total = 0;
 window.onload = function() {
 	var username = '<?php echo $_SESSION["session_username"];?>';
-	if (username!=0) {
+	if (username!="") {
 		document.getElementById("avt").innerHTML = "Личный кабинет";
-		document.getElementById("avt").href = "#";
+		document.getElementById("avt").href = "kabinet.php";
 		document.getElementById("avt").setAttribute("target","_self");
 		document.getElementById("avt").onclick = function() { };
 		document.getElementById("reg").innerHTML = "Выйти";
@@ -34,7 +35,7 @@ function basket() {
 	}
 	
 	else {
-	var total = 0;
+	//var total = 0;
 	for (var i = 0; i<localStorage.length; i++) {
 	var key = localStorage.key(i);
 	var value = JSON.parse(localStorage[key]);
@@ -110,7 +111,7 @@ function delete_localStorage() {
 
 function setHref(e) {
 	if (localStorage.length == 0) { alert("Ваша корзина пустая!"); return false; }
-	else {e.href = "buy.php?user=" + '<?php echo $_SESSION["session_username"];?>'; return true;}
+	else { e.href = "buy.php?total="+total; return true;}
 }
 
 </script>
@@ -172,19 +173,6 @@ function setHref(e) {
 							<th class="total">Сумма, BYN</th>
 							<th class="delete"></th>
 						</tr>
-						<!--<tr>
-							<td class="items">
-								<div class="image">
-									<img src="images/6.jpg" alt="">
-								</div>
-								<h3><a href="#">Lorem ipsum dolor</a></h3>
-								<p>Dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi.</p>
-							</td>
-							<td class="price">$1 350.00</td>
-							<td class="qnt"><select><option>1</option><option>1</option></select></td>
-							<td class="total">$1 350.00</td>
-							<td class="delete"><a href="#" class="ico-del"></a></td>
-						</tr>-->
 					</table>
 				</div>
 

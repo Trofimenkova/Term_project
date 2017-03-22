@@ -82,6 +82,7 @@
 						</select>
                     </label>
 					</div>
+					<p>Итого к оплате: <?=$_GET['total']?> BYN </p>
 					<div class="form-group">
                     <input type="submit" name="order" value="Подтвердить" class="btn" class="form-control">
 					</div>

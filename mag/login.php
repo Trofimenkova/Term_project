@@ -73,6 +73,6 @@ if(!empty($_POST['username']) && !empty($_POST['password'])) {
     </div>
 
     </div>
-	
-	
+<body>
+</html>
 	

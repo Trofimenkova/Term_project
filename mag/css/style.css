@@ -762,7 +762,11 @@ h1 {
 }
 
 .cart-table .items {
-	width: 817px;
+	width: 200px;
+}
+
+.cart-table .t {
+	width: 180px;
 }
 
 .cart-table .price {
