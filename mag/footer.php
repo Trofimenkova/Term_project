@@ -30,7 +30,7 @@
 					<!-- VK Widget -->
 					<div id="vk_groups"></div>
 					<script type="text/javascript">
-					VK.Widgets.Group("vk_groups", {width: 300, mode: 3}, 14168212);
+					VK.Widgets.Group("vk_groups", {width: 300, mode: 3}, 143242150);
 					</script>
 				</div>
 			</div>

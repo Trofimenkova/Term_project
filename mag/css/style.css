@@ -762,7 +762,11 @@ h1 {
 }
 
 .cart-table .items {
-	width: 200px;
+	width: 817px;
+}
+
+.cart-table .iitems {
+	width: 580px;
 }
 
 .cart-table .t {
@@ -775,7 +779,7 @@ h1 {
 }
 
 .cart-table .qnt {
-	width: 120px;
+	width: 161px;
 	padding: 0 17px;
 }
 
