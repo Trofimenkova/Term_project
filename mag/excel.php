@@ -28,9 +28,9 @@ $active_sheet->getPageMargins()->setRight(0.75);
 $active_sheet->getPageMargins()->setLeft(0.75);
 $active_sheet->getPageMargins()->setBottom(1);
 
-$active_sheet->setTitle("Прайс лист");	
+$active_sheet->setTitle("Прайс-лист");	
 
-$active_sheet->getHeaderFooter()->setOddHeader("&CШапка нашего прайс листа");	
+$active_sheet->getHeaderFooter()->setOddHeader("&CШапка нашего прайс-листа");	
 $active_sheet->getHeaderFooter()->setOddFooter('&L&B'.$active_sheet->getTitle().'&RСтраница &P из &N');
 
 $objPHPExcel->getDefaultStyle()->getFont()->setName('Arial');
@@ -38,19 +38,19 @@ $objPHPExcel->getDefaultStyle()->getFont()->setSize(8);
 
 
 $active_sheet->getColumnDimension('A')->setWidth(7);
-$active_sheet->getColumnDimension('B')->setWidth(80);
-$active_sheet->getColumnDimension('C')->setWidth(10);
-$active_sheet->getColumnDimension('D')->setWidth(10);
+$active_sheet->getColumnDimension('B')->setWidth(60);
+$active_sheet->getColumnDimension('C')->setWidth(15);
+$active_sheet->getColumnDimension('D')->setWidth(15);
 
 $active_sheet->mergeCells('A1:D1');
 $active_sheet->getRowDimension('1')->setRowHeight(40);
-$active_sheet->setCellValue('A1','Техно мир');
+$active_sheet->setCellValue('A1','Рыбин Гуд');
 
 $active_sheet->mergeCells('A2:D2');
-$active_sheet->setCellValue('A2','Компьютеы и комплектующие на любой вкус и цвет');
+$active_sheet->setCellValue('A2','Интернет-магазин аквариумных рыбок');
 
 $active_sheet->mergeCells('A4:C4');
-$active_sheet->setCellValue('A4','Дата создания прайслиста');
+$active_sheet->setCellValue('A4','Дата создания прайс-листа:');
 
 $date = date('d-m-Y');
 $active_sheet->setCellValue('D4',$date);
@@ -58,20 +58,20 @@ $active_sheet->getStyle('D4')
 			->getNumberFormat()->
 			setFormatCode(PHPExcel_Style_NumberFormat::FORMAT_DATE_XLSX14);
 
-$active_sheet->setCellValue('A6','№п.п');
-$active_sheet->setCellValue('B6','Имя');
-$active_sheet->setCellValue('C6','Цена');
-$active_sheet->setCellValue('D6','кол-во');
+$active_sheet->setCellValue('A6','№ п.п');
+$active_sheet->setCellValue('B6','Вид');
+$active_sheet->setCellValue('C6','Цена, BYN');
+$active_sheet->setCellValue('D6','Кол-во, шт');
 
 $row_start = 7;
 $i = 0;
 foreach($price_list as $item) {
 	$row_next = $row_start + $i;
 	
-	$active_sheet->setCellValue('A'.$row_next,$item['id']);
-	$active_sheet->setCellValue('B'.$row_next,$item['name']);
-	$active_sheet->setCellValue('C'.$row_next,$item['price']);
-	$active_sheet->setCellValue('D'.$row_next,$item['quantity']);
+	$active_sheet->setCellValue('A'.$row_next,$item['Id_товар']);
+	$active_sheet->setCellValue('B'.$row_next,$item['Вид']);
+	$active_sheet->setCellValue('C'.$row_next,$item['Цена']);
+	$active_sheet->setCellValue('D'.$row_next,$item['Количество']);
 	
 	$i++;
 }
@@ -231,9 +231,10 @@ $active_sheet->getStyle('A7:D'.($i+6))->applyFromArray($style_price);
 
 
 header("Content-Type:application/vnd.ms-excel");
-header("Content-Disposition:attachment;filename='simple.xls'");
+header("Content-Disposition:attachment;filename='rybin_good.xls'");
 
 $objWriter = PHPExcel_IOFactory::createWriter($objPHPExcel, 'Excel5');
 $objWriter->save('php://output');
 
 exit();
+?>
