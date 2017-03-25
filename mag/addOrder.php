@@ -17,4 +17,7 @@ if(!empty($_POST['full_name']) && !empty($_POST['email']) && !empty($_POST['tele
 	$result=mysql_query($sql);
 	}
 }
+
+
+		header("location:kabinet.php");
 ?>

@@ -1,31 +1,14 @@
-﻿<?php require_once("includes/connection.php"); ?>
 <?php
     require_once("database.php");
+	
     require_once("models/products.php");
 
     $link = db_connect();
-	$user = user_get($link, $_SESSION["session_username"]);
-
-?>
-<?php
-if(isset($_POST["register"])){
-
-
-if(!empty($_POST['full_name']) && !empty($_POST['email']) && !empty($_POST['telephone'])) {
-	$full_name=trim($_POST['full_name']);
-	$email=trim($_POST['email']);
-	$telephone=trim($_POST['telephone']);
-
-	$sql="INSERT INTO users
-			(full_name, email, telephone, username,password) 
-			VALUES('$full_name','$email', '$telephone', '$username', '$password')";
-
-	$result=mysql_query($sql);
-
+	if(isset($_POST["change"])){
+	user_edit($link, $_POST['full_name'], $_POST['email'], $_POST['telephone'], $_POST['id']);
+	echo "<script>window.close();</script>";
 	}
-}
 ?>
-
 
 <!DOCTYPE html>
   <head>
@@ -39,29 +22,40 @@ if(!empty($_POST['full_name']) && !empty($_POST['email']) && !empty($_POST['tele
     <div>
     <h1>ЛИЧНЫЕ ДАННЫЕ</h1>
 	<form name="change"  action="" method="POST">
-    
-	<p>
-		<label for="user_login">ФИО<br />
-		<input type="text" name="full_name" id="full_name" class="input" size="32" value="<?=$user['full_name']?>"  /></label>
-	</p>
-	
-	
-	<p>
-		<label for="user_pass">Email<br />
-		<input type="email" name="email" id="email" class="input" value="<?=$user['email']?>" size="32" /></label>
-	</p>
-	<p>
-		<label for="user_pass">Телефон<br />
-		<input type="text" name="telephone" id="telephone" class="input" value="<?=$user['telephone']?>" size="32" /></label>
-	</p>
+    <div class="form-group">
+					<label>
+                        ФИО <br>
+                        <input type="text" name="full_name" value="<?=$_GET['full_name']?>" class="form-control" required size="30">
+                    </label>
+					</div>
+					<div class="form-group">
+					<label>
+                        Email <br>
+                        <input type="email" name="email" value="<?=$_GET['email']?>" class="form-control" required size="30">
+                    </label>
+					</div>
+					<div class="form-group">
+                    <label>
+                        Телефон <br>
+                        <input type="telephone" name="telephone" value="<?=$_GET['telephone']?>" class="form-control" required size="30">
+                    </label>
+					</div>
+					<!--<div class="form-group">
+					<label>
+                        id <br>-->
+                        <input type="text" style="visibility: hidden" name="id" value="<?=$_GET['id']?>" class="form-control" required size="30">
+                    <!--</label>
+					</div>-->
         <p class="submit">
-        <input type="submit" name="login" class="button" value="Сохранить" />
+        <input type="submit" name="change" class="button" value="Сохранить изменения" />
     </p>
        
 </form>
     </div>
 
     </div>
+	</body>
+	</html>
 	
 	
 	

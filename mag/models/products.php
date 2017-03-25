@@ -1,7 +1,12 @@
 <?php
-    function products_view($link, $position) {
-        $query = sprintf("SELECT * FROM товары inner join семейства on товары.Id_семейство=семейства.Id_семейство limit 12 offset %d", (int)$position);
-        $rezult = mysqli_query($link, $query);
+    function products_view($link, $position, $sort, $min, $max) {
+		$sort = trim($sort);
+        if ($sort == 'Вид' or $sort =='') $query = sprintf("SELECT * FROM товары inner join семейства on товары.Id_семейство=семейства.Id_семейство where Цена between %d and %d order by Вид asc limit 12 offset %d", (float)$min, (float)$max, (int)$position);
+        else if ($sort == 'Семейство') $query = sprintf("SELECT * FROM товары inner join семейства on товары.Id_семейство=семейства.Id_семейство where Цена between %d and %d order by Семейство asc limit 12 offset %d", (float)$min, (float)$max, (int)$position);
+		else if ($sort =='Цена') $query = sprintf("SELECT * FROM товары inner join семейства on товары.Id_семейство=семейства.Id_семейство where Цена between %d and %d order by Цена asc limit 12 offset %d", (float)$min, (float)$max, (int)$position);
+		else $query = sprintf("SELECT * FROM товары inner join семейства on товары.Id_семейство=семейства.Id_семейство where Цена between %d and %d order by Размер asc limit 12 offset %d", (float)$min, (float)$max, (int)$position);
+        
+		$rezult = mysqli_query($link, $query);
         
         if (!$rezult) {
             die(mysqli_error($link));
@@ -17,8 +22,8 @@
         return $products1;
     }
 	
-	    function products_count($link) {
-        $query = "SELECT * FROM товары";
+	    function products_count($link, $min, $max) {
+        $query = sprintf("SELECT * FROM товары where Цена between %d and %d", (float)$min, (float)$max);
         $rezult = mysqli_query($link, $query);
         
         if (!$rezult) {
@@ -26,6 +31,19 @@
 		}
         
         return mysqli_num_rows($rezult);
+
+    }
+	
+	  function max_price($link) {
+        $query = "SELECT Max(Цена) FROM товары";
+        $rezult = mysqli_query($link, $query);
+        
+        if (!$rezult) {
+            die(mysqli_error($link));
+		}
+        
+        $row = mysqli_fetch_array($rezult);
+		return $row[0];
 
     }
 	
@@ -153,6 +171,20 @@
         
         return mysqli_affected_rows($link);
     }
+
+function user_edit($link, $full_name,$email, $telephone, $id) {
+	$id = (int) $id;
+    $full_name=trim($full_name);
+    $email = trim($email);
+    $telephone = trim($telephone);
+    
+    
+        $query ="UPDATE users SET full_name='$full_name', email='$email', telephone='$telephone' WHERE Id_user=".$id;
+    $result = mysqli_query($link, $query) or die("Ошибка " . mysqli_error($link));
+        return mysqli_affected_rows($link);
+    
+}
+
 
     function products_delete($link, $id){
         $id = (int)$id;

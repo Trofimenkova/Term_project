@@ -49,7 +49,7 @@ function openWindow(url) {
 	<div id="body">
 		<div class="container">
 			<div id="content" class="full">
-				<span>Личные данные </span><a href="change.php" target="_blank" onclick="return openWindow(this.href);">изменить</a>
+				<span>Личные данные </span><a href="change.php?full_name=<?=$user['full_name']?>&email=<?=$user['email']?>&telephone=<?=$user['telephone']?>&id=<?=$user['id_user']?>" target="_blank" onclick="return openWindow(this.href);">изменить</a>
 				<p>
 				ФИО: <?=$user['full_name']?><br>
 				Email: <?=$user['email']?><br>
