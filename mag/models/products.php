@@ -149,14 +149,19 @@
 		$amount = (int)($amount);
 		$image = trim($image);
             
-		$query = "UPDATE товары SET Вид='$vid', Id_семейство=$id_semeistvo, Размер=$size, Размер_взрослой_особи='$full_size', Продолжительность_жизни='$years', Уход='$description', Цена=$price, Количество=$amount, Изображение='../images/$image' WHERE id_товар=".$id;
+		$query = "UPDATE товары SET Вид='$vid', Id_семейство=$id_semeistvo, Размер=$size, Размер_взрослой_особи='$full_size', Продолжительность_жизни='$years', Уход='$description', Цена=$price, Количество=$amount WHERE id_товар=".$id;
         
-       /* for testing purposes */
-       echo "UPDATE товары SET Вид='$vid', Id_семейство=$id_semeistvo, Размер=$size, Размер_взрослой_особи='$full_size', Продолжительность_жизни='$years', Уход='$description', Цена=$price, Количество=$amount, Изображение='../images/$image' WHERE id_товар=".$id;
+        /* for testing purposes */
+        echo "UPDATE товары SET Вид='$vid', Id_семейство=$id_semeistvo, Размер=$size, Размер_взрослой_особи='$full_size', Продолжительность_жизни='$years', Уход='$description', Цена=$price, Количество=$amount, Изображение='images/$image' WHERE id_товар=".$id;
        
         $result = mysqli_query($link, $query) or die("Ошибка " . mysqli_error($link));
         
-        return mysqli_affected_rows($link);
+		if (!empty($image)) {
+		$query2 = "UPDATE товары SET Изображение='images/$image' WHERE id_товар=".$id;
+		$result2 = mysqli_query($link, $query2) or die("Ошибка " . mysqli_error($link));
+		}
+        
+		return mysqli_affected_rows($link);
     }
 
 function user_edit($link, $full_name,$email, $telephone, $id) {

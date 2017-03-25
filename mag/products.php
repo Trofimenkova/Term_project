@@ -73,7 +73,7 @@
 					<div class="widget">
 						<h3>Цена:</h3>
 						<fieldset>
-							<input type="text" size="3" name="min_price" value="<?=$_POST['min_price']?>"> - <input type="text" size="3" name="max_price" value="<?=$_POST['max_price']?>"> BYN
+							<input type="text" size="3" name="min_price" value="<?=$_POST['min_price']?>" placeholder="0"> - <input type="text" size="3" name="max_price" value="<?=$_POST['max_price']?>" placeholder="<? echo $max_pr; ?>"> BYN
 						</fieldset>
 					</div>
 					<br>

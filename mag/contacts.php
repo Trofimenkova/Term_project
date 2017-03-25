@@ -37,12 +37,12 @@
 </div>
 <div class="form-group">
 <label>Тема: <select name="subject" id="subject" required class="form-control">
-<option value="" selected>-Выбрать тему-</option>
+<option value="" selected>- Выбрать тему -</option>
+<option value="Здравствуйте!">Здравствуйте!</option>
 <option value="Помогите!">Помогите!</option>
 <option value="Предлагаю...">Предлагаю...</option>
 <option value="Нашел ошибку!">Нашел ошибку!</option>
 <option value="Ожидается ли поставка...">Ожидается ли поставка...</option>
-<option value="Здравствуйте!">Здравствуйте!</option>
 </select>  
 </label> 
 </div>

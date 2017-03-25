@@ -40,7 +40,8 @@ function addItem() {
 	id: '<?php echo $product['Id_товар'];?>', 
 	amount: document.getElementById("amount").value,
 	price: '<?php echo $product['Цена'];?>', 
-	total_amount: '<?php echo $product['Количество'];?>'
+	total_amount: '<?php echo $product['Количество'];?>',
+	picture: '<?php echo $product['Изображение'];?>'
 	}
 	if (data.total_amount == 0) alert("К сожалению, данного товара нет в наличии");
     else if (parseInt(data.amount) < 0) alert("Указано отрицательное количество товара!");

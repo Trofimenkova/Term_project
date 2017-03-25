@@ -51,6 +51,11 @@ function basket() {
 	hr.setAttribute("href", "product.php?id="+value.id);
 	td1.appendChild(hr);
 	hr.innerHTML = key;
+	var pict = document.createElement("img");
+	pict.setAttribute("src", value.picture);
+	pict.setAttribute("width", "150px");
+	pict.setAttribute("height", "auto");
+	td1.appendChild(pict);
 	
 	var td2 = document.createElement("td");
 	td2.setAttribute("class", "price");

@@ -72,7 +72,7 @@ function openWindow(url) {
 						 $query = "select * from заказы inner join users
 on users.id_user = заказы.Id_покупатель
 inner join способы_оплаты on заказы.Id_способ_оплаты = способы_оплаты.Id_способ_оплаты
-inner join статусы_заказов on заказы.Id_статус = статусы_заказов.Id_статус where username='".$_SESSION["session_username"]."'";       
+inner join статусы_заказов on заказы.Id_статус = статусы_заказов.Id_статус where username='".$_SESSION["session_username"]."' order by Id_заказ desc";       
         $rezult = mysqli_query($link, $query);
          if (!$rezult) {
             die(mysqli_error($link));
