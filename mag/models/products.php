@@ -140,7 +140,7 @@
 		$id = (int)$id;
         $vid = trim($vid);
         $id_semeistvo = (int)($id_semeistvo);
-		$size= trim($size);
+		$size= (float)$size;
 		$full_size = trim($full_size);
 		$years= trim($years);
 		$place = trim($place);
@@ -149,25 +149,12 @@
 		$amount = (int)($amount);
 		$image = trim($image);
             
-        // Проверка
-        if ($vid == '')
-            return false;
+		$query = "UPDATE товары SET Вид='$vid', Id_семейство=$id_semeistvo, Размер=$size, Размер_взрослой_особи='$full_size', Продолжительность_жизни='$years', Уход='$description', Цена=$price, Количество=$amount, Изображение='../images/$image' WHERE id_товар=".$id;
         
-        // Запрос
-        $template_update = "UPDATE товары SET Вид='%s', Id_семейство='%d', Размер='%s', Размер_взрослой_особи='%s', Продолжительность_жизни='%s', Уход='%s', Цена='%f', Количество='%d', Изображение='%s' WHERE id='%d'"; 
-
-		$query = sprintf($template_update, 
-		mysqli_real_escape_string($link, $vid), $id_semeistvo, 
-		mysqli_real_escape_string($link, $size), 
-		mysqli_real_escape_string($link, $full_size), 
-		mysqli_real_escape_string($link, $years), 
-		mysqli_real_escape_string($link, $description), $price, $amount, 
-		mysqli_real_escape_string($link, $image), $id);
-		
-        $result = mysqli_query($link, $query);
-        
-        if (!result)
-            die(mysqli_error($link));
+       /* for testing purposes */
+       echo "UPDATE товары SET Вид='$vid', Id_семейство=$id_semeistvo, Размер=$size, Размер_взрослой_особи='$full_size', Продолжительность_жизни='$years', Уход='$description', Цена=$price, Количество=$amount, Изображение='../images/$image' WHERE id_товар=".$id;
+       
+        $result = mysqli_query($link, $query) or die("Ошибка " . mysqli_error($link));
         
         return mysqli_affected_rows($link);
     }

@@ -1,4 +1,4 @@
-﻿<?php
+<?php
     require_once("../database.php");
     require_once("../models/products.php");
         
@@ -10,7 +10,7 @@
 	$product['Размер_взрослой_особи']='';
     $product['Продолжительность_жизни']='';
 	$product['Место_обитания']='';
-    $product['Уход']='';
+    $product['Описание']='';
 	$product['Цена']=0;
     $product['Количество']=0;
     $product['Изображение']='';
@@ -22,7 +22,7 @@
     
     if($action == "add"){
         if(!empty($_POST)){
-            products_new($link, $_POST['Вид'], $_POST['Id_семейство'], $_POST['Размер'], $_POST['Размер_взрослой_особи'], $_POST['Продолжительность_жизни'], $_POST['Место_обитания'], $_POST['Уход'], $_POST['Цена'], $_POST['Количество'], "images/".$_POST['Изображение']);
+            products_new($link, $_POST['Вид'], $_POST['Id_семейство'], $_POST['Размер'], $_POST['Размер_взрослой_особи'], $_POST['Продолжительность_жизни'], $_POST['Место_обитания'], $_POST['Описание'], $_POST['Цена'], $_POST['Количество'], "images/".$_POST['Изображение']);
 			header("Location: index.php");
         }
         include("../views/product_admin.php");	
@@ -34,7 +34,7 @@
         $id = (int)$_GET['id'];
         
         if(!empty($_POST) && $id > 0) {
-            products_edit($link, $id, $_POST['Вид'], $_POST['Id_семейство'], $_POST['Размер'], $_POST['Размер_взрослой_особи'], $_POST['Продолжительность_жизни'], $_POST['Место_обитания'], $_POST['Уход'], $_POST['Цена'], $_POST['Количество'], $_POST['Изображение']);
+            products_edit($link, $id, $_POST['Вид'], $_POST['Id_семейство'], $_POST['Размер'], $_POST['Размер_взрослой_особи'], $_POST['Продолжительность_жизни'], $_POST['Место_обитания'], $_POST['Описание'], $_POST['Цена'], $_POST['Количество'], $_POST['Изображение']);
             header("Location: index.php");
         }
         
