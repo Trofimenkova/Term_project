@@ -96,7 +96,7 @@
         
         return $product;
     }
-
+	
     function products_new($link, $vid, $id_semeistvo, $size, $full_size, $years, $place, $description, $price, $amount, $image){
         // Подготовка
         $vid = trim($vid);

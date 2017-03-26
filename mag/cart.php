@@ -3,7 +3,6 @@ session_start();
 if(!isset($_SESSION["session_username"])) {
 $_SESSION["session_username"] = ""; }
 ?>
-
 <!DOCTYPE html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -139,7 +138,6 @@ function setHref(e) {
 		<!-- / container -->
 	</header>
 	<!-- / header -->
-
 	<nav id="menu">
 		<div class="container">
 			<div class="trigger"></div>

@@ -5,7 +5,7 @@
 if(isset($_POST["order"])){
 
 
-if(!empty($_POST['full_name']) && !empty($_POST['email']) && !empty($_POST['telephone'])) {
+if(!empty($_POST['full_name']) && !empty($_POST['email']) && !empty($_POST['telephone']) && $_SESSION["session_username"]!="") {
 	$full_name=trim($_POST['full_name']);
 	$email=trim($_POST['email']);
 	$telephone=trim($_POST['telephone']);
