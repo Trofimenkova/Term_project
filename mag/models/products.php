@@ -194,6 +194,19 @@ function user_edit($link, $full_name,$email, $telephone, $id) {
         return mysqli_affected_rows($link);
     }
     
+	function import_csv($link){
+        $sql = "LOAD DATA INFILE 'c:\\\\users\\\\user\\\\documents\\\\items.csv' INTO TABLE товары CHARACTER SET 'cp1251'
+FIELDS TERMINATED BY ';' OPTIONALLY ENCLOSED BY '' LINES TERMINATED BY '\\r\\n'";
+         echo "LOAD DATA INFILE 'c:\\\\users\\\\user\\\\documents\\\\items.csv' INTO TABLE товары CHARACTER SET 'cp1251'
+FIELDS TERMINATED BY ';' OPTIONALLY ENCLOSED BY '' LINES TERMINATED BY '\\r\\n'";
+		$result = mysqli_query($link, $sql);
+		
+		if (!result)
+            die(mysqli_error($link));
+        
+        return mysqli_affected_rows($link);
+    }
+	
 	function products_intro($text, $len = 100)
     {
         return mb_substr($text, 0, $len);        

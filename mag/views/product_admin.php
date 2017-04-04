@@ -74,7 +74,13 @@
 					</div>
 					<div class="form-group">
 					<label>
-                    <input type="file" name="Изображение" value="<?=$product['Изображение']?>" class="form-control">
+						Изображение
+						<input type="file" name="Изображение" value="<?=$product['Изображение']?>" class="form-control">
+                    </label></div>
+					<div class="form-group">
+					<label>
+						Добавить из файла
+						<input type="file" name="Добавить" value="<?=$product['Изображение']?>" class="form-control">
                     </label></div>
 					<div class="form-group">
                     <input type="submit" value="Сохранить" class="btn" class="form-control">

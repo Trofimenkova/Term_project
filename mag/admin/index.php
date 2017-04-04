@@ -23,7 +23,10 @@
     if($action == "add"){
         if(!empty($_POST)){
             products_new($link, $_POST['Вид'], $_POST['Id_семейство'], $_POST['Размер'], $_POST['Размер_взрослой_особи'], $_POST['Продолжительность_жизни'], $_POST['Место_обитания'], $_POST['Описание'], $_POST['Цена'], $_POST['Количество'], "images/".$_POST['Изображение']);
+			import_csv($link);
 			header("Location: index.php");
+			
+			
         }
         include("../views/product_admin.php");	
     }
