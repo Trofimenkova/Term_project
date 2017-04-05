@@ -24,7 +24,15 @@
         if(!empty($_POST)){
             products_new($link, $_POST['Вид'], $_POST['Id_семейство'], $_POST['Размер'], $_POST['Размер_взрослой_особи'], $_POST['Продолжительность_жизни'], $_POST['Место_обитания'], $_POST['Описание'], $_POST['Цена'], $_POST['Количество'], "images/".$_POST['Изображение']);
 			import_csv($link, $_POST['CSV']);
-			//header("Location: index.php");	
+			header("Location: index.php");	
+        }
+        include("../views/product_admin.php");	
+    }
+	
+	if($action == "add_from_file"){
+        if(!empty($_POST)){
+			import_csv($link, $_POST['CSV']);
+			header("Location: index.php");	
         }
         include("../views/product_admin.php");	
     }

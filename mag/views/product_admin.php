@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <hmtl>
     <head>
         <meta charset="utf-8">
@@ -23,7 +23,7 @@
                     <div class="form-group">
 					<label>
                         Вид
-                        <input type="text" name="Вид" value="<?=$product['Вид']?>" class="form-control" autofocus required>
+                        <input type="text" name="Вид" value="<?=$product['Вид']?>" class="form-control">
                     </label>
 					</div>
 					<div class="form-group">
@@ -76,11 +76,6 @@
 					<label>
 						Изображение
 						<input type="file" name="Изображение" value="<?=$product['Изображение']?>" class="form-control">
-                    </label></div>
-					<div class="form-group">
-					<label>
-						Добавить из файла
-						<input type="file" name="CSV" value="<?=$product['Изображение']?>" class="form-control">
                     </label></div>
 					<div class="form-group">
                     <input type="submit" value="Сохранить" class="btn" class="form-control">

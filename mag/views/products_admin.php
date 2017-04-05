@@ -26,6 +26,14 @@
                     </ul>
                 </div>
             </nav> 
+			<form method="post" action="index.php?action=add_from_file" role="form" class="form-inline">
+					<div class="form-group">
+						<input type="file" name="CSV" class="form-control">
+                    </div>
+					<div class="form-group">
+                    <input type="submit" value="Добавить из файла" class="btn" class="form-control">
+					</div>
+                </form>
             <!-- END Header (navbar) -->
             <table id="admin_table" class="table">
                 <tr>
