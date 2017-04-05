@@ -31,11 +31,11 @@
 						<input type="file" name="CSV" class="form-control">
                     </div>
 					<div class="form-group">
-                    <input type="submit" value="Добавить из файла" class="btn" class="form-control">
+                    <input type="submit" value="Добавить товары из файла" class="btn" class="form-control">
 					</div>
                 </form>
             <!-- END Header (navbar) -->
-            <table id="admin_table" class="table">
+            <table id="admin_table" class="table" style="font-size: 12px">
                 <tr>
                     <th>Вид</th>
                     <th>Id_семейство</th>
