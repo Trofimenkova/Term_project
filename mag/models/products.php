@@ -196,9 +196,9 @@ function user_edit($link, $full_name,$email, $telephone, $id) {
     
 	function import_csv($link){
         $sql = "LOAD DATA INFILE 'c:\\\\users\\\\user\\\\documents\\\\items.csv' INTO TABLE товары CHARACTER SET 'cp1251'
-FIELDS TERMINATED BY ';' OPTIONALLY ENCLOSED BY '' LINES TERMINATED BY '\\r\\n'";
+FIELDS TERMINATED BY ';' OPTIONALLY ENCLOSED BY '' LINES TERMINATED BY '\\r\\n' (Вид, Id_семейство, Размер, Размер_взрослой_особи, Продолжительность_жизни, Место_обитания, Уход, Цена, Количество, Изображение)";
          echo "LOAD DATA INFILE 'c:\\\\users\\\\user\\\\documents\\\\items.csv' INTO TABLE товары CHARACTER SET 'cp1251'
-FIELDS TERMINATED BY ';' OPTIONALLY ENCLOSED BY '' LINES TERMINATED BY '\\r\\n'";
+FIELDS TERMINATED BY ';' OPTIONALLY ENCLOSED BY '' LINES TERMINATED BY '\\r\\n' (Вид, Id_семейство, Размер, Размер_взрослой_особи, Продолжительность_жизни, Место_обитания, Уход, Цена, Количество, Изображение)";
 		$result = mysqli_query($link, $sql);
 		
 		if (!result)
