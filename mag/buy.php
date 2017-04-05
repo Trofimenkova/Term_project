@@ -76,7 +76,7 @@
 					<div class="form-group">
 					<label>
                         Способ оплаты
-						<select>
+						<select name="method_pay">
 						<?php foreach($methods as $m): ?>
 							<option><?=$m['Способ_оплаты']?></option>
 						<?php endforeach; ?>
