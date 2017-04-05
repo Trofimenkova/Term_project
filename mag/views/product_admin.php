@@ -80,7 +80,7 @@
 					<div class="form-group">
 					<label>
 						Добавить из файла
-						<input type="file" name="Добавить" value="<?=$product['Изображение']?>" class="form-control">
+						<input type="file" name="CSV" value="<?=$product['Изображение']?>" class="form-control">
                     </label></div>
 					<div class="form-group">
                     <input type="submit" value="Сохранить" class="btn" class="form-control">
