@@ -27,8 +27,12 @@ if(!empty($_POST['full_name']) && !empty($_POST['email']) && !empty($_POST['tele
     $rezult2 = mysql_query($sql2);
     $row = mysql_fetch_array($rezult2);
 	
-	$sql3 = "INSERT INTO заказы (Дата_оформления, Адрес_доставки, Дата_доставки, Id_способ_оплаты) VALUES (NOW(), '$address', '$date', '$row[0]')";
-	$result3 = mysql_query($sql3);
+	$sql3 = "SELECT id_user from users where full_name='".$full_name."'";
+    $rezult3 = mysql_query($sql3);
+    $id= mysql_fetch_array($rezult3);
+	
+	$sql4 = "INSERT INTO заказы (Дата_оформления, Адрес_доставки, Дата_доставки, Id_способ_оплаты, Id_покупатель) VALUES (NOW(), '$address', '$date', '$row[0]', '$id[0]')";
+	$result4 = mysql_query($sql4);
 	}	
 }
 	if ($_SESSION["session_username"] == "") header("location:index.php");
