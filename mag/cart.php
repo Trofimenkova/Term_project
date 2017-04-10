@@ -13,6 +13,9 @@ $_SESSION["session_username"] = ""; }
 	<script src="js/index.js"></script>
 <script>
 var total = 0;
+var id = [];
+var kol = [];
+	
 window.onload = function() {
 	var username = '<?php echo $_SESSION["session_username"];?>';
 	if (username!="") {
@@ -34,10 +37,11 @@ function basket() {
 	}
 	
 	else {
-	//var total = 0;
 	for (var i = 0; i<localStorage.length; i++) {
 	var key = localStorage.key(i);
 	var value = JSON.parse(localStorage[key]);
+	id.push(value.id);
+	kol.push(value.amount);
 	
 	var korzina = document.getElementsByTagName("table")[0];
 	var tr = document.createElement("tr");
@@ -70,7 +74,6 @@ function basket() {
 	input.setAttribute("max", parseInt(value.total_amount));
 	input.setAttribute("step", "1");
 	input.setAttribute("value", parseInt(value.amount));
-	//td3.innerHTML = value.amount;
 	td3.appendChild(input);
 	
 	var td4 = document.createElement("td");
@@ -115,7 +118,14 @@ function delete_localStorage() {
 
 function setHref(e) {
 	if (localStorage.length == 0) { alert("Ваша корзина пустая!"); return false; }
-	else { e.href = "buy.php?total="+total; return true;}
+	else { 
+		var hr = "buy.php?total="+total;
+		for (var i = 0; i < id.length; i++) {
+			hr+="&id[]="+id[i]+"&kol[]="+kol[i];
+		}
+		e.href = hr;
+		return true;
+	}
 }
 
 </script>
@@ -129,10 +139,7 @@ function setHref(e) {
 					<li><span class="ico-products"></span><a href="cart.php">Корзина</a></li>
 					<li><span class="ico-account"></span><a href="login.php" id="avt">Авторизация</a></li>
 					<li><span class="ico-signout"></span><a href="register.php" id="reg">Регистрация</a></li>
-				    <!--<li><span class="ico-products"></span><a href="cart.php">Корзина</a></li>
-					<li><span class="ico-account"></span><a href="login.php" id="avt" target="_blank" onclick="return openWindow(this.href);">Авторизация</a></li>
-					<li><span class="ico-signout"></span><a href="register.php" id="reg" target="_blank" onclick="return openWindow(this.href);">Регистрация</a></li>-->
-				</ul>
+				   </ul>
 			</div>
 		</div>
 		<!-- / container -->

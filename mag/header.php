@@ -31,10 +31,6 @@ window.onload = function() {
 }
 
 function addItem() {
-	//var id = '<?php echo $product['Id_товар'];?>';
-    //var amount = document.getElementById("amount").value;
-    //localStorage.setItem(id, amount);
-	
 	var vid = '<?php echo $product['Вид'];?>';
 	var data = {
 	id: '<?php echo $product['Id_товар'];?>', 

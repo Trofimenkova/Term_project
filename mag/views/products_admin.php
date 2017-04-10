@@ -37,6 +37,7 @@
             <!-- END Header (navbar) -->
             <table id="admin_table" class="table" style="font-size: 12px">
                 <tr>
+					<th>Id_товар</th>
                     <th>Вид</th>
                     <th>Id_семейство</th>
 					<th>Размер, см</th>
@@ -52,6 +53,7 @@
                 </tr>
                 <?php foreach($products as $product): ?>
                     <tr>
+						<td><?=$product['Id_товар']?></td>
                         <td><?=$product['Вид']?></td>
 						<td><?=$product['Id_семейство']?></td>
 						<td><?=$product['Размер']?></td>

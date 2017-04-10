@@ -9,7 +9,11 @@
 	$user = user_get($link, $_SESSION["session_username"]);
 
 ?>
-
+<script>
+function get_action(form) {
+	form.action = "addOrder.php?"+window.location.toString().substring(window.location.toString().indexOf("id"));
+}
+</script>
 	<nav id="menu">
 		<div class="container">
 			<div class="trigger"></div>
@@ -40,7 +44,7 @@
 	<div id="body">
 		<div class="container">
 			<div id="content" class="full">
-				<form method="post" action="addOrder.php" role="form" class="form-horizontal">
+				<form method="post" role="form" action="" onsubmit="get_action(this);" class="form-horizontal">
                     <fieldset><legend>Личные данные</legend><div class="form-group">
 					<label>
                         ФИО
@@ -85,7 +89,7 @@
 					</div>
 					<p>Итого к оплате: <?=$_GET['total']?> BYN </p>
 					<div class="form-group">
-                    <input type="submit" name="order" value="Подтвердить" class="btn" class="form-control">
+                    <input type="submit" name="order" value="Подтвердить" class="btn" onclick="localStorage.clear();" class="form-control">
 					</div>
 					</fieldset>
                 </form>

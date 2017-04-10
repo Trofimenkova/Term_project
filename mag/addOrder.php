@@ -33,8 +33,19 @@ if(!empty($_POST['full_name']) && !empty($_POST['email']) && !empty($_POST['tele
 	
 	$sql4 = "INSERT INTO заказы (Дата_оформления, Адрес_доставки, Дата_доставки, Id_способ_оплаты, Id_покупатель) VALUES (NOW(), '$address', '$date', '$row[0]', '$id[0]')";
 	$result4 = mysql_query($sql4);
+	
+	$nomer_zakaza = (int)mysql_insert_id();
+	$id = $_GET['id'];
+	$kol = $_GET['kol'];
+	for ($i = 0; $i < count($id); $i++) {
+		$sql5 = "INSERT INTO заказ_товар VALUES ($nomer_zakaza, $id[$i], $kol[$i])";
+		$result5 = mysql_query($sql5);
+		
+		$query = "UPDATE товары SET Количество=Количество-$kol[$i] WHERE id_товар=".$id[$i];
+		$result6 = mysql_query($query);
+	}
 	}	
 }
-	if ($_SESSION["session_username"] == "") header("location:index.php");
+	if ($_SESSION["session_username"] == "") echo "Ваш заказ оформлен. Наш менеджер свяжется с Вами в ближайшее время";
 	else header("location:kabinet.php");
 ?>

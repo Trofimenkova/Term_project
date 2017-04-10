@@ -198,9 +198,7 @@ function user_edit($link, $full_name,$email, $telephone, $id) {
 		$file = 'c:\\\\users\\\\user\\\\documents\\\\'.$file;
         $sql = "LOAD DATA INFILE '$file' INTO TABLE товары CHARACTER SET 'cp1251'
 FIELDS TERMINATED BY ';' OPTIONALLY ENCLOSED BY '' LINES TERMINATED BY '\\r\\n' IGNORE 1 LINES (Вид, Id_семейство, Размер, Размер_взрослой_особи, Продолжительность_жизни, Место_обитания, Уход, Цена, Количество, Изображение)";
-         echo "LOAD DATA INFILE '$file' INTO TABLE товары CHARACTER SET 'cp1251'
-FIELDS TERMINATED BY ';' OPTIONALLY ENCLOSED BY '' LINES TERMINATED BY '\\r\\n' (Вид, Id_семейство, Размер, Размер_взрослой_особи, Продолжительность_жизни, Место_обитания, Уход, Цена, Количество, Изображение)";
-		$result = mysqli_query($link, $sql);
+        $result = mysqli_query($link, $sql);
 		
 		if (!result)
             die(mysqli_error($link));
