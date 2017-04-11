@@ -9,6 +9,12 @@
 		if (confirm("Вы уверены, что хотите удалить данную запись?")) return true; else return false;
 	}
 	</script> 
+	<style>
+		.selected {
+			text-transform: uppercase;
+		}
+		
+		</style>
 	</head>
     <body>
         <div class="container">
@@ -19,12 +25,12 @@
                         <a id="blog" class="navbar-brand" href="../index.php">Панель администрирования</a>
                     </div>
 					<ul class="nav navbar-nav navbar-right">
-						<li><a href="index.php">Товары</a></li>
+						<li class="selected"><a href="index.php">Товары</a></li>
                         <li><a href="../views/orders_admin.php">Заказы</a></li>
                     </ul>
 					<form method="post" action="index.php?action=search" role="form" class="form-inline text-right"  style="margin-top: 5px;">
 					<div class="form-group">
-						<input type="text" name="search" size="30" class="form-control" placeholder="Поиск товаров" style="border: 0px;">
+						<input type="text" name="search" size="35" class="form-control" placeholder="Поиск товаров (по id/вид)" style="border: 0px;">
                     </div>
 					<div class="form-group" style="position: relative; right:50px;">
                     <input type="image" src="../images/search.png" class="form-control" style="border: 0px;">

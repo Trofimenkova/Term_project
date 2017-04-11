@@ -10,7 +10,14 @@
         <title>Панель администрирования</title>
         <!-- Latest compiled and minified CSS -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
-</head>
+		<style>
+		.selected {
+			text-transform: uppercase;
+		}
+		
+		
+		</style>
+	</head>
     <body>
         <div class="container">
             <!-- Header (navbar) -->
@@ -21,11 +28,11 @@
                     </div>
 					<ul class="nav navbar-nav navbar-right">
 						<li><a href="../admin/index.php">Товары</a></li>
-                        <li><a href="orders_admin.php">Заказы</a></li>
+                        <li class="selected"><a href="orders_admin.php">Заказы</a></li>
                     </ul>
 					<form method="get" action="orders_admin.php" role="form" class="form-inline text-right"  style="margin-top: 5px;">
 					<div class="form-group">
-						<input type="text" name="search" size="30" class="form-control" placeholder="Поиск заказов" style="border: 0px;">
+						<input type="text" name="search" size="35" class="form-control" placeholder="Поиск заказов (по id/cтатус/ФИО)" style="border: 0px;">
                     </div>
 					<div class="form-group" style="position: relative; right:50px;">
                     <input type="image" src="../images/search.png" class="form-control" style="border: 0px;">
@@ -42,7 +49,7 @@
 					<th>Адрес доставки</th>
                     <th>Дата доставки</th>
 					<th>Способ оплаты</th>
-					<th>Статус заказа</th>
+					<th>Статус</th>
 					<th>Кем оформлен</th>
                     <th>Контактные данные</th>
 					<th>Сумма</th>
@@ -50,7 +57,7 @@
                 </tr>
 				<?php 
 				if (empty($_GET['search'])) 
-$query = "select *, truncate(заказ_товар.Количество*товары.Цена, 2) as Сумма from заказ_товар inner join заказы
+$query = "select * from заказ_товар inner join заказы
 on заказ_товар.Id_заказ = заказы.Id_заказ
 inner join товары on
 заказ_товар.Id_товар = товары.Id_товар
@@ -62,7 +69,7 @@ inner join users on
 заказы.Id_покупатель = users.Id_user
 group by заказы.Id_заказ";       
 				else 
-					$query = "select *, truncate(заказ_товар.Количество*товары.Цена, 2) as Сумма from заказ_товар inner join заказы
+					$query = "select * from заказ_товар inner join заказы
 on заказ_товар.Id_заказ = заказы.Id_заказ
 inner join товары on
 заказ_товар.Id_товар = товары.Id_товар
@@ -92,7 +99,8 @@ on заказ_товар.Id_товар = товары.Id_товар where Id_з�
          if (!$rezult2) {
             die(mysqli_error($link));
 		}
-        while($tovar = mysqli_fetch_array($rezult2)) { ?>
+		$sum = 0;
+        while($tovar = mysqli_fetch_array($rezult2)) {  $sum+=$tovar['Заказанное_количество']*$tovar['Цена']; ?>
 		<ul style="list-style: none; padding: 0; margin: 0;">
 								<li><?=$tovar['Вид']?> - <?=$tovar['Заказанное_количество']?> шт X <?=$tovar['Цена']?> BYN</li>
 								
@@ -107,7 +115,7 @@ on заказ_товар.Id_товар = товары.Id_товар where Id_з�
 						<td><?=$order['full_name']?></td>
 						<td style="width: 180px;">Email: <?=$order['email']?><br>
 						Телефон: <?=$order['telephone']?></td>
-						<td style="width: 80px;"><?=$order['Сумма']?>, BYN</td>
+						<td style="width: 80px;"><?=$sum?> BYN</td>
 						<td>
                             <a href="index.php?action=edit&id=<?=$product['Id_товар']?>">Изменить</a>
                         </td>
