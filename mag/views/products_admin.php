@@ -24,7 +24,7 @@
 					<ul class="nav navbar-nav navbar-right">
                         <li><a href="#">Заказы</a></li>
                     </ul>
-					<form method="post" action="#" role="form" class="form-inline text-center" style="margin-top: 5px;">
+					<form method="post" action="#" role="form" class="form-inline text-right" style="margin-top: 5px;">
 					<div class="form-group">
 						<input type="text" name="search" size="30" class="form-control" placeholder="Поиск товара" style="border: 0px;">
                     </div>
