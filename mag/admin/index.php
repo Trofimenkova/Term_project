@@ -56,8 +56,13 @@
         $product = products_delete($link, $id);
         header('Location: index.php');
     }
-    
-	else{
+	
+    else if($action == 'search'){
+        $products = products_search($link, $_POST['search']);
+        include("../views/products_admin.php");        
+    }
+	
+	else {
         $products = products_all($link);
         include("../views/products_admin.php");        
     }

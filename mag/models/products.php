@@ -66,6 +66,24 @@
                
         return $products;
     }
+	
+	function products_search($link, $stroka) {
+        $query = "SELECT * FROM товары where Id_товар='$stroka' or Вид like '%$stroka%'";
+        $rezult = mysqli_query($link, $query);
+        
+        if (!$rezult) {
+            die(mysqli_error($link));
+		}
+        
+        $n = mysqli_num_rows($rezult);
+        $products = array();
+        for ($i = 0; $i < $n; $i++) {
+            $row = mysqli_fetch_assoc($rezult);
+            $products[] = $row;
+        }
+               
+        return $products;
+    }
 	  
 	   function products_last($link) {
         $query = "SELECT * FROM товары ORDER BY Id_товар Desc limit 0,10";
