@@ -3,8 +3,6 @@
     <head>
         <meta charset="utf-8">
         <title>Панель администрирования</title>
-        <link rel="stylesheet" href="../style.css">
-        <!-- Latest compiled and minified CSS -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
     <script type="text/javascript"> 
 	function confirmDelete() {
@@ -26,7 +24,7 @@
                     </ul>
 					<form method="post" action="index.php?action=search" role="form" class="form-inline text-right"  style="margin-top: 5px;">
 					<div class="form-group">
-						<input type="text" name="search" size="30" class="form-control" placeholder="Поиск товара" style="border: 0px;">
+						<input type="text" name="search" size="30" class="form-control" placeholder="Поиск товаров" style="border: 0px;">
                     </div>
 					<div class="form-group" style="position: relative; right:50px;">
                     <input type="image" src="../images/search.png" class="form-control" style="border: 0px;">
@@ -45,7 +43,7 @@
             <!-- END Header (navbar) -->
             <table id="admin_table" class="table" style="font-size: 12px">
                 <tr>
-					<th>Id_товар</th>
+					<th>Id</th>
                     <th>Вид</th>
                     <th>Id_семейство</th>
 					<th>Размер, см</th>
