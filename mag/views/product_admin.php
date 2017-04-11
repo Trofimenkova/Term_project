@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<hmtl>
+<html>
     <head>
         <meta charset="utf-8">
         <title>Панель администрирования</title>
@@ -84,4 +84,4 @@
             </div>
         </div>
     </body>
-</hmtl>
+</html>

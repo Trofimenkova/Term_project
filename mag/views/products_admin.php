@@ -1,5 +1,5 @@
 ﻿<!DOCTYPE html>
-<hmtl>
+<html>
     <head>
         <meta charset="utf-8">
         <title>Панель администрирования</title>
@@ -11,8 +11,7 @@
 		if (confirm("Вы уверены, что хотите удалить данную запись?")) return true; else return false;
 	}
 	</script> 
- 
-</head>
+	</head>
     <body>
         <div class="container">
             <!-- Header (navbar) -->
@@ -23,9 +22,9 @@
                     </div>
 					<ul class="nav navbar-nav navbar-right">
 						<li><a href="index.php">Товары</a></li>
-                        <li><a href="#">Заказы</a></li>
+                        <li><a href="../views/orders_admin.php">Заказы</a></li>
                     </ul>
-					<form method="post" action="index.php?action=search" role="form" class="form-inline text-right" style="margin-top: 5px;">
+					<form method="post" action="index.php?action=search" role="form" class="form-inline text-right"  style="margin-top: 5px;">
 					<div class="form-group">
 						<input type="text" name="search" size="30" class="form-control" placeholder="Поиск товара" style="border: 0px;">
                     </div>
@@ -83,5 +82,5 @@
             </table>
         </div>
     </body>
-</hmtl>
+</html>
 
