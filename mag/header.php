@@ -9,8 +9,8 @@ $_SESSION["session_username"] = ""; }
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<title>Рыбин Гуд</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
-	<link rel="stylesheet" href="css/style.css">
 	<link rel="shortcut icon" href="images/fish.png" type="image/png">
+	<link rel="stylesheet" href="css/style.css">
 	<script src="js/index.js"></script>
 <script>
 window.onload = function() {

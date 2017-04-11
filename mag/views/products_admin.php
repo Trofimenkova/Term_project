@@ -21,9 +21,17 @@
                     <div class="navbar-header">
                         <a id="blog" class="navbar-brand" href="../index.php">Панель администрирования</a>
                     </div>
-                    <ul class="nav navbar-nav navbar-right">
-                        <li><a href="index.php?action=add">Добавить товар</a></li>
+					<ul class="nav navbar-nav navbar-right">
+                        <li><a href="#">Заказы</a></li>
                     </ul>
+					<form method="post" action="#" role="form" class="form-inline text-center" style="margin-top: 5px;">
+					<div class="form-group">
+						<input type="text" name="search" size="30" class="form-control" placeholder="Поиск товара" style="border: 0px;">
+                    </div>
+					<div class="form-group" style="position: relative; right:50px;">
+                    <input type="image" src="../images/search.png" class="form-control" style="border: 0px;">
+					</div>
+                </form>
                 </div>
             </nav> 
 			<form method="post" action="index.php?action=add_from_file" role="form" class="form-inline">
@@ -48,8 +56,7 @@
 					<th>Цена</th>
                     <th>Количество</th>
 					<th>Изображение</th>
-                    <th></th>
-                    <th></th>
+                    <td colspan="2" class="text-right"><a href="index.php?action=add" >Добавить товар</a></td>
                 </tr>
                 <?php foreach($products as $product): ?>
                     <tr>
