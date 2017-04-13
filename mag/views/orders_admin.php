@@ -1,8 +1,12 @@
 <?php
     require_once("../database.php");
     $link = db_connect();
-?>
 
+	if(!empty($_GET['id']) && !empty($_GET['id_status'])) {
+		$sql = "UPDATE заказы SET Id_статус='".$_GET['id_status']."' where Id_заказ='".$_GET['id']."'";
+		$rez = mysqli_query($link, $sql);
+	}
+?>
 <!DOCTYPE html>
 <html>
     <head>
@@ -17,6 +21,15 @@
 		
 		
 		</style>
+		<script>
+		function changeStatus(e, id) {
+		var sel = document.getElementById(id).selectedIndex;
+		var hr = "orders_admin.php?id="+id+"&id_status="+(sel+1);
+		e.href = hr;
+		return true;
+	}
+		
+		</script>
 	</head>
     <body>
         <div class="container">
@@ -32,7 +45,7 @@
                     </ul>
 					<form method="get" action="orders_admin.php" role="form" class="form-inline text-right"  style="margin-top: 5px;">
 					<div class="form-group">
-						<input type="text" name="search" size="35" class="form-control" placeholder="Поиск заказов (по id/cтатус/ФИО)" style="border: 0px;">
+						<input type="text" name="search" size="35" class="form-control" placeholder="Поиск заказов" style="border: 0px;">
                     </div>
 					<div class="form-group" style="position: relative; right:50px;">
                     <input type="image" src="../images/search.png" class="form-control" style="border: 0px;">
@@ -64,7 +77,7 @@ inner join товары on
 inner join статусы_заказов
 on заказы.Id_статус = статусы_заказов.Id_статус
 inner join способы_оплаты
-on заказы.Id_статус = способы_оплаты.Id_способ_оплаты
+on заказы.Id_способ_оплаты = способы_оплаты.Id_способ_оплаты
 inner join users on
 заказы.Id_покупатель = users.Id_user
 group by заказы.Id_заказ";       
@@ -76,7 +89,7 @@ inner join товары on
 inner join статусы_заказов
 on заказы.Id_статус = статусы_заказов.Id_статус
 inner join способы_оплаты
-on заказы.Id_статус = способы_оплаты.Id_способ_оплаты
+on заказы.Id_способ_оплаты = способы_оплаты.Id_способ_оплаты
 inner join users on
 заказы.Id_покупатель = users.Id_user
 group by заказы.Id_заказ having заказы.Id_заказ='".$_GET['search']."' or full_name='".$_GET['search']."' or статус='".$_GET['search']."'";   
@@ -111,13 +124,25 @@ on заказ_товар.Id_товар = товары.Id_товар where Id_з�
 						<td style="width: 120px;"><?=$order['Адрес_доставки']?></td>
 						<td style="width: 90px;"><?=$order['Дата_доставки']?></td>
 						<td><?=$order['Способ_оплаты']?></td>
-						<td><?=$order['Статус']?></td>
+						<td>
+						<select id="<?=$order['Id_заказ']?>">
+						<?php
+						$query3 = "SELECT * FROM статусы_заказов";
+        $rezult3 = mysqli_query($link, $query3);
+		while($st = mysqli_fetch_array($rezult3)) { if (strcmp($st['Статус'],$order['Статус'])!= 0) { ?>
+						<option value="<?=$st['Статус']?>"><?=$st['Статус']?></option>
+		<?php } else { ?>
+		<option value="<?=$st['Статус']?>" selected="selected"><?=$st['Статус']?></option>
+		
+		<?php }} ?>
+						</select>
+						</td>
 						<td><?=$order['full_name']?></td>
 						<td style="width: 180px;">Email: <?=$order['email']?><br>
 						Телефон: <?=$order['telephone']?></td>
 						<td style="width: 80px;"><?=$sum?> BYN</td>
 						<td>
-                            <a href="index.php?action=edit&id=<?=$product['Id_товар']?>">Изменить</a>
+                            <a href="#" onclick="return changeStatus(this, <?=$order['Id_заказ']?>);">Изменить</a>
                         </td>
                     </tr>
                 <?php endforeach ?>

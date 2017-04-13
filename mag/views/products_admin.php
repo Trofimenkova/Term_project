@@ -30,7 +30,7 @@
                     </ul>
 					<form method="post" action="index.php?action=search" role="form" class="form-inline text-right"  style="margin-top: 5px;">
 					<div class="form-group">
-						<input type="text" name="search" size="35" class="form-control" placeholder="Поиск товаров (по id/вид)" style="border: 0px;">
+						<input type="text" name="search" size="35" class="form-control" placeholder="Поиск товаров" style="border: 0px;">
                     </div>
 					<div class="form-group" style="position: relative; right:50px;">
                     <input type="image" src="../images/search.png" class="form-control" style="border: 0px;">
