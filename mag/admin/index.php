@@ -26,7 +26,7 @@
         include("../views/product_admin.php");	
     }
 	
-	if($action == "add_from_file"){
+	else if($action == "add_from_file"){
         if(!empty($_POST)){
 			import_csv($link, $_POST['CSV']);
 			header("Location: index.php");	

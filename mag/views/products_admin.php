@@ -60,7 +60,7 @@
 					<th>Цена</th>
                     <th>Количество</th>
 					<th>Изображение</th>
-                    <td colspan="2" class="text-right"><a href="index.php?action=add" >Добавить товар</a></td>
+                    <td colspan="2" class="text-right"><a href="index.php?action=add">Добавить товар</a></td>
                 </tr>
                 <?php foreach($products as $product): ?>
                     <tr>
