@@ -10,6 +10,7 @@
  
 	if (empty($_POST['min_price'])) $_POST['min_price']=0;
 	if (empty($_POST['max_price'])) $_POST['max_price']= $max_pr;
+	if (empty($_POST['sort'])) $_POST['sort'] = '';
 	$products = products_view($link, ($page-1)*12, $_POST['sort'], $_POST['min_price'], $_POST['max_price']);
 	$amount = products_count($link, $_POST['min_price'], $_POST['max_price']);
 ?>
@@ -22,7 +23,7 @@
 				<li><a href="about.php">О магазине</a></li>
 				<li><a href="dostavka.php">Оплата и доставка</a></li>
 				<li><a href="excel.php">Прайс-лист</a></li>
-				<li><a href="contacts.php">Контакты</a></li>
+				<li><a href="contacts.php">Обратная связь</a></li>
 			</ul>
 		</div>
 		<!-- / container -->
@@ -62,13 +63,13 @@
                     <form action="" method="post">
 					<div class="widget">
 				
-						<h3>Сортировать по: <br>(по возрастанию)</h3>
+						<h3>Сортировать по:</h3>
 						
 						<fieldset>
-							<input type="radio" name="sort" value="Вид" <?if($_POST['sort'] == 'Вид' or $_POST['sort']==''){echo 'checked';}?>><span></span> Вид <br>
-							<input type="radio" name="sort" value="Семейство" <?if($_POST['sort'] == 'Семейство'){echo 'checked';}?>><span></span> Семейство <br>
-							<input type="radio" name="sort" value="Цена" <?if($_POST['sort'] == 'Цена'){echo 'checked';}?>><span></span> Цена <br>
-							<input type="radio" name="sort" value="Размер" <?if($_POST['sort'] == 'Размер'){echo 'checked';}?>><span></span> Размер
+							<input type="radio" name="sort" value="Вид" <?if($_POST['sort'] == 'Вид' or $_POST['sort']==''){echo 'checked';}?><span></span> Вид <br>
+							<input type="radio" name="sort" value="Семейство" <?if($_POST['sort'] == 'Семейство'){echo 'checked';}?><span></span> Семейство <br>
+							<input type="radio" name="sort" value="Цена" <?if($_POST['sort'] == 'Цена'){echo 'checked';}?><span></span> Цена <br>
+							<input type="radio" name="sort" value="Размер" <?if($_POST['sort'] == 'Размер'){echo 'checked';}?><span></span> Размер
 						</fieldset>
 					</div>
 					<div class="widget">

@@ -41,17 +41,17 @@ if(!empty($_POST['username']) && !empty($_POST['password'])) {
     }
     } else {
 
- $message =  "Неверный логин или пароль!";
+ $message =  "Invalid username and / or password";
     }
 
 } else {
-    $message = "Заполните все поля!";
+    $message = "All fields are required!";
 }
 }
 ?>
 
 
-<?php if (!empty($message)) {echo "<p class=\"error\">" . "ОШИБКА: ". $message . "</p>";} ?>
+<?php if (!empty($message)) {echo "<p class=\"error\">" . "MESSAGE: ". $message . "</p>";} ?>
 
     <div class="container mlogin">
             <div id="login">

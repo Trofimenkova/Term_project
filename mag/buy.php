@@ -23,7 +23,7 @@ function get_action(form) {
 				<li><a href="about.php">О магазине</a></li>
 				<li><a href="dostavka.php">Оплата и доставка</a></li>
 				<li><a href="excel.php">Прайс-лист</a></li>
-				<li><a href="contacts.php">Контакты</a></li>
+				<li><a href="contacts.php">Обратная связь</a></li>
 			</ul>
 		</div>
 		<!-- / container -->

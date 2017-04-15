@@ -9,7 +9,7 @@
 				<li><a href="about.php">О магазине</a></li>
 				<li><a href="dostavka.php">Оплата и доставка</a></li>
 				<li><a href="excel.php">Прайс-лист</a></li>
-				<li><a href="contacts.php">Контакты</a></li>
+				<li><a href="contacts.php">Обратная связь</a></li>
 			</ul>
 		</div>
 		<!-- / container -->
@@ -67,7 +67,7 @@
 						<div class="actions">
 						<form>
 							<label>Количество:</label>
-							<input type="number" id="amount" min="0" max="<?=$product['Количество']?>" step="1" value="0">
+							<input type="number" id="amount" min="0" max="<?=$product['Количество']?>" step="1" value="0" style="margin-top: 5px;">
 							<input type="submit" id="add_button" class="btn-grey" value="Добавить в корзину">
 						</form>
 						</div>

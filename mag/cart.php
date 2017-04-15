@@ -32,14 +32,11 @@ window.onload = function() {
 }
 
 function basket() {
-	if (localStorage.length == 0) {
-		document.getElementsByClassName("cart-table")[0].innerHTML = "Ваша корзина сейчас пуста. Воспользуйтесь нашим каталогом, чтобы ее заполнить.";
-	}
 	
-	else {
 	for (var i = 0; i<localStorage.length; i++) {
 	var key = localStorage.key(i);
 	var value = JSON.parse(localStorage[key]);
+	if((typeof value.price) == "undefined") continue;
 	id.push(value.id);
 	kol.push(value.amount);
 	
@@ -92,18 +89,21 @@ function basket() {
 	td5.appendChild(a);
 	a.onclick = delete_item;
 	}
+	if (id.length == 0) {
+		document.getElementsByClassName("cart-table")[0].innerHTML = "Ваша корзина сейчас пуста. Воспользуйтесь нашим каталогом, чтобы ее заполнить.";
+	}
 	
 	var reset = document.createElement("tr");
 	reset.setAttribute("colspan", "5");
 	korzina.appendChild(reset);
 	
 	var button = document.createElement("button");
+	button.setAttribute("class", "btn-grey2");
 	button.innerHTML = "Очистить корзину";
 	reset.appendChild(button);
 	button.onclick = delete_localStorage;
-	
 	document.getElementsByTagName("strong")[0].innerHTML = total + " BYN";
-	}
+	
 }
 
 function delete_item(e) {
@@ -117,7 +117,7 @@ function delete_localStorage() {
 }
 
 function setHref(e) {
-	if (localStorage.length == 0) { alert("Ваша корзина пустая!"); return false; }
+	if (id.length == 0) { alert("Ваша корзина пустая!"); return false; }
 	else { 
 		var hr = "buy.php?total="+total;
 		for (var i = 0; i < id.length; i++) {
@@ -154,7 +154,7 @@ function setHref(e) {
 				<li><a href="about.php">О магазине</a></li>
 				<li><a href="dostavka.php">Оплата и доставка</a></li>
 				<li><a href="excel.php">Прайс-лист</a></li>
-				<li><a href="contacts.php">Контакты</a></li>
+				<li><a href="contacts.php">Обратная связь</a></li>
 			</ul>
 		</div>
 		<!-- / container -->
@@ -189,7 +189,7 @@ function setHref(e) {
 
 				<div class="total-count">
 					<h3>Итоговая сумма: <strong>0 BYN</strong></h3>
-					<a href="#" onclick="return setHref(this)" class="btn-grey">Оформить заказ</a>
+					<a href="#" onclick="return setHref(this)" class="button" style="text-transform: uppercase; padding-top: 5px; font-size: 90%;">Оформить заказ</a>
 				</div>
 		
 			</div>

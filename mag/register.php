@@ -28,7 +28,7 @@ if(!empty($_POST['full_name']) && !empty($_POST['email']) && !empty($_POST['tele
 
 
 	if($result){
-	 $message = "Account Successfully Created";
+	 $message = "Account successfully created! Please sign the authorization form.";
 	} else {
 	 $message = "Failed to insert data information!";
 	}

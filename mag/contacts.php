@@ -1,4 +1,4 @@
-﻿<?php include("header.php"); ?>
+<?php include("header.php"); ?>
 	<nav id="menu">
 		<div class="container">
 			<div class="trigger"></div>
@@ -8,7 +8,7 @@
 				<li><a href="about.php">О магазине</a></li>
 				<li><a href="dostavka.php">Оплата и доставка</a></li>
 				<li><a href="excel.php">Прайс-лист</a></li>
-				<li><a href="contacts.php">Контакты</a></li>
+				<li><a href="contacts.php">Обратная связь</a></li>
 			</ul>
 		</div>
 		<!-- / container -->
@@ -28,16 +28,11 @@
 
 	<div id="body">
 		<div class="container">
-			<div id="content" class="full">
-				<form id="form" class="form-horizontal" method="post" action="post.php"> 
-<div class="form-group">
-<label>Имя: <input type= "text" name= "name" required class="form-control"></label> 
-</div>
-<div class="form-group">
-<label>E-mail: <input type= "text" name= "email" required class="form-control"></label> 
-</div>
-<div class="form-group">
-<label>Тема: <select name="subject" id="subject" required class="form-control">
+			<div id="content">
+				<form id="form" method="post" action="post.php"> 
+					<input type= "text" name="name" placeholder="Укажите Ваше имя" required class="textbox"></label> 
+					<input type= "text" name= "email" placeholder="Укажите Ваш email" required class="textbox"></label> 
+					<select name="subject" id="subject" required>
 <option value="" selected>- Выбрать тему -</option>
 <option value="Здравствуйте!">Здравствуйте!</option>
 <option value="Помогите!">Помогите!</option>
@@ -45,16 +40,8 @@
 <option value="Нашел ошибку!">Нашел ошибку!</option>
 <option value="Ожидается ли поставка...">Ожидается ли поставка...</option>
 </select>  
-</label> 
-</div>
-<div class="form-group">
-<label class="col-sm-2 control-label">
-Сообщение: 
-<div class="col-sm-10"><textarea rows= "10" cols= "45" name= "message" required class="form-control"></textarea></div></label> 
-</div>
-<div class="form-group">
-<input type= "submit" value= "Отправить" class="form-control"> 
-</div>
+<textarea rows= "10" cols= "45" name= "message" required class="message"></textarea> 
+<input type= "submit" value= "Отправить" class="button" style="float: right; margin-top:-10px;"> 
 </form>	
 			</div>
 			<!-- / content -->

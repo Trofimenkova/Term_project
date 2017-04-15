@@ -11,32 +11,45 @@
 ?>
 
 <!DOCTYPE html>
+<html>
   <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
        <title>Личные данные</title>
+	   <link rel="stylesheet" href="css/style.css">
+	   <style>
+	   html { overflow:  hidden; }
+	   body {
+		   margin-left: 20px;
+		   background: #CADDF6;
+	   }
+	   h1 {
+		   text-transform: uppercase;
+		   font-weight: bolder;
+		   margin-left: 25px;
+	   }
+	   
+	   </style>
 <link rel="shortcut icon" href="images/fish.png" type="image/png">
 </head> 
 <body>
-	
-    <div>
-    <div>
-    <h1>ЛИЧНЫЕ ДАННЫЕ</h1>
+    <div id="body">
+    <h1>Личные данные</h1>
 	<form name="change"  action="" method="POST">
     <div class="form-group">
 					<label>
-                        ФИО <br>
+                        ФИО: <br>
                         <input type="text" name="full_name" value="<?=$_GET['full_name']?>" class="form-control" required size="30">
                     </label>
 					</div>
 					<div class="form-group">
 					<label>
-                        Email <br>
+                        Email: <br>
                         <input type="email" name="email" value="<?=$_GET['email']?>" class="form-control" required size="30">
                     </label>
 					</div>
 					<div class="form-group">
                     <label>
-                        Телефон <br>
+                        Телефон: <br>
                         <input type="telephone" name="telephone" value="<?=$_GET['telephone']?>" class="form-control" required size="30">
                     </label>
 					</div>
@@ -51,8 +64,6 @@
     </p>
        
 </form>
-    </div>
-
     </div>
 	</body>
 	</html>
