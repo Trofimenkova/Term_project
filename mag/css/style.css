@@ -31,6 +31,67 @@ input[type=button], input[type=submit], button, textarea {
 	-webkit-border-radius: 0;
 }
 
+/* Базовый стиль формы */
+#form {
+  margin:0 auto;
+  max-width:55%;
+  box-sizing:border-box;
+  padding:40px;
+  border-radius:5px; 
+  background: #CADDF6;
+  -webkit-box-shadow:  0px 0px 15px 0px rgba(0, 0, 0, .45);        
+  box-shadow:  0px 0px 15px 0px rgba(0, 0, 0, .45);  
+}
+
+
+/* Стили полей ввода */
+#form.textbox {
+  	width: 100%;
+    height: 48px;
+    border: 1px solid rgba(255,255,255,.4);
+    -moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
+    border-radius: 4px;
+    -moz-background-clip: padding;
+    -webkit-background-clip: padding-box;
+    background-clip: padding-box; 
+    display:block;
+    font-family: 'Open Sans', sans-serif;
+    font-size:18px;
+    font-weight: 300;    
+    color:#fff;
+    padding-left:20px;
+    padding-right:20px;
+    margin-bottom:20px;
+    
+}
+
+.message:focus,
+.textbox:focus{
+  outline:none;
+   border: #003366 2px solid;
+   color: #003366;
+}
+
+/* Стили текстового поля */
+#form .message{
+    background: white; 
+    width:100%;
+    height: 120px;
+    border:rgba(0,0,0,.3) 2px solid;
+    box-sizing:border-box;
+    -moz-border-radius: 3px;
+    font-size:12px;
+    font-family: Arial, Helvetica, sans-serif;
+    -webkit-border-radius: 3px;
+    border-radius: 3px; 
+    display:block;
+    padding:15px;
+    margin-bottom:30px;
+    overflow:hidden;
+    margin-top: 5px;
+}
+
 article, aside, details, figcaption, figure, 
 footer, header, hgroup, menu, nav, section {
 	display: block;
@@ -340,28 +401,26 @@ a:hover {
 	padding: 80px 0 0;
 }
 
-#slider .btn-more {
-	width: 112px;
-	display: block;
-	color: #a5b1d5;
-	font-family: "Novecentowide";
-	font-size: 10px;
-	font-weight: 500;
-	margin: 29px auto;
-	text-align: center;
-	line-height: 27px;
-	height: 31px;
-	border: 1px solid #a5b1d5;
+.btn-more {
+	padding: 4px 40px;
+	border: 2px solid yellow;
+	background: rgb(0,0,0,0.2);
+	color: yellow;
+	display: inline-block;
+	text-transform: uppercase;
+	position: relative;
+	top: 20px;
+	font-weight: bolder;
+    transition: all 0.3s ease;
+	width: 240px;
+	height: 40px;
 }
 
-#slider .btn-more:hover{
+.btn-more:hover{
 	text-decoration: none;
-	border: 1px solid #fff;
-	color: #fff;
-    -webkit-transition: all 0.5s ease-in-out;
-    -moz-transition: all 0.5s ease-in-out;
-    -o-transition: all 0.5s ease-in-out;
-    transition: all 0.5s ease-in-out;
+	border-radius: 35px;
+	color: white;
+	background: #003366;
 }
 
 #slider h2 {,
@@ -693,19 +752,32 @@ h1 {
 	padding: 32px 0 12px;
 }
 
-.btn-grey {
+.btn-grey, .button, .btn-grey2 {
 	display: inline-block;
-	padding: 0 55px;
+	padding: 0px 5px; !important
 	line-height: 53px;
 	font-size: 12px;
 	font-weight: 500;
 	color: #fff;
-	height: 53px;
+	height: 35px;
+	width: 160px;
 	font-family: "Novecentowide";
 	background-color: #373737;
 }
 
-.btn-grey:hover{
+.btn-grey {
+	position: absolute; /* блок занимает ширину содержимого, max-width её ограничивает */
+  	bottom: 15px; /* прикрепить к верху родителя */
+  	right: 10px;
+}
+
+.btn-grey2 {
+	position: absolute; /* блок занимает ширину содержимого, max-width её ограничивает */
+  	bottom: -30px; /* прикрепить к верху родителя */
+  	right: 0px;
+}
+
+.btn-grey:hover, .button:hover, .btn-grey2:hover {
 	opacity: 0.9;
 	text-decoration: none;
 }
@@ -723,6 +795,7 @@ h1 {
 
 .cart-table {
 	padding: 13px 0;
+	position: relative;
 }
 
 .cart-table th {
@@ -976,6 +1049,7 @@ h1 {
 	padding: 12px;
 	margin: 18px 0;
 	overflow: hidden;
+	position: relative;
 }
 
 .details .actions .crf-s {
@@ -1080,7 +1154,7 @@ h1 {
 	height: 2px;
 	background-color: #003366;
 	margin: 6px 0;
-	color: #003366;
+	color: white;
 	font-size: 14px;
 }
 
@@ -1092,7 +1166,7 @@ h1 {
 	position: absolute;
 	left: 50%;
 	top: 10px;
-	color: #003366;
+	color: white;
 	font-size: 14px;
 
 }
@@ -1115,6 +1189,7 @@ h1 {
 	width: 21px;
 	height: 21px;
 	background: #222;
+	color: white;
 }
 
 #sidebar label.checked:before {
@@ -1142,6 +1217,7 @@ h1 {
 	border-bottom: 1px solid #474747;
 	padding: 30px 0 19px;
 	margin-bottom: -11px;
+	position: relative;
 }
 
 #sidebar .widget h3 {
@@ -1158,7 +1234,7 @@ h1 {
 
 #footer {
 	clear: both;
-	background: #222224 url(../images/bg_footer.png);
+	background: #003366 url(../images/bg_footer.png);
 	padding: 27px 0 0;
 	color: #a5a5aa;
 	font-size: 14px;
@@ -1263,6 +1339,7 @@ h1 {
 	background: #fff;
 }
 
+
 ::-webkit-input-placeholder {
 	color: #656567;
 }
@@ -1295,11 +1372,10 @@ h1 {
 }
 
 #footer .copy {
-	color: #717176;
+	color: #a5a5aa;
 	font-size: 14px;
 	padding: 28px 0;
 	clear: both;
-	border-top: 1px solid #333336;
 	text-align: center;
 }
 
@@ -1603,6 +1679,7 @@ h1 {
 		margin: 0 !important;
 		border-right: 0 !important
 	}
+
 	.entry .nav a {
 		padding: 10px 10px 13px !important;
 		height: auto;
@@ -1727,8 +1804,7 @@ h1 {
 		margin-left: 0;
 	}
 
-	.entry h2,
-	h1 {
+	.entry h2, h1 {
 		font-size: 20px;
 		line-height: normal;
 	}
