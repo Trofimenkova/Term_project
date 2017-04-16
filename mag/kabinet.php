@@ -1,14 +1,7 @@
-<?php include("header.php"); ?>
-<?php
-    require_once("database.php");
-    require_once("models/products.php");
-
-    $link = db_connect();
-	$user = user_get($link, $_SESSION["session_username"]);
-?>
+﻿<?php include("header.php"); ?>
 <script>
 function openWindow(url) {
-    var features, w = 325, h = 395;
+    var features, w = 335, h = 395;
 	//var top = (document.documentElement.clientHeight - h)/4;
 	var	left = (document.documentElement.clientWidth - w)/2; 
     //if(top < 0) top = 0;
@@ -17,9 +10,8 @@ function openWindow(url) {
 	features += ',height=' + h + ',width=' + w + ', scrollbars=no, menubar=no,toolbar=no, location=no,status=no,resizable=no';
 	window.open(url,this.target,features);
 	return false;
-}
-</script>
-	<nav id="menu">
+}</script>
+<nav id="menu">
 		<div class="container">
 			<div class="trigger"></div>
 			<ul>
@@ -34,8 +26,7 @@ function openWindow(url) {
 		<!-- / container -->
 	</nav>
 	<!-- / navigation -->
-
-	<div id="breadcrumbs">
+<div id="breadcrumbs">
 		<div class="container">
 			<ul>
 				<li><a href="#">Главная</a></li>
@@ -45,8 +36,14 @@ function openWindow(url) {
 		<!-- / container -->
 	</div>
 	<!-- / body -->
+<?php
+    require_once("database.php");
+    require_once("models/products.php");
 
-	<div id="body">
+    $link = db_connect();
+	$user = user_get($link, $_SESSION["session_username"]);
+?>
+	<div id="body" style="margin-top: -20px;">
 		<div class="container">
 			<div id="content" class="full">
 				<span>Личные данные </span><a href="change.php?full_name=<?=$user['full_name']?>&email=<?=$user['email']?>&telephone=<?=$user['telephone']?>&id=<?=$user['id_user']?>" target="_blank" onclick="return openWindow(this.href);">изменить</a>

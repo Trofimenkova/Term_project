@@ -239,7 +239,6 @@ textarea {
 
 /* Normalized Styles
 ------------------------------------------------------------------------------*/
-
 body {
 	font: 16px/30px Arial, Helvetica, sans-serif;
 	color: #949697;
@@ -776,6 +775,7 @@ h1 {
 	padding-bottom: 35px;
 	line-height: 20px;
 }
+
 
 .total-count h4 {
 	color: #939597;
@@ -1710,7 +1710,6 @@ h1 {
 		margin: 0 !important;
 		border-right: 0 !important
 	}
-
 	.entry .nav a {
 		padding: 10px 10px 13px !important;
 		height: auto;

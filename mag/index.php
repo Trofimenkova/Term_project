@@ -1,4 +1,3 @@
-<?php include("header.php"); ?>
 <?php
     require_once("database.php");
     require_once("models/products.php");
@@ -6,6 +5,7 @@
     $link = db_connect();
 	$products = products_last($link);
 ?>
+<?php include("header.php"); ?>
 	<nav id="menu">
 		<div class="container">
 			<div class="trigger"></div>
@@ -21,7 +21,6 @@
 		<!-- / container -->
 	</nav>
 	<!-- / navigation -->
-
 	<div id="slider">
 		<ul>
 			<li class="yellow" style="background-image: url(images/0.jpg)">

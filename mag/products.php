@@ -1,5 +1,4 @@
-﻿<?php include("header.php"); ?>
-<?php
+﻿<?php
     require_once("database.php");
     require_once("models/products.php");
 
@@ -14,7 +13,8 @@
 	$products = products_view($link, ($page-1)*12, $_POST['sort'], $_POST['min_price'], $_POST['max_price']);
 	$amount = products_count($link, $_POST['min_price'], $_POST['max_price']);
 ?>
-	<nav id="menu">
+<?php include("header.php"); ?>
+<nav id="menu">
 		<div class="container">
 			<div class="trigger"></div>
 			<ul>
@@ -29,7 +29,6 @@
 		<!-- / container -->
 	</nav>
 	<!-- / navigation -->
-
 	<div id="breadcrumbs">
 		<div class="container">
 			<ul>
@@ -66,10 +65,10 @@
 						<h3>Сортировать по:</h3>
 						
 						<fieldset>
-							<input type="radio" name="sort" value="Вид" <?if($_POST['sort'] == 'Вид' or $_POST['sort']==''){echo 'checked';}?><span></span> Вид <br>
-							<input type="radio" name="sort" value="Семейство" <?if($_POST['sort'] == 'Семейство'){echo 'checked';}?><span></span> Семейство <br>
-							<input type="radio" name="sort" value="Цена" <?if($_POST['sort'] == 'Цена'){echo 'checked';}?><span></span> Цена <br>
-							<input type="radio" name="sort" value="Размер" <?if($_POST['sort'] == 'Размер'){echo 'checked';}?><span></span> Размер
+							<input type="radio" name="sort" value="Вид" <?if($_POST['sort'] == 'Вид' or $_POST['sort']==''){echo 'checked';}?>><span></span> Вид <br>
+							<input type="radio" name="sort" value="Семейство" <?if($_POST['sort'] == 'Семейство'){echo 'checked';}?>><span></span> Семейство <br>
+							<input type="radio" name="sort" value="Цена" <?if($_POST['sort'] == 'Цена'){echo 'checked';}?>><span></span> Цена <br>
+							<input type="radio" name="sort" value="Размер" <?if($_POST['sort'] == 'Размер'){echo 'checked';}?>><span></span> Размер
 						</fieldset>
 					</div>
 					<div class="widget">

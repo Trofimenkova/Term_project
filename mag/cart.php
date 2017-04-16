@@ -4,6 +4,7 @@ if(!isset($_SESSION["session_username"])) {
 $_SESSION["session_username"] = ""; }
 ?>
 <!DOCTYPE html>
+<html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<title>Рыбин Гуд</title>
@@ -77,7 +78,7 @@ function basket() {
 	td4.setAttribute("class", "total");
 	td4.innerHTML = parseFloat((parseFloat(value.price) * parseInt(value.amount)).toFixed(2));
 	tr.appendChild(td4);
-	total+= parseFloat((parseFloat(value.price) * parseInt(value.amount)).toFixed(2));
+	total += parseFloat((parseFloat(value.price) * parseInt(value.amount)).toFixed(2));
 	
 	var td5 = document.createElement("td");
 	td5.setAttribute("class", "delete");
@@ -130,7 +131,7 @@ function setHref(e) {
 
 </script>
 </head>
-<body>
+<body style="margin-top: 30px;">
 	<header id="header">
 		<div class="container">
 			<a href="index.php" id="logo" title="Рыбин Гуд">Рыбин Гуд</a>

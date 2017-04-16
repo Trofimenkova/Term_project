@@ -32,7 +32,8 @@
 	   }
 	   .btn-grey {
 		   margin-bottom: 15px;
-		   margin-right: 10px;
+		   margin-top: 10px;
+		   right: 15px;
 	   }
 	   </style>
 <link rel="shortcut icon" href="images/fish.png" type="image/png">
@@ -61,7 +62,7 @@
 					<!--<div class="form-group">
 					<label>
                         id <br>-->
-                        <input type="text" style="visibility: hidden" name="id" value="<?=$_GET['id']?>" class="form-control" required size="29">
+                        <input type="text" style="visibility: hidden;" name="id" value="<?=$_GET['id']?>" class="form-control" required size="29">
                     <!--</label>
 					</div>-->
         <p class="submit">

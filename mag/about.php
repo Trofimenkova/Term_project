@@ -1,5 +1,4 @@
 ﻿<?php include("header.php"); ?>
-
 	<nav id="menu">
 		<div class="container">
 			<div class="trigger"></div>
@@ -15,7 +14,6 @@
 		<!-- / container -->
 	</nav>
 	<!-- / navigation -->
-
 	<div id="breadcrumbs">
 		<div class="container">
 			<ul>
@@ -26,7 +24,6 @@
 		<!-- / container -->
 	</div>
 	<!-- / body -->
-
 	<div id="body">
 		<div class="container">
 			<div id="content" class="full">
