@@ -1,7 +1,7 @@
 ﻿<?php
         $to = 'hanna.trof@gmail.com'; 
 		$from = $_POST['email'];
-        $subject = $_POST['subject']; 
+        $subject = 'Рыбин Гуд'; 
         $message = $_POST['message'];
 		$headers = "From: $from\r\nReply-to:$from\r\nContent-type:text/html;charset=utf-8\r\n";
         $result = mail($to, $subject, $message, $headers); 

@@ -24,29 +24,53 @@ time, mark, audio, video {
 	box-sizing: border-box;
 }
 
-input[type=tel], input[type=url], input[type=password],
-input[type=text], input[type=email], input[type=reset],
-input[type=button], input[type=submit], button, textarea {
-	-webkit-appearance: none;
-	-webkit-border-radius: 0;
-}
-
 /* Базовый стиль формы */
 #form {
-  margin:0 auto;
-  max-width:55%;
-  box-sizing:border-box;
-  padding:40px;
-  border-radius:5px; 
-  background: #CADDF6;
-  -webkit-box-shadow:  0px 0px 15px 0px rgba(0, 0, 0, .45);        
-  box-shadow:  0px 0px 15px 0px rgba(0, 0, 0, .45);  
+  margin: 0 auto;
+    max-width: 65%;
+    padding: 30px 30px 6px 30px;
+    border: 1px solid rgba(0,0,0,.2);
+    -moz-border-radius: 15px;
+    -webkit-border-radius: 15px;
+    border-radius: 15px;
+    -moz-background-clip: padding;
+    -webkit-background-clip: padding-box;
+    background-clip: padding-box;
+    background: url("../images/01.jpg");
+    -moz-box-shadow: 0 0 13px 3px rgba(0,0,0,.5);
+    -webkit-box-shadow: 0 0 13px 3px rgba(0,0,0,.5);
+    box-shadow: 0 0 13px 3px rgba(0,0,0,.5);
+    overflow: hidden; 
 }
 
 
-/* Стили полей ввода */
-#form.textbox {
-  	width: 100%;
+/* Поле сообщения */
+#form textarea{
+    background: rgba(255, 255, 255, 0.4); 
+    width: 100%;
+    height: 110px;
+    border: 1px solid rgba(255,255,255,.6);
+    -moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
+    border-radius: 4px;
+    -moz-background-clip: padding;
+    -webkit-background-clip: padding-box;
+    background-clip: padding-box; 
+    display:block;
+    font-family: 'Open Sans', sans-serif;
+    font-size:18px;
+    font-weight: 300;
+    color:#fff;
+    padding-left:25px;
+    padding-right:20px;
+    padding-top:12px;
+    margin-bottom:20px;
+    overflow:hidden;
+}
+
+/* Поля ввода */
+#form input {
+    width: 100%;
     height: 48px;
     border: 1px solid rgba(255,255,255,.4);
     -moz-border-radius: 4px;
@@ -63,34 +87,41 @@ input[type=button], input[type=submit], button, textarea {
     padding-left:20px;
     padding-right:20px;
     margin-bottom:20px;
-    
+}
+#form input[type=submit] {
+    cursor:pointer;
+}
+#form input.name, #form input.email, #form input.message  {
+    background: rgba(255, 255, 255, 0.4); 
+    padding-left:25px;
+}
+#form ::-webkit-input-placeholder {
+    color: #fff;
+}
+#form :-moz-placeholder{ 
+    color: #fff; 
+}
+#form ::-moz-placeholder {
+    color: #fff;
+}
+#form :-ms-input-placeholder {  
+    color: #fff; 
+}
+#form input:focus, #form textarea:focus { 
+    background-color: rgba(0, 0, 0, 0.2);
+    -moz-box-shadow: 0 0 5px 1px rgba(255,255,255,.5);
+    -webkit-box-shadow: 0 0 5px 1px rgba(255,255,255,.5);
+    box-shadow: 0 0 5px 1px rgba(255,255,255,.5);
+    overflow: hidden; 
 }
 
-.message:focus,
-.textbox:focus{
-  outline:none;
-   border: #003366 2px solid;
-   color: #003366;
+input[type=tel], input[type=url], input[type=password],
+input[type=text], input[type=email], input[type=reset],
+input[type=button], input[type=submit], button, textarea {
+	-webkit-appearance: none;
+	-webkit-border-radius: 0;
 }
 
-/* Стили текстового поля */
-#form .message{
-    background: white; 
-    width:100%;
-    height: 120px;
-    border:rgba(0,0,0,.3) 2px solid;
-    box-sizing:border-box;
-    -moz-border-radius: 3px;
-    font-size:12px;
-    font-family: Arial, Helvetica, sans-serif;
-    -webkit-border-radius: 3px;
-    border-radius: 3px; 
-    display:block;
-    padding:15px;
-    margin-bottom:30px;
-    overflow:hidden;
-    margin-top: 5px;
-}
 
 article, aside, details, figcaption, figure, 
 footer, header, hgroup, menu, nav, section {
@@ -1837,6 +1868,10 @@ h1 {
 	.crf-s {
 		padding: 0 15px;
 	}
+
+
+
+
 
 }
 

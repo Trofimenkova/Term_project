@@ -57,7 +57,7 @@
 					<div class="form-group">
 					<label>
                         Описание
-                        <textarea class="form-control" name="Описание"><?=$product['Уход']?></textarea>
+                        <textarea class="form-control" name="Уход"><?=$product['Уход']?></textarea>
                     </label>
 					</div>
 					<div class="form-group">

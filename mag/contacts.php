@@ -30,18 +30,10 @@
 		<div class="container">
 			<div id="content">
 				<form id="form" method="post" action="post.php"> 
-					<input type= "text" name="name" placeholder="Укажите Ваше имя" required class="textbox"></label> 
-					<input type= "text" name= "email" placeholder="Укажите Ваш email" required class="textbox"></label> 
-					<select name="subject" id="subject" required>
-<option value="" selected>- Выбрать тему -</option>
-<option value="Здравствуйте!">Здравствуйте!</option>
-<option value="Помогите!">Помогите!</option>
-<option value="Предлагаю...">Предлагаю...</option>
-<option value="Нашел ошибку!">Нашел ошибку!</option>
-<option value="Ожидается ли поставка...">Ожидается ли поставка...</option>
-</select>  
-<textarea rows= "10" cols= "45" name= "message" required class="message"></textarea> 
-<input type= "submit" value= "Отправить" class="button" style="float: right; margin-top:-10px;"> 
+					<input type= "text" name="name" placeholder="Укажите Ваше имя" required class="name"></label> 
+					<input type= "text" name= "email" placeholder="Укажите Ваш email" required class="email"></label> 
+<textarea rows= "10" cols= "45" name= "message" placeholder="Укажите Ваше сообщение" required class="message"></textarea> 
+<input type= "submit" value= "Отправить" class="button" style="opacity: 0.7;"> 
 </form>	
 			</div>
 			<!-- / content -->

@@ -1,4 +1,4 @@
-<?php
+﻿<?php
     require_once("database.php");
 	
     require_once("models/products.php");
@@ -17,7 +17,7 @@
        <title>Личные данные</title>
 	   <link rel="stylesheet" href="css/style.css">
 	   <style>
-	   html { overflow:  hidden; }
+	   html { overflow:  hidden;  }
 	   body {
 		   margin-left: 20px;
 		   background: #CADDF6;
