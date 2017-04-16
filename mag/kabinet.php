@@ -8,7 +8,7 @@
 ?>
 <script>
 function openWindow(url) {
-    var features, w = 305, h = 330;
+    var features, w = 325, h = 395;
 	//var top = (document.documentElement.clientHeight - h)/4;
 	var	left = (document.documentElement.clientWidth - w)/2; 
     //if(top < 0) top = 0;

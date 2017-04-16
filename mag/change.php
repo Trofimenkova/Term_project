@@ -20,16 +20,19 @@
 	   <style>
 	   html { overflow:  hidden;  }
 	   body {
-		   margin-left: 25px;
 		   background: url("images/01.jpg") 35%;
-	   }
-	   h1 {
-		   text-transform: uppercase;
-		   font-weight: bolder;
-		   margin-left: 25px;
+		   text-align: center;
 	   }
 	   label {
 		   color: white;
+		   text-align: left;
+	   }
+	   input {
+		   opacity: 0.7;
+	   }
+	   .btn-grey {
+		   margin-bottom: 15px;
+		   margin-right: 10px;
 	   }
 	   </style>
 <link rel="shortcut icon" href="images/fish.png" type="image/png">
