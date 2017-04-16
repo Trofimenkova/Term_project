@@ -16,51 +16,53 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
        <title>Личные данные</title>
 	   <link rel="stylesheet" href="css/style.css">
+	   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
 	   <style>
 	   html { overflow:  hidden;  }
 	   body {
-		   margin-left: 20px;
-		   background: #CADDF6;
+		   margin-left: 25px;
+		   background: url("images/01.jpg") 35%;
 	   }
 	   h1 {
 		   text-transform: uppercase;
 		   font-weight: bolder;
 		   margin-left: 25px;
 	   }
-	   
+	   label {
+		   color: white;
+	   }
 	   </style>
 <link rel="shortcut icon" href="images/fish.png" type="image/png">
 </head> 
 <body>
     <div id="body">
-    <h1>Личные данные</h1>
-	<form name="change"  action="" method="POST">
+	<form name="change"  action="" method="POST" class="form-horizontal">
     <div class="form-group">
 					<label>
                         ФИО: <br>
-                        <input type="text" name="full_name" value="<?=$_GET['full_name']?>" class="form-control" required size="30">
+                        <input type="text" name="full_name" value="<?=$_GET['full_name']?>" class="form-control" required size="29">
                     </label>
 					</div>
 					<div class="form-group">
 					<label>
                         Email: <br>
-                        <input type="email" name="email" value="<?=$_GET['email']?>" class="form-control" required size="30">
+                        <input type="email" name="email" value="<?=$_GET['email']?>" class="form-control" required size="29">
                     </label>
 					</div>
 					<div class="form-group">
                     <label>
                         Телефон: <br>
-                        <input type="telephone" name="telephone" value="<?=$_GET['telephone']?>" class="form-control" required size="30">
+                        <input type="telephone" name="telephone" value="<?=$_GET['telephone']?>" class="form-control" required size="29">
                     </label>
 					</div>
 					<!--<div class="form-group">
 					<label>
                         id <br>-->
-                        <input type="text" style="visibility: hidden" name="id" value="<?=$_GET['id']?>" class="form-control" required size="30">
+                        <input type="text" style="visibility: hidden" name="id" value="<?=$_GET['id']?>" class="form-control" required size="29">
                     <!--</label>
 					</div>-->
         <p class="submit">
-        <input type="submit" name="change" class="button" value="Сохранить изменения" />
+        <input type="submit" name="change" class="btn-grey" value="Сохранить изменения" />
     </p>
        
 </form>

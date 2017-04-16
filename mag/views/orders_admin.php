@@ -36,11 +36,12 @@
             <nav class="navbar navbar-default">
                 <div class="container-fluid">
                     <div class="navbar-header">
-                        <a id="blog" class="navbar-brand" href="../index.php">Панель администрирования</a>
+                        <a id="blog" class="navbar-brand" href="../admin/index.php">Панель администрирования</a>
                     </div>
 					<ul class="nav navbar-nav navbar-right">
 						<li><a href="../admin/index.php">Товары</a></li>
                         <li class="selected"><a href="orders_admin.php">Заказы</a></li>
+						<li><a href="../index.php">Рыбин Гуд</a></li>
                     </ul>
 					<form method="get" action="orders_admin.php" role="form" class="form-inline text-right"  style="margin-top: 5px;">
 					<div class="form-group">

@@ -8,12 +8,12 @@
 ?>
 <script>
 function openWindow(url) {
-    var features, w = 295, h = 390;
+    var features, w = 305, h = 330;
 	//var top = (document.documentElement.clientHeight - h)/4;
 	var	left = (document.documentElement.clientWidth - w)/2; 
     //if(top < 0) top = 0;
 	if(left < 0) left = 0;
-	features = 'top=' + 180 + ',left=' +left;
+	features = 'top=' + 190 + ',left=' +left;
 	features += ',height=' + h + ',width=' + w + ', scrollbars=no, menubar=no,toolbar=no, location=no,status=no,resizable=no';
 	window.open(url,this.target,features);
 	return false;
