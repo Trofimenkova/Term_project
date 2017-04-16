@@ -4,7 +4,19 @@
         <meta charset="utf-8">
         <title>Панель администрирования</title>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
-    </head>
+		<style>
+		#addart {
+			margin-left: 15px;
+		}
+		input[type="text"] {
+			width: 300px;
+		}
+		.tarea {
+			width: 300px;
+			min-height: 150px;
+		}
+		</style>
+   </head>
     <body>
         <div class="container">
             <!-- Header (navbar) -->
@@ -18,7 +30,7 @@
             <!-- END Header (navbar) -->
             <div id="addart">
                 <form method="post" action="index.php?action=<?=$_GET['action']?>&id=<?=$_GET['id']?>" role="form" class="form-horizontal">
-                    <div class="form-group">
+					<div class="form-group">
 					<label>
                         Вид
                         <input type="text" name="Вид" value="<?=$product['Вид']?>" class="form-control">
@@ -51,13 +63,13 @@
 					<div class="form-group">
 					<label>
                         Место обитания
-                        <textarea class="form-control" name="Место_обитания"><?=$product['Место_обитания']?></textarea>
+                        <textarea class="form-control tarea" name="Место_обитания"><?=$product['Место_обитания']?></textarea>
                     </label>
 					</div>
 					<div class="form-group">
 					<label>
                         Описание
-                        <textarea class="form-control" name="Уход"><?=$product['Уход']?></textarea>
+                        <textarea class="form-control tarea" name="Уход"><?=$product['Уход']?></textarea>
                     </label>
 					</div>
 					<div class="form-group">

@@ -12,7 +12,6 @@
     <head>
         <meta charset="utf-8">
         <title>Панель администрирования</title>
-        <!-- Latest compiled and minified CSS -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
 		<style>
 		.selected {
@@ -21,7 +20,7 @@
 		
 		
 		</style>
-		<script>
+		<script type="text/javascript">
 		function changeStatus(e, id) {
 		var sel = document.getElementById(id).selectedIndex;
 		var hr = "orders_admin.php?id="+id+"&id_status="+(sel+1);

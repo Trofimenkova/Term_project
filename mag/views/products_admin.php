@@ -4,16 +4,21 @@
         <meta charset="utf-8">
         <title>Панель администрирования</title>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
-    <script type="text/javascript"> 
-	function confirmDelete() {
-		if (confirm("Вы уверены, что хотите удалить данную запись?")) return true; else return false;
-	}
-	</script> 
-	<style>
-		.selected {
-			text-transform: uppercase;
+		<script type="text/javascript"> 
+		function confirmDelete() {
+			if (confirm("Вы уверены, что хотите удалить данную запись?")) return true; else return false;
 		}
-		
+		</script> 
+		<style>
+			body {
+				margin-top: -20px;
+			}
+			.selected {
+				text-transform: uppercase;
+			}
+			#admin_table {
+				font-size: 12px;
+			}
 		</style>
 	</head>
     <body>
@@ -47,7 +52,7 @@
 					</div>
                 </form>
             <!-- END Header (navbar) -->
-            <table id="admin_table" class="table" style="font-size: 12px">
+            <table id="admin_table" class="table">
                 <tr>
 					<th>Id</th>
                     <th>Вид</th>
