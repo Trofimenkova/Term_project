@@ -72,7 +72,28 @@
 						</form>
 						</div>
 					</div>
-					
+					<div class="otzov">
+							<h1>Отзывы покупателей</h1>
+    <input type="checkbox" id="hd-1" class="hide"/>
+    <label for="hd-1" >Оставить отзыв на рыбку <?=$product['Вид']?></label>
+    <div>
+        <form method="post" action="">
+		<textarea rows= "10" cols="50" name= "otzov" placeholder="Ваш отзыв" required class="message"></textarea> 
+		<input type= "submit" value= "Отправить" name="add_otzov" class="button" style="margin-top: 5px;"> 
+		</form>
+	</div>
+	<?php 
+	$query = "select * from отзывы left join users
+on отзывы.Id_пользователь = users.id_user where Id_товар='".$product['Id_товар']."'";       
+        $rezult = mysqli_query($link, $query);
+         if (!$rezult) {
+            die(mysqli_error($link));
+		}
+        while($otz = mysqli_fetch_array($rezult)) { ?>
+		<p class="otz"><span class="user_name"><?=$otz['full_name']?></span> | <?=$otz['Дата_написания']?> <br/>
+		<span class="text_otz"><?=$otz['Отзыв']?></span></p>
+		<?php } ?>
+</div>
 				</div>
 			</div>
 			<!-- / content -->

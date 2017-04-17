@@ -15,6 +15,7 @@ if(!empty($_POST['full_name']) && !empty($_POST['email']) && !empty($_POST['tele
 	$telephone = trim($_POST['telephone']);
 	$address = trim($_POST['address']);
 	$date = trim($_POST['date']);
+	$comment = trim($_POST['comment']);
 		
     if ($_SESSION["session_username"] == "") {
 	$sql = "INSERT INTO users
@@ -31,7 +32,7 @@ if(!empty($_POST['full_name']) && !empty($_POST['email']) && !empty($_POST['tele
     $rezult3 = mysql_query($sql3);
     $id= mysql_fetch_array($rezult3);
 	
-	$sql4 = "INSERT INTO заказы (Дата_оформления, Адрес_доставки, Дата_доставки, Id_способ_оплаты, Id_покупатель) VALUES (NOW(), '$address', '$date', '$row[0]', '$id[0]')";
+	$sql4 = "INSERT INTO заказы (Дата_оформления, Адрес_доставки, Дата_доставки, Id_способ_оплаты, Id_покупатель, Комментарий) VALUES (NOW(), '$address', '$date', '$row[0]', '$id[0]', '$comment')";
 	$result4 = mysql_query($sql4);
 	
 	$nomer_zakaza = (int)mysql_insert_id();

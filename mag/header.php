@@ -3,7 +3,6 @@ session_start();
 if(!isset($_SESSION["session_username"])) {
 $_SESSION["session_username"] = ""; }
 ?>
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -12,6 +11,49 @@ $_SESSION["session_username"] = ""; }
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
 	<link rel="shortcut icon" href="images/fish.png" type="image/png">
 	<link rel="stylesheet" href="css/style.css">
+	<style>
+	/* скрываем чекбоксы и блоки с содержанием */
+.hide {
+    display: none; 
+}
+.hide + label ~ div{
+    display: none;
+}
+/* оформляем текст label */
+.hide + label {
+    border-bottom: 1px dotted #003366;
+    padding: 0;
+    color: #003366;
+    cursor: pointer;
+    display: inline-block; 
+}
+/* вид текста label при активном переключателе */
+.hide:checked + label {
+    color: green;
+    border-bottom: 0;
+}
+/* когда чекбокс активен показываем блоки с содержанием  */
+.hide:checked + label + div {
+    display: block; 
+    background: #f2f2f2;
+    -moz-box-shadow: inset 3px 3px 10px #656567;
+    -webkit-box-shadow: inset 3px 3px 10px #656567;
+    box-shadow: inset 3px 3px 10px #656567;
+    padding: 10px; 
+	width:61%;
+}
+
+/* demo контейнер */
+.otzov {
+	margin: 5% 0%;
+	width: 80%;
+	position: relative;
+}
+
+.otzov textarea {
+	width: 100%;
+}
+</style>
 	<script src="js/index.js"></script>
 <script>
 window.onload = function() {
@@ -27,8 +69,8 @@ window.onload = function() {
 		document.getElementById("reg").onclick = function() { location.reload(); };
 	}
 	
-	var button = document.getElementById("add_button");
-	button.onclick = addItem;
+var button = document.getElementById("add_button");
+	if (button != null) button.onclick = addItem;
 }
 
 function addItem() {
@@ -43,7 +85,7 @@ function addItem() {
 	if (data.total_amount == 0) alert("К сожалению, данного товара нет в наличии");
     else if (parseInt(data.amount) < 0) alert("Указано отрицательное количество товара!");
 	else if (data.amount == 0) alert("Укажите количество товара!");
-	//else if (data.amount > data.total_amount) alert("В наличии имеется только "+data.total_amount+" шт!");
+	else if (data.amount > data.total_amount) alert("В наличии имеется только "+data.total_amount+" шт!");
     else { localStorage.setItem(vid, JSON.stringify(data)); alert('<?php echo $product['Вид'];?> '+"добавлен в корзину в количестве "+data.amount+" шт"); }
 	return false;
 }

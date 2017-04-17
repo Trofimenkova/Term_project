@@ -776,7 +776,6 @@ h1 {
 	line-height: 20px;
 }
 
-
 .total-count h4 {
 	color: #939597;
 	font-size: 24px;
@@ -1037,6 +1036,20 @@ h1 {
 	background: #f2f2f2;
 	width: 33.3%;
 	padding: 0;
+}
+
+p.otz {
+	margin-top: 15px !important;
+	margin-bottom: 15px !important;
+	color: black!important;
+}
+
+.user_name {
+	font-weight: bolder!important;
+}
+
+.text_otz {
+	font-style: italic!important;
 }
 
 .entry .nav a {

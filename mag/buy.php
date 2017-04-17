@@ -22,7 +22,7 @@ $_SESSION["session_username"] = ""; }
 	<style>
 	.form-group { margin-left:0px!important; }
 	fieldset legend { text-align: center; text-transform: uppercase; }
-	input[type="text"], input[type="email"], input[type="telephone"], input[type="date"] { width: 300px!important; }
+	input[type="text"], input[type="email"], input[type="telephone"], input[type="date"], textarea { width: 300px!important; }
 	#dost { margin-top: 30px; margin-bottom: 30px;}
 	</style>
 	<link rel="stylesheet" href="css/style.css">
@@ -135,6 +135,12 @@ function get_action(form) {
 							<option><?=$m['Способ_оплаты']?></option>
 						<?php endforeach; ?>
 						</select>
+                    </label>
+					</div>
+					<div class="form-group">
+					<label>
+                        Комментарий к заказу:
+                        <textarea class="form-control" name="comment"></textarea>
                     </label>
 					</div>
 					<div class="total-count">

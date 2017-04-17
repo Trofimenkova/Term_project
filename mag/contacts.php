@@ -1,4 +1,3 @@
-﻿
 <?php include("header.php"); ?>
 	<nav id="menu">
 		<div class="container">
@@ -31,8 +30,8 @@
 		<div class="container">
 			<div id="content">
 				<form id="form" method="post" action="post.php"> 
-					<input type= "text" name="name" placeholder="Укажите Ваше имя" required class="name"></label> 
-					<input type= "text" name= "email" placeholder="Укажите Ваш email" required class="email"></label> 
+					<input type= "text" name="name" placeholder="Укажите Ваше имя" required class="name">
+					<input type= "text" name= "email" placeholder="Укажите Ваш email" required class="email">
 <textarea rows= "10" cols= "45" name= "message" placeholder="Укажите Ваше сообщение" required class="message"></textarea> 
 <input type= "submit" value= "Отправить" class="button" style="opacity: 0.7;"> 
 </form>	
