@@ -10,6 +10,7 @@
 				<li><a href="dostavka.php">Оплата и доставка</a></li>
 				<li><a href="excel.php">Прайс-лист</a></li>
 				<li><a href="contacts.php">Обратная связь</a></li>
+				<li><a href="map.php">Контакты</a></li>
 			</ul>
 		</div>
 		<!-- / container -->
@@ -31,36 +32,35 @@
 		<div class="container">
 			<div id="content" class="full">
 				<div class="product">
-				<div class="image"><img src="<?=$product['Изображение']?>" alt="<?=$product['Вид']?>" class="img-thumbnail"></div>
+				<div class="image"><img src="<?=$product['Изображение']?>" alt="<?=$product['Название_товара']?>" class="img-thumbnail"></div>
 					
 					<div class="details">
 						<h1></h1>
-						<h4><?=$product['Вид']?></h4>
+						<h4><?=$product['Название_товара']?></h4>
 						<div class="entry">
 							<h2 style="margin-top: -30px"><?=$product['Цена']?> BYN</h2>
 							<div class="tabs">
 								<div class="nav">
 									<ul>
 										<li class="active"><a href="#desc">О товаре</a></li>
-										<li><a href="#spec">Описание</a></li>
-										<li><a href="#ret">Уход</a></li>
+										<li><a href="#spec">Характеристика</a></li>
+										<li><a href="#ret">Описание</a></li>
 									</ul>
 								</div>
 								<div class="tab-content active" id="desc">
-									<p><b>Семейство:</b> <?=$product['Семейство']?><br>
-									<b>Размер*:</b> до <?=$product['Размер']?> см<br>
-									<b>В наличии</b> <?=$product['Количество']?> шт<br>
-									* длина тела продаваемых рыб
+									<p><b>Название:</b> <?=$product['Название_товара']?><br>
+									<b>Категория:</b> <?=$product['Категория']?> <br>
+									<b>Производитель:</b> <?=$product['Бренд']?><br>
 									</p>
 								</div>
 								<div class="tab-content" id="spec">
-								    <p><b>Размер взрослой особи:</b> до <?=$product['Размер_взрослой_особи']?> см<br>
-									<b>Продолжительность жизни:</b> до <?=$product['Продолжительность_жизни']?> лет<br>
-									<b>Место обитания:</b> <?=$product['Место_обитания']?>
+								    <?php if ($product['Цвет']!="") { ?><p><b>Цвет:</b><?=$product['Цвет']?> <br><? } ?>
+									<b>Объем товара:</b><?=$product['Объем_товара']?><br>
+									<b>Применение:</b> <?=$product['Применение']?>
 									</p>
 								</div>
 								<div class="tab-content" id="ret">
-									<p><?=$product['Уход']?></p>
+									<p><?=$product['Описание']?></p>
 								</div>
 							</div>
 						</div>
@@ -75,7 +75,7 @@
 					<div class="otzov">
 							<h1>Отзывы покупателей</h1>
     <input type="checkbox" id="hd-1" class="hide"/>
-    <label for="hd-1" >Оставить отзыв на рыбку <?=$product['Вид']?></label>
+    <label for="hd-1" >Оставить отзыв на товар <?=$product['Название_товара']?></label>
     <div>
         <form method="post" action="">
 		<textarea rows= "10" cols="50" name= "otzov" placeholder="Ваш отзыв" required class="message"></textarea> 

@@ -1,4 +1,4 @@
-﻿<?php
+<?php
     require_once("database.php");
 	
     require_once("models/products.php");
@@ -20,7 +20,7 @@
 	   <style>
 	   html { overflow:  hidden;  }
 	   body {
-		   background: url("images/01.jpg") 35%;
+		   background: url("images/04.jpg") 26%;
 		   text-align: center;
 	   }
 	   label {
@@ -36,7 +36,6 @@
 		   right: 15px;
 	   }
 	   </style>
-<link rel="shortcut icon" href="images/fish.png" type="image/png">
 </head> 
 <body>
     <div id="body">

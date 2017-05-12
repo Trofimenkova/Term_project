@@ -5,6 +5,7 @@
 	$reg = user_reg($link);
 	$noreg = user_noreg($link);
 ?>
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -36,8 +37,8 @@
 					<ul class="nav navbar-nav navbar-right">
 						<li class="selected"><a href="index.php">Товары</a></li>
                         <li><a href="orders_admin.php">Заказы</a></li>
-						<li><a href="statistika.php?reg=<?=$reg?>&noreg=<?=$noreg?>">Статистика</a></li>
-						<li><a href="../index.php">РыбинГуд</a></li>
+						<li><a href="chart.php?reg=<?=$reg?>&noreg=<?=$noreg?>">Статистика</a></li>
+						<li><a href="../index.php">Make-up.buy</a></li>
                     </ul>
 					<form method="post" action="index.php?action=search" role="form" class="form-inline text-right"  style="margin-top: 5px;">
 					<div class="form-group">
@@ -61,14 +62,14 @@
             <table id="admin_table" class="table">
                 <tr>
 					<th>Id</th>
-                    <th>Вид</th>
-                    <th>Id_семейство</th>
-					<th>Размер, см</th>
-                    <th>Размер взрослой особи, см</th>
-					<th>Продолжительность жизни, лет</th>
-					<th>Место обитания</th>
-                    <th>Уход</th>
-					<th>Цена</th>
+                    <th>Название товара</th>
+                    <th>Id_категория</th>
+					<th>Цвет</th>
+                    <th>Объем товара, мл/г</th>
+					<th>Описание</th>
+					<th>Id_производителя</th>
+					<th>Применение</th>
+                    <th>Цена</th>
                     <th>Количество</th>
 					<th>Изображение</th>
                     <td colspan="2" class="text-right"><a href="index.php?action=add">Добавить товар</a></td>
@@ -76,13 +77,13 @@
                 <?php foreach($products as $product): ?>
                     <tr>
 						<td><?=$product['Id_товар']?></td>
-                        <td><?=$product['Вид']?></td>
-						<td><?=$product['Id_семейство']?></td>
-						<td><?=$product['Размер']?></td>
-						<td><?=$product['Размер_взрослой_особи']?></td>
-						<td><?=$product['Продолжительность_жизни']?></td>
-						<td><?=$product['Место_обитания']?></td>
-						<td><?=products_intro($product['Уход'])?></td>
+                        <td><?=$product['Название_товара']?></td>
+						<td><?=$product['Id_категория']?></td>
+						<td><?=$product['Цвет']?></td>
+						<td><?=$product['Объем_товара']?></td>
+						<td><?=products_intro($product['Описание'])?>...</td>
+						<td><?=$product['Id_производителя']?></td>
+						<td><?=products_intro($product['Применение'])?>...</td>
 						<td><?=$product['Цена']?></td>
 						<td><?=$product['Количество']?></td>
 						<td><img src="../<?=$product['Изображение']?>" width="100%" height="auto" class="img-rounded"></td>

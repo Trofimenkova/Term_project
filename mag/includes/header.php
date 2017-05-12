@@ -1,4 +1,4 @@
-﻿<?php 
+<?php 
 session_start();
 if(!isset($_SESSION["session_username"])) {
 $_SESSION["session_username"] = ""; }
@@ -7,9 +7,8 @@ $_SESSION["session_username"] = ""; }
 <html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<title>Рыбин Гуд</title>
+	<title>Make-up.buy</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
-	<link rel="shortcut icon" href="images/fish.png" type="image/png">
 	<link rel="stylesheet" href="css/style.css">
 	<style>
 	/* скрываем чекбоксы и блоки с содержанием */
@@ -74,7 +73,7 @@ var button = document.getElementById("add_button");
 }
 
 function addItem() {
-	var vid = '<?php echo $product['Вид'];?>';
+	var vid = '<?php echo $product['Название_товара'];?>';
 	var data = {
 	id: '<?php echo $product['Id_товар'];?>', 
 	amount: document.getElementById("amount").value,
@@ -86,7 +85,7 @@ function addItem() {
     else if (parseInt(data.amount) < 0) alert("Указано отрицательное количество товара!");
 	else if (data.amount == 0) alert("Укажите количество товара!");
 	else if (data.amount > data.total_amount) alert("В наличии имеется только "+data.total_amount+" шт!");
-    else { localStorage.setItem(vid, JSON.stringify(data)); alert('<?php echo $product['Вид'];?> '+"добавлен в корзину в количестве "+data.amount+" шт"); }
+    else { localStorage.setItem(vid, JSON.stringify(data)); alert('<?php echo $product['Название_товара'];?> '+"добавлен в корзину в количестве "+data.amount+" шт"); }
 	return false;
 }
 </script>
@@ -94,7 +93,7 @@ function addItem() {
 <body>
 	<header id="header">
 		<div class="container">
-			<a href="index.php" id="logo" title="Рыбин Гуд">Рыбин Гуд</a>
+			<a href="index.php" id="logo" title="Make-up.buy">Make-up.buy</a>
 			<div class="right-links">
 				<ul>
 					<li><span class="ico-products"></span><a href="cart.php">Корзина</a></li>

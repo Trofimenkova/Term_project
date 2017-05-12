@@ -7,10 +7,9 @@ $_SESSION["session_username"] = ""; }
 <html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<title>Рыбин Гуд</title>
+	<title>Make-up.buy</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
 	<link rel="stylesheet" href="css/style.css">
-	<link rel="shortcut icon" href="images/fish.png" type="image/png">
 	<script src="js/index.js"></script>
 <script>
 var total = 0;
@@ -53,9 +52,9 @@ function basket() {
 	td1.appendChild(hr);
 	hr.innerHTML = key;
 	var pict = document.createElement("img");
-	pict.setAttribute("src", value.picture);
-	pict.setAttribute("width", "150px");
-	pict.setAttribute("height", "auto");
+	pict.setAttribute("src", "images/"+value.picture.substring(6));
+	pict.setAttribute("height", "120px");
+	pict.setAttribute("width", "auto");
 	td1.appendChild(pict);
 	
 	var td2 = document.createElement("td");
@@ -134,7 +133,7 @@ function setHref(e) {
 <body style="margin-top: 30px;">
 	<header id="header">
 		<div class="container">
-			<a href="index.php" id="logo" title="Рыбин Гуд">Рыбин Гуд</a>
+			<a href="index.php" id="logo" title="Make-up.buy">Make-up.buy</a>
 			<div class="right-links">
 				<ul>
 					<li><span class="ico-products"></span><a href="cart.php">Корзина</a></li>
@@ -156,6 +155,7 @@ function setHref(e) {
 				<li><a href="dostavka.php">Оплата и доставка</a></li>
 				<li><a href="excel.php">Прайс-лист</a></li>
 				<li><a href="contacts.php">Обратная связь</a></li>
+				<li><a href="map.php">Контакты</a></li>
 			</ul>
 		</div>
 		<!-- / container -->

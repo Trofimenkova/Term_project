@@ -13,14 +13,14 @@
 				<div class="col media">
 					<h3>Мы в социальных сетях</h3>
 					<ul class="social">
-						<li><a href="#"><span class="ico ico-fb"></span>vk.com</a></li>
+						<li><a href="https://vk.com/id51038971"><span class="ico ico-fb"></span>vk.com</a></li>
 						<li><a href="#"><span class="ico ico-tw"></span>skype</a></li>
 						<li><a href="#"><span class="ico ico-gp"></span>telegram</a></li>
 					</ul>
 				</div>
 				<div class="col contact">
 					<h3>Контакты</h3>
-					<p><span class="ico ico-em"></span><a href="#">anna.trof@tut.by</a></p>
+					<p><span class="ico ico-em"></span><a href="#">olga.trof02@gmail.com</a></p>
 					<p><span class="ico ico-ph"></span>+375(29)673-67-60</p>
 					<p><span class="ico ico-ph"></span>+375(29)187-08-42</p>
 				</div>
@@ -30,11 +30,11 @@
 					<!-- VK Widget -->
 					<div id="vk_groups"></div>
 					<script type="text/javascript">
-					VK.Widgets.Group("vk_groups", {width: 300, mode: 3}, 143242150);
+					VK.Widgets.Group("vk_groups", {width: 300, mode: 3}, 146489104);
 					</script>
 				</div>
 			</div>
-			<p class="copy">&copy Рыбин Гуд 2017</p>
+			<p class="copy">&copy Make-up.buy 2017</p>
 		</div>
 		<!-- / container -->
 	</footer>

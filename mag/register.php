@@ -1,11 +1,8 @@
-<?php
+﻿<?php
 session_start();
 require_once("database.php");
 $link = db_connect();
 ?>
-
-<?php include("includes/header_reg.php"); ?>
-
 <?php
 if(isset($_POST["register"])){
 	if(!empty($_POST['full_name']) && !empty($_POST['email']) && !empty($_POST['telephone']) && !empty($_POST['username']) && !empty($_POST['password'])) {
@@ -33,7 +30,7 @@ if(isset($_POST["register"])){
 	else { $message = "All fields are required!"; }
 }
 ?>
-
+<?php include("includes/header_reg.php"); ?>
 <?php if (!empty($success)) {echo "<p style=\"background: green;\" class=\"error\">" . "MESSAGE: ". $success . "</p>";} ?>	
 <?php if (!empty($message)) {echo "<p class=\"error\">" . "MESSAGE: ". $message . "</p>";} ?>
 	<div class="container mregister">

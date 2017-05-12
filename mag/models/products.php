@@ -37,8 +37,8 @@
 	
     function products_view($link, $position, $sort, $min, $max) {
 		$sort = trim($sort);
-		if ($sort == '') $sort = 'Вид';
-        $query = sprintf("SELECT * FROM товары inner join семейства on товары.Id_семейство=семейства.Id_семейство where Цена between %f and %f order by $sort asc limit 12 offset %d", (float)$min, (float)$max + 0.01, (int)$position);
+		if ($sort == '') $sort = 'Название_товара';
+        $query = sprintf("SELECT * FROM товары inner join категории on товары.Id_категория=категории.Id_категория inner join производители on товары.Id_производителя=производители.Id_производителя where Цена between %f and %f order by $sort asc limit 12 offset %d", (float)$min, (float)$max + 0.01, (int)$position);
         
 		$rezult = mysqli_query($link, $query);
         
@@ -68,7 +68,7 @@
     }
 	
 	function max_price($link) {
-        $query = "SELECT Max(Цена) FROM товары";
+        $query = "SELECT Max(truncate(Цена,2)) FROM товары";
         $rezult = mysqli_query($link, $query);
         
         if (!$rezult) {
@@ -80,7 +80,7 @@
     }
 	
 	function products_search($link, $stroka) {
-        $query = "SELECT * FROM товары where Id_товар='$stroka' or Вид like '%$stroka%'";
+        $query = "SELECT * FROM товары where Id_товар='$stroka' or Название_товара like '%$stroka%'";
         $rezult = mysqli_query($link, $query);
         
         if (!$rezult) {
@@ -100,7 +100,7 @@
 
 	
 	function product_get($link, $id_product){
-        $query = sprintf("SELECT * FROM товары inner join семейства on товары.Id_семейство=семейства.Id_семейство WHERE Id_товар=%d", (int)$id_product);
+        $query = sprintf("SELECT * FROM товары inner join категории on категории.Id_категория=категории.Id_категория inner join производители on товары.Id_производителя=производители.Id_производителя WHERE Id_товар=%d", (int)$id_product);
         $result = mysqli_query($link, $query);
         
         if (!$result)
@@ -111,29 +111,30 @@
         return $product;
     }
 	
-    function products_new($link, $vid, $id_semeistvo, $size, $full_size, $years, $place, $description, $price, $amount, $image){
-        $vid = trim($vid);
-        $id_semeistvo = (int)($id_semeistvo);
-		$size= trim($size);
-		$full_size = trim($full_size);
-		$years= trim($years);
-		$place = trim($place);
-		$description = trim($description);
+    function products_new($link, $nazvanie, $id_categoria, $color, $size, $usage, $description, $id_producer, $price, $amount, $image){
+        $nazvanie = trim($nazvanie);
+        $id_categoria = (int)($id_categoria);
+		$color= trim($color);
+		$size = trim($size);
+		$description= trim($description);
+		$id_producer = (int)$id_producer;
+		$usage = trim($usage);
 		$price= (float)($price);
 		$amount = (int)($amount);
 		$image = trim($image);
 
-        if ($vid == '') return false;
+        if ($nazvanie == '') return false;
         
-        $template_add = "INSERT INTO товары (Вид, Id_семейство, Размер, Размер_взрослой_особи, Продолжительность_жизни, Место_обитания, Уход, Цена, Количество, Изображение) VALUES ('%s', '%d', '%s', '%s', '%s', '%s', '%s', '%f', '%d', '%s')";
+        $template_add = "INSERT INTO товары (Название_товара, Id_категория, Цвет, Объем_товара, 
+		Применение, Описание, Id_производителя, Цена, Количество, Изображение) 
+		VALUES ('%s', '%d', '%s', '%s', '%s', '%s', '%d', '%f', '%d', '%s')";
         
         $query = sprintf($template_add,
-                         mysqli_real_escape_string($link, $vid), $id_semeistvo,
-                         mysqli_real_escape_string($link, $size),
-                         mysqli_real_escape_string($link, $full_size),
-						 mysqli_real_escape_string($link, $years), 
-						 mysqli_real_escape_string($link, $place),
-						 mysqli_real_escape_string($link, $description), $price, $amount, 
+                         mysqli_real_escape_string($link, $nazvanie), $id_categoria,
+                         mysqli_real_escape_string($link, $color),
+                         mysqli_real_escape_string($link, $size),  
+						  mysqli_real_escape_string($link, $usage),
+						 mysqli_real_escape_string($link, $description), $id_producer, $price, $amount, 
 						 mysqli_real_escape_string($link, $image));
 
         $result = mysqli_query($link, $query);
@@ -142,20 +143,20 @@
         return true;
     }
 
-    function products_edit($link, $id, $vid, $id_semeistvo, $size, $full_size, $years, $place, $description, $price, $amount, $image){
+    function products_edit($link, $id, $nazvanie, $id_categoria, $color, $size, $usage, $description, $id_producer, $price, $amount, $image){
 		$id = (int)$id;
-        $vid = trim($vid);
-        $id_semeistvo = (int)($id_semeistvo);
-		$size= (float)$size;
-		$full_size = trim($full_size);
-		$years= trim($years);
-		$place = trim($place);
+        $nazvanie = trim($nazvanie);
+        $id_categoria = (int)($id_categoria);
+		$color= trim($color);
+		$size = trim(size);
 		$description = trim($description);
+		$id_producer= (int)$id_producer;
+		$usage= trim($usage);
 		$price= (float)($price);
 		$amount = (int)($amount);
 		$image = trim($image);
             
-		$query = "UPDATE товары SET Вид='$vid', Id_семейство=$id_semeistvo, Размер=$size, Размер_взрослой_особи='$full_size', Продолжительность_жизни='$years', Уход='$description', Цена=$price, Количество=$amount WHERE id_товар=".$id;
+		$query = "UPDATE товары SET Название_товара='$nazvanie', Id_категория=$id_categoria, Цвет='$color', Объем_товара='$size', Применение='$usage', Описание='$description', Id_производителя=$id_producer, Цена=$price, Количество=$amount WHERE id_товар=".$id;
         
         $result = mysqli_query($link, $query) or die("Ошибка " . mysqli_error($link));
         
@@ -182,7 +183,7 @@
 	function import_csv($link, $file){
 		$file = 'c:\\\\users\\\\user\\\\documents\\\\'.$file;
         $sql = "LOAD DATA INFILE '$file' INTO TABLE товары CHARACTER SET 'cp1251'
-FIELDS TERMINATED BY ';' OPTIONALLY ENCLOSED BY '' LINES TERMINATED BY '\\r\\n' IGNORE 1 LINES (Вид, Id_семейство, Размер, Размер_взрослой_особи, Продолжительность_жизни, Место_обитания, Уход, Цена, Количество, Изображение)";
+FIELDS TERMINATED BY ';' OPTIONALLY ENCLOSED BY '' LINES TERMINATED BY '\\r\\n' IGNORE 1 LINES (Название_товара, Id_категория, Цвет, Объем_товара, Применение, Описание, Id_производителя, Цена, Количество, Изображение)";
         $result = mysqli_query($link, $sql);
 		
 		if (!result) die(mysqli_error($link));
@@ -190,9 +191,9 @@ FIELDS TERMINATED BY ';' OPTIONALLY ENCLOSED BY '' LINES TERMINATED BY '\\r\\n' 
         return mysqli_affected_rows($link);
     }
 	
-	function products_intro($text, $len = 100)
+	function products_intro($text, $len = 150)
     {
-        return mb_substr($text, 0, strripos(mb_substr($text, 0,$len), " "));        
+        return mb_substr($text, 0, strripos(mb_substr($text, 0,$len), " "));
     }
 	
 	function methods_payment($link) {
@@ -237,7 +238,7 @@ FIELDS TERMINATED BY ';' OPTIONALLY ENCLOSED BY '' LINES TERMINATED BY '\\r\\n' 
     }	
 	
 function get_price() {
-	$sql = "SELECT Id_товар, Вид, Цена, Количество FROM товары";
+	$sql = "SELECT Id_товар, Название_товара, Цена, Количество FROM товары";
 	$result = mysql_query($sql);
 	
 	if(!$result) {
@@ -282,4 +283,5 @@ where username is null";
         $row = mysqli_fetch_array($rezult);
 		return $row[0];
     }
+
 ?>

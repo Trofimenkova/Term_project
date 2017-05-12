@@ -1,8 +1,3 @@
-<?php
-    require_once("../database.php");
-    $link = db_connect();
-	require_once("../models/products.php");
-?>
 <!DOCTYPE html>
 <html>
     <head>
@@ -37,44 +32,44 @@
                 <form method="post" action="index.php?action=<?=$_GET['action']?>&id=<?=$_GET['id']?>" role="form" class="form-horizontal">
 					<div class="form-group">
 					<label>
-                        Вид
-                        <input type="text" name="Вид" value="<?=$product['Вид']?>" class="form-control">
+                        Название товара
+                        <input type="text" name="Название_товара" value="<?=$product['Название_товара']?>" class="form-control">
                     </label>
 					</div>
 					<div class="form-group">
 					<label>
-                        Id_семейство
-                        <input type="text" name="Id_семейство" value="<?=$product['Id_семейство']?>" class="form-control" required>
+                        Id_категория
+                        <input type="text" name="Id_категория" value="<?=$product['Id_категория']?>" class="form-control" required>
                     </label>
 					</div>
 					<div class="form-group">
                     <label>
-                        Размер
-                        <input type="text" name="Размер" value="<?=$product['Размер']?>" class="form-control">
+                        Цвет
+                        <input type="text" name="Цвет" value="<?=$product['Цвет']?>" class="form-control">
                     </label>
 					</div>
 					<div class="form-group">
 					<label>
-                        Размер взрослой особи
-                        <input type="text" name="Размер_взрослой_особи" value="<?=$product['Размер_взрослой_особи']?>" class="form-control">
-                    </label>
-					</div>
-					<div class="form-group">
-					<label>
-                        Продолжительность жизни
-                        <input type="text" name="Продолжительность_жизни" value="<?=$product['Продолжительность_жизни']?>" class="form-control">
-                    </label>
-					</div>
-					<div class="form-group">
-					<label>
-                        Место обитания
-                        <textarea class="form-control tarea" name="Место_обитания"><?=$product['Место_обитания']?></textarea>
+                        Объем товара
+                        <input type="text" name="Объем_товара" value="<?=$product['Объем_товара']?>" class="form-control">
                     </label>
 					</div>
 					<div class="form-group">
 					<label>
                         Описание
-                        <textarea class="form-control tarea" name="Уход"><?=$product['Уход']?></textarea>
+                        <input type="text" name="Описание" value="<?=$product['Описание']?>" class="form-control">
+                    </label>
+					</div>
+					<div class="form-group">
+					<label>
+                        Id производителя
+                        <textarea class="form-control tarea" name="Id_производителя"><?=$product['Id_производителя']?></textarea>
+                    </label>
+					</div>
+					<div class="form-group">
+					<label>
+					 Применение
+                        <textarea class="form-control tarea" name="Применение"><?=$product['Применение']?></textarea>
                     </label>
 					</div>
 					<div class="form-group">

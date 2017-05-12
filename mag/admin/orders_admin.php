@@ -41,8 +41,8 @@
 					<ul class="nav navbar-nav navbar-right">
 						<li><a href="index.php">Товары</a></li>
                         <li class="selected"><a href="orders_admin.php">Заказы</a></li>
-						<li><a href="statistika.php?reg=<?=$reg?>&noreg=<?=$noreg?>">Статистика</a></li>
-						<li><a href="../index.php">РыбинГуд</a></li>
+						<li><a href="chart.php?reg=<?=$reg?>&noreg=<?=$noreg?>">Статистика</a></li>
+						<li><a href="../index.php">Make-up.buy</a></li>
                     </ul>
 					<form method="get" action="orders_admin.php" role="form" class="form-inline text-right"  style="margin-top: 5px;">
 					<div class="form-group">
@@ -108,7 +108,7 @@ $rezult = mysqli_query($link, $query);
 						<td><?=$order['Id_заказ']?></td>
 						<td style="width: 270px;">
 						<?php 
-						 $query2 = "select Id_заказ, заказ_товар.Id_товар as id, Вид, заказ_товар.Количество as Заказанное_количество, Цена from заказ_товар inner join товары
+						 $query2 = "select Id_заказ, заказ_товар.Id_товар as id, Название_товара, заказ_товар.Количество as Заказанное_количество, Цена from заказ_товар inner join товары
 on заказ_товар.Id_товар = товары.Id_товар where Id_заказ='".$order['Id_заказ']."'";       
         $rezult2 = mysqli_query($link, $query2);
          if (!$rezult2) {
@@ -117,7 +117,7 @@ on заказ_товар.Id_товар = товары.Id_товар where Id_з�
 		$sum = 0;
         while($tovar = mysqli_fetch_array($rezult2)) {  $sum+=$tovar['Заказанное_количество']*$tovar['Цена']; ?>
 		<ul style="list-style: none; padding: 0; margin: 0;">
-								<li><?=$tovar['Вид']?> - <?=$tovar['Заказанное_количество']?> шт X <?=$tovar['Цена']?> BYN</li>
+								<li><?=$tovar['Название_товара']?> - <?=$tovar['Заказанное_количество']?> шт X <?=$tovar['Цена']?> BYN</li>
 								
 								</ul>
 								<?php } ?>

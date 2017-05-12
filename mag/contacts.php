@@ -1,4 +1,4 @@
-<?php include("includes/header.php"); ?>
+﻿<?php include("includes/header.php"); ?>
 	<nav id="menu">
 		<div class="container">
 			<div class="trigger"></div>
@@ -9,6 +9,7 @@
 				<li><a href="dostavka.php">Оплата и доставка</a></li>
 				<li><a href="excel.php">Прайс-лист</a></li>
 				<li><a href="contacts.php">Обратная связь</a></li>
+				<li><a href="map.php">Контакты</a></li>
 			</ul>
 		</div>
 		<!-- / container -->

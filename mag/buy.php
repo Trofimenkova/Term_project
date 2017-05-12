@@ -16,9 +16,8 @@ $_SESSION["session_username"] = ""; }
 <html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<title>Рыбин Гуд</title>
+	<title>Make-up.buy</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
-	<link rel="shortcut icon" href="images/fish.png" type="image/png">
 	<style>
 	.form-group { margin-left:0px!important; }
 	fieldset legend { text-align: center; text-transform: uppercase; }
@@ -51,7 +50,7 @@ function get_action(form) {
 <body>
 	<header id="header">
 		<div class="container">
-			<a href="index.php" id="logo" title="Рыбин Гуд">Рыбин Гуд</a>
+			<a href="index.php" id="logo" title="Make-up.buy">Make-up.buy</a>
 			<div class="right-links">
 				<ul>
 					<li><span class="ico-products"></span><a href="cart.php">Корзина</a></li>
@@ -74,6 +73,7 @@ function get_action(form) {
 				<li><a href="dostavka.php">Оплата и доставка</a></li>
 				<li><a href="excel.php">Прайс-лист</a></li>
 				<li><a href="contacts.php">Обратная связь</a></li>
+				<li><a href="map.php">Контакты</a></li>
 			</ul>
 		</div>
 		<!-- / container -->
@@ -138,6 +138,40 @@ function get_action(form) {
                     </label>
 					</div>
 					<div class="form-group">
+					<label>
+				<p>	Также Вы можете купить товар в рассрочку. <br>Введите количество месяцев. Рассчитать!</p><br>
+				<script>
+function computeLoan(){
+	var amount = document.getElementById('amount').value;
+	var interest_rate = document.getElementById('interest_rate').value;
+	var months = document.getElementById('months').value;
+	var interest = (amount * (interest_rate * .01)) / months;
+	var payment = ((amount / months) + interest).toFixed(2);
+	payment = payment.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+	document.getElementById('payment').innerHTML = "Месячный платеж = BYN "+payment;
+}
+
+function clean(){
+	form.reset();
+//document.getElementById('payment').innerHTML = "";
+}
+
+function use(payment){
+						//alert(<?=$_GET['total']?>);
+					//	<?=$_GET['total']?>=payment;
+					  var payment = document.getElementById('payment').value;
+					  alert(payment);
+					}
+
+</script>
+<form>
+<p>Сумма (BYN)<input id="amount" type="number" value=<?=$_GET['total']?>></p>
+<p>Процент: <input id="interest_rate" type="number" min="10" max="10" value="10">%</p>
+<p>Количество месяцев: <input id="months" type="number" min="1" max="6" value="1" step="1" onchange="computeLoan()"></p>
+<p><input type="reset" value="Очистить" onclick="clean()"></p>
+<h2 id="payment"></h2>
+<input type="button" value="Применить" onclick="use();"><br>
+					</form><br>		
 					<label>
                         Комментарий к заказу:
                         <textarea class="form-control" name="comment"></textarea>

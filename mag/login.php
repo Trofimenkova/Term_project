@@ -1,11 +1,8 @@
-﻿<?php
+<?php
 session_start();
 require_once("database.php");
 $link = db_connect();
 ?>
-
-<?php include("includes/header_reg.php"); ?>
-
 <?php
 if(isset($_POST["login"])){
 	if(!empty($_POST['username']) && !empty($_POST['password'])) {
@@ -34,7 +31,7 @@ if(isset($_POST["login"])){
 	else { $message = "All fields are required!"; }
 }
 ?>
-
+<?php include("includes/header_reg.php"); ?>
 <?php if (!empty($message)) {echo "<p class=\"error\">" . "MESSAGE: ". $message . "</p>";} ?>
     <div class="container mlogin">
 		<div id="login">
@@ -51,10 +48,10 @@ if(isset($_POST["login"])){
 					<p class="submit">
 					<input type="submit" name="login" class="button" value="Log In" />
 				</p>
-				<p class="regtext">Нет акаунта? <a href="register.php" target="_self" onclick="window.open(this.href,this.target);return false;">Зарегистрироваться!</a></p>
+				<p class="regtext">Нет аккаунта? <a href="register.php" target="_self" onclick="window.open(this.href,this.target);return false;">Зарегистрироваться!</a></p>
 			</form>
 		</div>
     </div>
 <body>
 </html>
-	
+  
