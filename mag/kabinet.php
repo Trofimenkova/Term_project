@@ -1,4 +1,4 @@
-﻿<?php include("header.php"); ?>
+﻿<?php include("includes/header.php"); ?>
 <script>
 function openWindow(url) {
     var features, w = 335, h = 395;
@@ -132,7 +132,7 @@ on заказ_товар.Id_товар = товары.Id_товар where Id_з�
 	</div>
 	<!-- / body -->
 	
-	<?php include("footer.php"); ?>
+	<?php include("includes/footer.php"); ?>
 
 	<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
 	<script>window.jQuery || document.write("<script src='js/jquery-1.11.1.min.js'>\x3C/script>")</script>

@@ -44,7 +44,7 @@ window.onload = function() {
 }
 
 function get_action(form) {
-	form.action = "addOrder.php?"+window.location.toString().substring(window.location.toString().indexOf("id"));
+	form.action = "actions/addOrder.php?"+window.location.toString().substring(window.location.toString().indexOf("id"));
 }
 </script>
 </head>
@@ -95,7 +95,7 @@ function get_action(form) {
 		<div class="container">
 			<div id="content" class="full">
 				<form method="post" role="form" action="" onsubmit="get_action(this);" class="form-horizontal">
-                    <fieldset><legend>Личные данные*</legend><div class="form-group">
+                    <fieldset><legend>Личные данные</legend><div class="form-group">
 					<label>
                         ФИО:
                         <input type="text" name="full_name" value="<?=$user['full_name']?>" class="form-control">
@@ -115,7 +115,7 @@ function get_action(form) {
 					</div>
 					</fieldset>
 					
-					<fieldset id="dost"><legend>Доставка и оплата*</legend><div class="form-group">
+					<fieldset id="dost"><legend>Доставка и оплата</legend><div class="form-group">
 					<label>
                         Адрес доставки:
                         <input type="text" name="address" value="" class="form-control" required>
@@ -156,7 +156,7 @@ function get_action(form) {
 	</div>
 	<!-- / body -->
 
-	<?php include("footer.php"); ?>
+	<?php include("includes/footer.php"); ?>
 
 
 	<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>

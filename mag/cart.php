@@ -200,7 +200,7 @@ function setHref(e) {
 	</div>
 	<!-- / body -->
 	
-	<?php include("footer.php"); ?>
+	<?php include("includes/footer.php"); ?>
 
 	<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
 	<script>window.jQuery || document.write("<script src='js/jquery-1.11.1.min.js'>\x3C/script>")</script>

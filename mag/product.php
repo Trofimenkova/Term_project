@@ -21,5 +21,5 @@ $_SESSION["session_username"] = ""; }
 		}
 		$result = mysqli_query($link, $sql);
 	}
-    include("views/product.php");
+    include("includes/product.php");
 ?>

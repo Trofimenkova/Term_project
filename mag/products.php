@@ -7,13 +7,13 @@
 	
 	$max_pr = max_price($link);
  
-	if (empty($_POST['min_price'])) $_POST['min_price']=0;
-	if (empty($_POST['max_price'])) $_POST['max_price']= $max_pr;
-	if (empty($_POST['sort'])) $_POST['sort'] = '';
+	if (empty($_POST['min_price'])) $_POST['min_price']=$_GET['min_price']; if (empty($_POST['min_price'])) $_POST['min_price']=0;
+	if (empty($_POST['max_price'])) $_POST['max_price']=$_GET['max_price']; if (empty($_POST['max_price'])) $_POST['max_price']= $max_pr;
+	if (empty($_POST['sort']) and !empty($_GET['sort'])) $_POST['sort'] = $_GET['sort'];
 	$products = products_view($link, ($page-1)*12, $_POST['sort'], $_POST['min_price'], $_POST['max_price']);
 	$amount = products_count($link, $_POST['min_price'], $_POST['max_price']);
 ?>
-<?php include("header.php"); ?>
+<?php include("includes/header.php"); ?>
 <nav id="menu">
 		<div class="container">
 			<div class="trigger"></div>
@@ -44,17 +44,17 @@
 		<div class="container">
 			<div class="pagination">
 				<ul>
-				<li><a href="products.php?page=<?=($_GET['page']-1)?>" onclick="return stopPrev(<?=($_GET['page']-1)?>)"><span class="ico-prev"></span></a></li>
+				<li><a href="products.php?page=<?=($_GET['page']-1)?>&sort=<?=$_POST['sort']?>&min_price=<?=$_POST['min_price']?>&max_price=<?=$_POST['max_price']?>" onclick="return stopPrev(<?=($_GET['page']-1)?>)"><span class="ico-prev"></span></a></li>
 				<?php
 				$str = 1;
 				while ($str <= ceil($amount/12)): 
 				?>
-				<li><a href="products.php?page=<?=$str?>"><?=$str?></a></li>
+				<li><a href="products.php?page=<?=$str?>&sort=<?=$_POST['sort']?>&min_price=<?=$_POST['min_price']?>&max_price=<?=$_POST['max_price']?>"><?=$str?></a></li>
 				<?php
 				$str++;
 				endwhile;
 				?>
-				<li><a href="products.php?page=<?=($_GET['page']+1)?>" onclick="return stopNext(<?=($_GET['page']+1)?>, <?=ceil($amount/12)?>)"><span class="ico-next"></span></a></li>
+				<li><a href="products.php?page=<?=($_GET['page']+1)?>&sort=<?=$_POST['sort']?>&min_price=<?=$_POST['min_price']?>&max_price=<?=$_POST['max_price']?>" onclick="return stopNext(<?=($_GET['page']+1)?>, <?=ceil($amount/12)?>)"><span class="ico-next"></span></a></li>
 				</ul>
 			</div>
 			<div class="products-wrap">
@@ -65,10 +65,10 @@
 						<h3>Сортировать по:</h3>
 						
 						<fieldset>
-							<input type="radio" name="sort" value="Вид" <?if($_POST['sort'] == 'Вид' or $_POST['sort']==''){echo 'checked';}?>><span></span> Вид <br>
-							<input type="radio" name="sort" value="Семейство" <?if($_POST['sort'] == 'Семейство'){echo 'checked';}?>><span></span> Семейство <br>
-							<input type="radio" name="sort" value="Цена" <?if($_POST['sort'] == 'Цена'){echo 'checked';}?>><span></span> Цена <br>
-							<input type="radio" name="sort" value="Размер" <?if($_POST['sort'] == 'Размер'){echo 'checked';}?>><span></span> Размер
+							<input type="radio" name="sort" value="Вид" <?if($_POST['sort'] == 'Вид' or $_GET['sort']=='Вид'){echo 'checked';}?>><span></span> Вид <br>
+							<input type="radio" name="sort" value="Семейство" <?if($_POST['sort'] == 'Семейство' or $_GET['sort'] == 'Семейство'){echo 'checked';}?>><span></span> Семейство <br>
+							<input type="radio" name="sort" value="Цена" <?if($_POST['sort'] == 'Цена' or $_GET['sort'] == 'Цена'){echo 'checked';}?>><span></span> Цена <br>
+							<input type="radio" name="sort" value="Размер" <?if($_POST['sort'] == 'Размер' or $_GET['sort'] == 'Размер'){echo 'checked';}?>><span></span> Размер
 						</fieldset>
 					</div>
 					<div class="widget">
@@ -80,7 +80,6 @@
 					<br>
 					<input type="submit" name="apply" class="button" value="Применить" />
 				</form>
-				
 				</aside>
 				<div id="content">
 					<section class="products">
@@ -107,17 +106,17 @@
 			</div>
 			<div class="pagination">
 				<ul>
-				<li><a href="products.php?page=<?=($_GET['page']-1)?>" onclick="return stopPrev(<?=($_GET['page']-1)?>)"><span class="ico-prev"></span></a></li>
+				<li><a href="products.php?page=<?=($_GET['page']-1)?>&sort=<?=$_POST['sort']?>&min_price=<?=$_POST['min_price']?>&max_price=<?=$_POST['max_price']?>" onclick="return stopPrev(<?=($_GET['page']-1)?>)"><span class="ico-prev"></span></a></li>
 				<?php
 				$str = 1;
 				while ($str <= ceil($amount/12)): 
 				?>
-				<li><a href="products.php?page=<?=$str?>"><?=$str?></a></li>
+				<li><a href="products.php?page=<?=$str?>&sort=<?=$_POST['sort']?>&min_price=<?=$_POST['min_price']?>&max_price=<?=$_POST['max_price']?>"><?=$str?></a></li>
 				<?php
 				$str++;
 				endwhile;
 				?>
-				<li><a href="products.php?page=<?=($_GET['page']+1)?>" onclick="return stopNext(<?=($_GET['page']+1)?>, <?=ceil($amount/12)?>)"><span class="ico-next"></span></a></li>
+				<li><a href="products.php?page=<?=($_GET['page']+1)?>&sort=<?=$_POST['sort']?>&min_price=<?=$_POST['min_price']?>&max_price=<?=$_POST['max_price']?>" onclick="return stopNext(<?=($_GET['page']+1)?>, <?=ceil($amount/12)?>)"><span class="ico-next"></span></a></li>
 				</ul>
 			</div>
 		</div>
@@ -125,7 +124,7 @@
 	</div>
 	<!-- / body -->
 
-	<?php include("footer.php"); ?>
+	<?php include("includes/footer.php"); ?>
 
 
 	<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>

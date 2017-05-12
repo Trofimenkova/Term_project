@@ -1,4 +1,4 @@
-﻿<?php include("header.php"); ?>
+﻿<?php include("includes/header.php"); ?>
 	<nav id="menu">
 		<div class="container">
 			<div class="trigger"></div>
@@ -55,8 +55,7 @@
 	</div>
 	<!-- / body -->
 
-	<?php include("footer.php"); ?>
-
+	<?php include("includes/footer.php"); ?>
 
 	<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
 	<script>window.jQuery || document.write("<script src='js/jquery-1.11.1.min.js'>\x3C/script>")</script>

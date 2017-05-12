@@ -1,4 +1,4 @@
-<?php include("header.php"); ?>
+<?php include("includes/header.php"); ?>
 	<nav id="menu">
 		<div class="container">
 			<div class="trigger"></div>
@@ -29,7 +29,7 @@
 	<div id="body">
 		<div class="container">
 			<div id="content">
-				<form id="form" method="post" action="post.php"> 
+				<form id="form" method="post" action="actions/post.php"> 
 					<input type= "text" name="name" placeholder="Укажите Ваше имя" required class="name">
 					<input type= "text" name= "email" placeholder="Укажите Ваш email" required class="email">
 <textarea rows= "10" cols= "45" name= "message" placeholder="Укажите Ваше сообщение" required class="message"></textarea> 
@@ -42,7 +42,7 @@
 	</div>
 	<!-- / body -->
 
-	<?php include("footer.php"); ?>
+	<?php include("includes/footer.php"); ?>
 
 
 	<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>

@@ -37,7 +37,7 @@ $(document).ready(function() {
 		range: true,
 		min: 0,
 		max: 5000,
-		values: [ 500, 3500 ],
+		values: [ 500, 2000 ],
 		slide: function( event, ui ) {
 			$(".ui-slider-handle:first").html("<span>$" + ui.values[ 0 ] + "</span>");
 			$(".ui-slider-handle:last").html("<span>$" + ui.values[ 1 ] + "</span>");

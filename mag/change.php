@@ -59,16 +59,10 @@
                         <input type="telephone" name="telephone" value="<?=$_GET['telephone']?>" class="form-control" required size="29">
                     </label>
 					</div>
-					<!--<div class="form-group">
-					<label>
-                        id <br>-->
-                        <input type="text" style="visibility: hidden;" name="id" value="<?=$_GET['id']?>" class="form-control" required size="29">
-                    <!--</label>
-					</div>-->
+					<input type="text" style="visibility: hidden;" name="id" value="<?=$_GET['id']?>" class="form-control" required size="29">
         <p class="submit">
         <input type="submit" name="change" class="btn-grey" value="Сохранить изменения" />
-    </p>
-       
+    </p>     
 </form>
     </div>
 	</body>
