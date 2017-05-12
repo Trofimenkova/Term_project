@@ -1,6 +1,9 @@
 <?php
     require_once("../database.php");
     $link = db_connect();
+	require_once("../models/products.php");
+	$reg = user_reg($link);
+	$noreg = user_noreg($link);
 
 	if(!empty($_GET['id']) && !empty($_GET['id_status'])) {
 		$sql = "UPDATE заказы SET Id_статус='".$_GET['id_status']."' where Id_заказ='".$_GET['id']."'";
@@ -17,8 +20,6 @@
 		.selected {
 			text-transform: uppercase;
 		}
-		
-		
 		</style>
 		<script type="text/javascript">
 		function changeStatus(e, id) {
@@ -26,8 +27,7 @@
 		var hr = "orders_admin.php?id="+id+"&id_status="+(sel+1);
 		e.href = hr;
 		return true;
-	}
-		
+		}
 		</script>
 	</head>
     <body>
@@ -39,9 +39,10 @@
                         <a id="blog" class="navbar-brand" href="../admin/index.php">Панель администрирования</a>
                     </div>
 					<ul class="nav navbar-nav navbar-right">
-						<li><a href="../admin/index.php">Товары</a></li>
+						<li><a href="index.php">Товары</a></li>
                         <li class="selected"><a href="orders_admin.php">Заказы</a></li>
-						<li><a href="../index.php">Рыбин Гуд</a></li>
+						<li><a href="statistika.php?reg=<?=$reg?>&noreg=<?=$noreg?>">Статистика</a></li>
+						<li><a href="../index.php">РыбинГуд</a></li>
                     </ul>
 					<form method="get" action="orders_admin.php" role="form" class="form-inline text-right"  style="margin-top: 5px;">
 					<div class="form-group">

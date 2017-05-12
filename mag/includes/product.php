@@ -1,4 +1,4 @@
-<?php include("header.php"); ?>
+<?php include("includes/header.php"); ?>
 
 	<nav id="menu">
 		<div class="container">
@@ -102,7 +102,7 @@ on отзывы.Id_пользователь = users.id_user where Id_товар=
 	</div>
 	<!-- / body -->
 
-	<?php include("footer.php"); ?>
+	<?php include("includes/footer.php"); ?>
 
 
 	<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>

@@ -1,3 +1,8 @@
+<?php
+    require_once("../database.php");
+    $link = db_connect();
+	require_once("../models/products.php");
+?>
 <!DOCTYPE html>
 <html>
     <head>

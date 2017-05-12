@@ -1,4 +1,11 @@
-﻿<!DOCTYPE html>
+﻿<?php
+    require_once("../database.php");
+    $link = db_connect();
+	require_once("../models/products.php");
+	$reg = user_reg($link);
+	$noreg = user_noreg($link);
+?>
+<!DOCTYPE html>
 <html>
     <head>
         <meta charset="utf-8">
@@ -28,8 +35,9 @@
                     </div>
 					<ul class="nav navbar-nav navbar-right">
 						<li class="selected"><a href="index.php">Товары</a></li>
-                        <li><a href="../views/orders_admin.php">Заказы</a></li>
-						<li><a href="../index.php">Рыбин Гуд</a></li>
+                        <li><a href="orders_admin.php">Заказы</a></li>
+						<li><a href="statistika.php?reg=<?=$reg?>&noreg=<?=$noreg?>">Статистика</a></li>
+						<li><a href="../index.php">РыбинГуд</a></li>
                     </ul>
 					<form method="post" action="index.php?action=search" role="form" class="form-inline text-right"  style="margin-top: 5px;">
 					<div class="form-group">
