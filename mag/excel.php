@@ -1,18 +1,18 @@
-<?php
-
-/** Include PHPExcel */
+﻿<?php
 require_once 'config.php';
-require_once 'models/products.php';
 require_once 'Classes/PHPExcel.php';
 
-
-$price_list = get_price();
+$db = Database::getInstance();
+    $mysqli = $db->getConnection(); 
+    $sql_query = "SELECT Id_товар, Название_товара, Цена, Количество FROM товары";
+    $result = $mysqli->query($sql_query);
+	$price_list = array();
+	
+	while($row = $result->fetch_assoc()) $price_list[] = $row; 
 
 $objPHPExcel = new PHPEXcel();
 
 $objPHPExcel->setActiveSheetIndex(0);
-
-//$objPHPExcel->createSheet();
 
 $active_sheet = $objPHPExcel->getActiveSheet();
 
