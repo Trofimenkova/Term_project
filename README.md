@@ -1,7 +1,7 @@
 # Term_project
 The online-store of goldfishes 
 ### Интернет-магазин аквариумных рыбок на HTML5+CSS3+PHP+JS
-![screenshot of sample](https://rybin-good.000webhostapp.com/images/akulii-balu.jpg)
+![screenshot of sample](https://rybin-good.000webhostapp.com/images/logo.png)
 
 Созданный проект состоит из двух частей:
 
