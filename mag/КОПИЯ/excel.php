@@ -1,12 +1,13 @@
 <?php
 
 /** Include PHPExcel */
-require_once 'config.php';
 require_once 'models/products.php';
 require_once 'Classes/PHPExcel.php';
+require_once("database.php");
+$link = db_connect();
 
 
-$price_list = get_price();
+$price_list = get_price($link);
 
 $objPHPExcel = new PHPEXcel();
 

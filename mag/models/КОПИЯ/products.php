@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 	function products_all($link) {
         $query = "SELECT * FROM товары";
         $rezult = mysqli_query($link, $query);
@@ -37,7 +37,7 @@
 	
     function products_view($link, $position, $sort, $min, $max) {
 		$sort = trim($sort);
-       if ($sort == '') $sort = 'Название_товара';
+		if ($sort == '') $sort = 'Название_товара';
         $query = sprintf("SELECT * FROM товары inner join категории on товары.Id_категория=категории.Id_категория inner join производители on товары.Id_производителя=производители.Id_производителя where Цена between %f and %f order by $sort asc limit 12 offset %d", (float)$min, (float)$max + 0.01, (int)$position);
         
 		$rezult = mysqli_query($link, $query);
@@ -57,7 +57,7 @@
     }
 	
 	function products_count($link, $min, $max) {
-        $query = sprintf("SELECT * FROM товары where Цена between %d and %d", (float)$min, (float)$max);
+        $query = sprintf("SELECT * FROM товары where Цена between %f and %f", (float)$min, (float)$max + 0.01);
         $rezult = mysqli_query($link, $query);
         
         if (!$rezult) {
@@ -68,7 +68,7 @@
     }
 	
 	function max_price($link) {
-             $query = "SELECT Max(truncate(Цена,2)) FROM товары";
+        $query = "SELECT Max(truncate(Цена,2)) FROM товары";
         $rezult = mysqli_query($link, $query);
         
         if (!$rezult) {
@@ -111,25 +111,25 @@
         return $product;
     }
 	
-    function products_new($link, $nazvanie, $id_categoria, $color, $size, $description, $id_producer, $usage, $price, $amount, $image){
+    function products_new($link, $nazvanie, $id_categoria, $color, $size, $usage, $description, $id_producer, $price, $amount, $image){
         $nazvanie = trim($nazvanie);
         $id_categoria = (int)($id_categoria);
 		$color= trim($color);
 		$size = trim($size);
 		$description= trim($description);
 		$id_producer = (int)$id_producer;
-		$id_usage = trim($usage);
+		$usage = trim($usage);
 		$price= (float)($price);
 		$amount = (int)($amount);
 		$image = trim($image);
 
-        if ($vnazvanie == '') return false;
+        if ($nazvanie == '') return false;
         
         $template_add = "INSERT INTO товары (Название_товара, Id_категория, Цвет, Объем_товара, 
 		Применение, Описание, Id_производителя, Цена, Количество, Изображение) 
 		VALUES ('%s', '%d', '%s', '%s', '%s', '%s', '%d', '%f', '%d', '%s')";
-		
-       $query = sprintf($template_add,
+        
+        $query = sprintf($template_add,
                          mysqli_real_escape_string($link, $nazvanie), $id_categoria,
                          mysqli_real_escape_string($link, $color),
                          mysqli_real_escape_string($link, $size),  
@@ -143,7 +143,7 @@
         return true;
     }
 
-   function products_edit($link, $id, $nazvanie, $id_categoria, $color, $size, $usage, $description, $id_producer, $price, $amount, $image){
+    function products_edit($link, $id, $nazvanie, $id_categoria, $color, $size, $usage, $description, $id_producer, $price, $amount, $image){
 		$id = (int)$id;
         $nazvanie = trim($nazvanie);
         $id_categoria = (int)($id_categoria);
@@ -168,7 +168,7 @@
 		return mysqli_affected_rows($link);
     }
 	
-     function products_delete($link, $id){
+    function products_delete($link, $id){
         $id = (int)$id;
         if ($id == 0) return false;
         
@@ -191,7 +191,7 @@ FIELDS TERMINATED BY ';' OPTIONALLY ENCLOSED BY '' LINES TERMINATED BY '\\r\\n' 
         return mysqli_affected_rows($link);
     }
 	
-		function products_intro($text, $len = 150)
+	function products_intro($text, $len = 150)
     {
         return mb_substr($text, 0, strripos(mb_substr($text, 0,$len), " "));
     }
@@ -236,6 +236,36 @@ FIELDS TERMINATED BY ';' OPTIONALLY ENCLOSED BY '' LINES TERMINATED BY '\\r\\n' 
         
         return $user;
     }	
+
+function user_reg($link) {
+        $query = "select count(*) from заказы
+inner join users on
+заказы.Id_покупатель = users.Id_user
+where username is not null";
+        $rezult = mysqli_query($link, $query);
+        
+        if (!$rezult) {
+            die(mysqli_error($link));
+		}
+        
+        $row = mysqli_fetch_array($rezult);
+		return $row[0];
+    }
+	
+	function user_noreg($link) {
+        $query = "select count(*) from заказы
+inner join users on
+заказы.Id_покупатель = users.Id_user
+where username is null";
+        $rezult = mysqli_query($link, $query);
+        
+        if (!$rezult) {
+            die(mysqli_error($link));
+		}
+        
+        $row = mysqli_fetch_array($rezult);
+		return $row[0];
+    }
 	
 	function get_price() {
 	$sql = "SELECT Id_товар, Название_товара, Цена, Количество FROM товары";
@@ -253,35 +283,5 @@ FIELDS TERMINATED BY ';' OPTIONALLY ENCLOSED BY '' LINES TERMINATED BY '\\r\\n' 
 	
 	return $row;		
 }
-
-function user_reg($link) {
-        $query = "select count(*) from заказы
-inner join users on
-заказы.Id_покупатель = users.Id_user
-where username is not null";
-        $rezult = mysqli_query($link, $query);
-        
-        if (!$rezult) {
-            die(mysqli_error($link));
-		}
-        
-        $row = mysqli_fetch_array($rezult);
-		return $row[0];
-    }
-	
-		function user_noreg($link) {
-        $query = "select count(*) from заказы
-inner join users on
-заказы.Id_покупатель = users.Id_user
-where username is null";
-        $rezult = mysqli_query($link, $query);
-        
-        if (!$rezult) {
-            die(mysqli_error($link));
-		}
-        
-        $row = mysqli_fetch_array($rezult);
-		return $row[0];
-    }
 
 ?>

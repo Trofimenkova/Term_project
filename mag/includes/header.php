@@ -81,10 +81,10 @@ function addItem() {
 	total_amount: '<?php echo $product['Количество'];?>',
 	picture: '<?php echo $product['Изображение'];?>'
 	}
-	if (data.total_amount == 0) alert("К сожалению, данного товара нет в наличии");
+	if (parseInt(data.total_amount) == 0) alert("К сожалению, данного товара нет в наличии");
     else if (parseInt(data.amount) < 0) alert("Указано отрицательное количество товара!");
-	else if (data.amount == 0) alert("Укажите количество товара!");
-	else if (data.amount > data.total_amount) alert("В наличии имеется только "+data.total_amount+" шт!");
+	else if (parseInt(data.amount) == 0) alert("Укажите количество товара!");
+	else if (parseInt(data.amount) > parseInt(data.total_amount)) alert("В наличии имеется только "+data.total_amount+" шт!");
     else { localStorage.setItem(vid, JSON.stringify(data)); alert('<?php echo $product['Название_товара'];?> '+"добавлен в корзину в количестве "+data.amount+" шт"); }
 	return false;
 }
@@ -99,12 +99,7 @@ function addItem() {
 					<li><span class="ico-products"></span><a href="cart.php">Корзина</a></li>
 					<li><span class="ico-account"></span><a href="login.php" id="avt">Авторизация</a></li>
 					<li><span class="ico-signout"></span><a href="register.php" id="reg">Регистрация</a></li>
-				    <!--<li><span class="ico-products"></span><a href="cart.php">Корзина</a></li>
-					<li><span class="ico-account"></span><a href="login.php" id="avt" target="_blank" onclick="return openWindow(this.href);">Авторизация</a></li>
-					<li><span class="ico-signout"></span><a href="register.php" id="reg" target="_blank" onclick="return openWindow(this.href);">Регистрация</a></li>-->
-				</ul>
+				   </ul>
 			</div>
 		</div>
-		<!-- / container -->
 	</header>
-	<!-- / header -->

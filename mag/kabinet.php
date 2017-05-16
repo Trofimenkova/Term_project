@@ -21,6 +21,7 @@ function openWindow(url) {
 				<li><a href="dostavka.php">Оплата и доставка</a></li>
 				<li><a href="excel.php">Прайс-лист</a></li>
 				<li><a href="contacts.php">Обратная связь</a></li>
+				<li><a href="map.php">Контакты</a></li>
 			</ul>
 		</div>
 		<!-- / container -->
@@ -30,7 +31,7 @@ function openWindow(url) {
 		<div class="container">
 			<ul>
 				<li><a href="#">Главная</a></li>
-				<li>Корзина</li>
+				<li>Личный кабинет</li>
 			</ul>
 		</div>
 		<!-- / container -->

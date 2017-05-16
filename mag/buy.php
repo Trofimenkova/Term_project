@@ -23,6 +23,14 @@ $_SESSION["session_username"] = ""; }
 	fieldset legend { text-align: center; text-transform: uppercase; }
 	input[type="text"], input[type="email"], input[type="telephone"], input[type="date"], textarea { width: 300px!important; }
 	#dost { margin-top: 30px; margin-bottom: 30px;}
+	input[type=range] {
+-webkit-appearance: none;
+background: brown;
+background: linear-gradient(to right, brown, black);
+cursor: pointer;
+border-radius: 20px;
+height:15px;
+}
 	</style>
 	<link rel="stylesheet" href="css/style.css">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">	
@@ -139,38 +147,32 @@ function get_action(form) {
 					</div>
 					<div class="form-group">
 					<label>
-				<p>	Также Вы можете купить товар в рассрочку. <br>Введите количество месяцев. Рассчитать!</p><br>
+				<p>Вы можете купить товары в рассрочку. Чтобы рассчитать месячный платеж, задайте количество месяцев.</p>
 				<script>
+				var payment=0;
 function computeLoan(){
 	var amount = document.getElementById('amount').value;
-	var interest_rate = document.getElementById('interest_rate').value;
+	var interest_rate = 10;
 	var months = document.getElementById('months').value;
 	var interest = (amount * (interest_rate * .01)) / months;
-	var payment = ((amount / months) + interest).toFixed(2);
+	payment = ((amount / months) + interest).toFixed(2);
 	payment = payment.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-	document.getElementById('payment').innerHTML = "Месячный платеж = BYN "+payment;
+	document.getElementById('kol').innerHTML = months;
+	document.getElementById('payment').innerHTML = "Месячный платеж = "+payment + " BYN";
 }
 
-function clean(){
-	form.reset();
-//document.getElementById('payment').innerHTML = "";
-}
 
-function use(payment){
-						//alert(<?=$_GET['total']?>);
-					//	<?=$_GET['total']?>=payment;
-					  var payment = document.getElementById('payment').value;
-					  alert(payment);
+function use(){
+					  document.getElementById('itogo').innerHTML = "Первый взнос: " + payment + " BYN";
 					}
 
 </script>
 <form>
-<p>Сумма (BYN)<input id="amount" type="number" value=<?=$_GET['total']?>></p>
-<p>Процент: <input id="interest_rate" type="number" min="10" max="10" value="10">%</p>
-<p>Количество месяцев: <input id="months" type="number" min="1" max="6" value="1" step="1" onchange="computeLoan()"></p>
-<p><input type="reset" value="Очистить" onclick="clean()"></p>
+<p>Сумма заказа: <input id="amount" type="number" min="<?=$_GET['total']?>" max="<?=$_GET['total']?>" value="<?=$_GET['total']?>"> BYN</p>
+<p>Процент: 10 %</p>
+<p>Количество месяцев: <span id="kol">1</span> <input id="months" type="range" min="1" max="6" value="1" step="1" style="width: 50%;" onchange="computeLoan()"></p>
 <h2 id="payment"></h2>
-<input type="button" value="Применить" onclick="use();"><br>
+<input type="button" class="button" value="Купить в рассрочку" onclick="use();"><br>
 					</form><br>		
 					<label>
                         Комментарий к заказу:
@@ -178,7 +180,7 @@ function use(payment){
                     </label>
 					</div>
 					<div class="total-count">
-					<h3 style="margin-top:-20px;">Итого к оплате: <strong><?=$_GET['total']?> BYN</strong></h3>
+					<h3 style="margin-top:-20px;"><span id="itogo">Итого к оплате: <?=$_GET['total']?> BYN</span></h3>
                     <input type="submit" name="order" value="Подтвердить" class="button" onclick="localStorage.clear();" style="margin-top:-20px;">
 					</div>
 					</fieldset>
