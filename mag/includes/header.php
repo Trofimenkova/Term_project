@@ -82,10 +82,10 @@ function addItem() {
 	total_amount: '<?php echo $product['Количество'];?>',
 	picture: '<?php echo $product['Изображение'];?>'
 	}
-	if (data.total_amount == 0) alert("К сожалению, данного товара нет в наличии");
+	if (parseInt(data.total_amount) == 0) alert("К сожалению, данного товара нет в наличии");
     else if (parseInt(data.amount) < 0) alert("Указано отрицательное количество товара!");
-	else if (data.amount == 0) alert("Укажите количество товара!");
-	else if (data.amount > data.total_amount) alert("В наличии имеется только "+data.total_amount+" шт!");
+	else if (parseInt(data.amount) == 0) alert("Укажите количество товара!");
+	else if (parseInt(data.amount) > parseInt(data.total_amount)) alert("В наличии имеется только "+data.total_amount+" шт!");
     else { localStorage.setItem(vid, JSON.stringify(data)); alert('<?php echo $product['Вид'];?> '+"добавлен в корзину в количестве "+data.amount+" шт"); }
 	return false;
 }

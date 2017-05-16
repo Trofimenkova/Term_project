@@ -19,7 +19,7 @@
 		<div class="container">
 			<ul>
 				<li><a href="#">Главная</a></li>
-				<li>Контакты</li>
+				<li>Обратная связь</li>
 			</ul>
 		</div>
 		<!-- / container -->

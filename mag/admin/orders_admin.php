@@ -94,7 +94,7 @@ inner join способы_оплаты
 on заказы.Id_способ_оплаты = способы_оплаты.Id_способ_оплаты
 inner join users on
 заказы.Id_покупатель = users.Id_user
-group by заказы.Id_заказ having заказы.Id_заказ='".$_GET['search']."' or full_name='".$_GET['search']."' or статус='".$_GET['search']."'";   
+group by заказы.Id_заказ having заказы.Id_заказ='".$_GET['search']."' or full_name like '%".$_GET['search']."%' or статус='".$_GET['search']."'";   
 $rezult = mysqli_query($link, $query);
 					
 					$n = mysqli_num_rows($rezult);

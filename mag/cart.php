@@ -103,7 +103,7 @@ function basket() {
 	button.innerHTML = "Очистить корзину";
 	reset.appendChild(button);
 	button.onclick = delete_localStorage;
-	document.getElementsByTagName("strong")[0].innerHTML = total + " BYN";
+	document.getElementsByTagName("strong")[0].innerHTML = total.toFixed(2) + " BYN";
 	
 }
 

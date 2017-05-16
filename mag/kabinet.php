@@ -30,7 +30,7 @@ function openWindow(url) {
 		<div class="container">
 			<ul>
 				<li><a href="#">Главная</a></li>
-				<li>Корзина</li>
+				<li>Личный кабинет</li>
 			</ul>
 		</div>
 		<!-- / container -->
