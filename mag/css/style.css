@@ -1,7 +1,7 @@
-html, body, div, span, applet, object, iframe,
+.thtml, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
-del, dfn, em, img, ins, kbd, q, s, samp,
+del, dfn, em, img, ins, kbd, q, s, samp,.t
 small, strike, strong, sub, sup, tt, var,
 b, u, i, center,
 dl, dt, dd, ol, ul, li,
@@ -60,7 +60,7 @@ time, mark, audio, video {
     font-family: 'Open Sans', sans-serif;
     font-size:18px;
     font-weight: 300;
-    color:#fff;
+    color:black;
     padding-left:25px;
     padding-right:20px;
     padding-top:12px;
@@ -83,7 +83,7 @@ time, mark, audio, video {
     font-family: 'Open Sans', sans-serif;
     font-size:18px;
     font-weight: 300;    
-    color:#fff;
+    color:black;
     padding-left:20px;
     padding-right:20px;
     margin-bottom:20px;
@@ -96,16 +96,16 @@ time, mark, audio, video {
     padding-left:25px;
 }
 #form ::-webkit-input-placeholder {
-    color: #fff;
+    color: black;
 }
 #form :-moz-placeholder{ 
-    color: #fff; 
+    color: black; 
 }
 #form ::-moz-placeholder {
-    color: #fff;
+    color: black;
 }
 #form :-ms-input-placeholder {  
-    color: #fff; 
+    color: black; 
 }
 #form input:focus, #form textarea:focus { 
     background-color: rgba(0, 0, 0, 0.2);
@@ -184,7 +184,7 @@ input[type=submit]::-moz-focus-inner {
 
 h1, h2, h3, h4, h5, h6 {
 	font-weight: normal;
-	font-family: "Novecentowide";
+	font-family: "Arial";
 }
 
 strong {
@@ -241,7 +241,7 @@ textarea {
 ------------------------------------------------------------------------------*/
 body {
 	font: 16px/30px Arial, Helvetica, sans-serif;
-	color: #949697;
+	color: black;
 	background: #fff;
 	-webkit-text-size-adjust: none;
 	min-width: 320px;
@@ -306,19 +306,19 @@ a:hover {
 
 #header .right-links li {
 	float: left;
-	color: #656567;
+	color: black;
 	font-weight: 500;
 	padding-left: 37px;
 	font-size: 12px;
 }
 
 #header .right-links a {
-	color: #656567;
+	color: black;
 }
 
 #logo {
-	width: 320px;
-	height: 52px;
+	width: 350px;
+	height: 100px;
 	display: block;
 	float: left;
 	cursor: pointer;
@@ -332,7 +332,7 @@ a:hover {
 
 #menu {
 	text-align: center;
-	color: #737375;
+	color: black;
 	font-size: 14px;
 	font-weight: 500;
 }
@@ -344,7 +344,7 @@ a:hover {
 }
 
 #menu a {
-	color: #737375;
+	color: black;
 }
 
 
@@ -352,8 +352,9 @@ a:hover {
 ------------------------------------------------------------------------------*/
 
 #breadcrumbs {
-	background: #003366;
-	color: #d9d9d9;
+	background: brown;
+	opacity: 0.95;
+	color: black;
 	font-size: 14px;
 	overflow: hidden;
 	padding: 12px 0;
@@ -402,7 +403,7 @@ a:hover {
 }
 
 #slider .bx-pager a.active {
-	background: #fff;
+	background: black;
 }
 
 #slider .bx-pager a {
@@ -410,7 +411,7 @@ a:hover {
 	width: 13px;
 	text-indent: -999em;
 	height: 13px;
-	border: 2px solid #fff;
+	border: 2px solid brown;
 	border-radius: 70px;
 }
 
@@ -421,63 +422,59 @@ a:hover {
 	background-size: cover;
 }
 
-#slider h3 {
-	color: #a5b0d6;
-	font-family: "Novecentowide";
-	font-size: 24px;
-	font-weight: 200;
-	letter-spacing: 4.5px;
-	line-height: 28px;
-	padding: 80px 0 0;
-}
-
 .btn-more {
 	padding: 4px 40px;
-	border: 2px solid yellow;
-	background: rgb(0,0,0,0.2);
-	color: yellow;
+	border: 3px solid brown;
+	background: white;
 	display: inline-block;
 	text-transform: uppercase;
 	position: relative;
 	top: 20px;
 	font-weight: bolder;
     transition: all 0.3s ease;
-	width: 240px;
-	height: 40px;
+	width: 270px;
+	height: 50px;
 }
 
 .btn-more:hover{
 	text-decoration: none;
 	border-radius: 35px;
 	color: white;
-	background: #003366;
+	background: #fa8072;
 }
 
+
 #slider h2 {,
-	font-family: "Novecentowide";
-	color: #fff;
+	font-family: "Arial";
+	color: black;
 	font-size: 48px;
 	line-height: 46px;
 	letter-spacing: 9px;
 	font-weight: 300;
 }
 
-#slider .purple h3 {
-	color: #afa6c8;
-}
-
-#slider .purple a {
-	border-color: #afa6c8;
-	color: #afa6c8;
-}
-
-#slider .yellow h3 {
-	color: #f7c769;
-}
-
 #slider .yellow a {
-	border-color: #f7c769;
-	color: #f7c769;
+	border-color: brown;
+	color: black;
+}
+
+#slider .yellow #one{
+		margin-left:420px;
+}
+
+#slider .yellow #two{
+		margin-left:730px;
+}
+
+#slider .yellow #three{
+		margin-right:570px;
+}
+
+#slider .yellow #four{
+		margin-right:820px;
+}
+
+#slider .yellow #five{
 }
 
 #content {
@@ -495,26 +492,28 @@ a:hover {
 }
 
 .products h4 {
-	color: #939597;
-	font-family: "Novecentowide";
+	color: black;
+	font-family: "Arial";
 	font-size: 24px;
 	padding: 0 0 22px;
 }
 
 .products .btn-add {
 	height: 40px;
+	width:170px;
+	margin:auto;
 	background-color: #cecece;
 	display: block;
-	color: #656567;
-	font-family: "Novecentowide";
+	color: black;
+	font-family: "Arial";
 	font-size: 12px;
 	font-weight: 500;
-	line-height: 40px;
-	margin: 0 32px;
+	line-height: 50px;
+	margin: 20 32px;
 }
 
 .products .btn-add:hover {
-	background: #656567;
+	background: brown;
 	color: #fff;
 	text-decoration: none;
     -webkit-transition: all 0.2s ease-in-out;
@@ -524,8 +523,8 @@ a:hover {
 }
 
 .products h3 {
-	color: #656567;
-	font-family: "Novecentowide";
+	color: black;
+	font-family: "Arial";
 	font-size: 12px;
 	font-weight: 600;
 	margin: 22px 0 0;
@@ -614,9 +613,14 @@ a:hover {
 	color: #939597;
 	border-bottom: 1px solid #d3d3d3;
 	font-size: 24px;
-	font-family: "Novecentowide";
+	font-family: "Arial";
 	font-weight: 200;
 	padding: 21px 30px
+}
+
+.last-products h3 {
+	font-size: 11px;
+	font-family: "Arial";
 }
 
 .quick-links {
@@ -635,7 +639,7 @@ a:hover {
 
 .quick-links h4 {
 	color: #beb2a5;
-	font-family: "Novecentowide";
+	font-family: "Arial";
 	font-size: 18px;
 	font-weight: normal;
 }
@@ -652,18 +656,18 @@ a:hover {
 }
 
 .quick-links h4 {
-	font-family: "Novecentowide";
+	font-family: "Arial";
 	font-size: 18px;
 	text-transform: uppercase;
 }
 
 .quick-links h3 {
-	font-family: "Novecentowide";
+	font-family: "Arial";
 	font-size: 24px;
 }
 
 .quick-links a p {
-	font-family: "Novecentowide";
+	font-family: "Arial";
 	padding-top: 14px;
 	color: #cd9b9f;
 	font-size: 18px;
@@ -829,14 +833,15 @@ h1 {
 }
 
 .cart-table th {
-	background: #003366;
+	background: #a9a9a9;
+	opacity: 0.8;
 	border: 1px solid #383838;
 	text-align: center;
 	border-top: 0;
 	color: #fff;
 	line-height: 40px;
 	height: 43px;
-	font-family: "Novecentowide";
+	font-family: "Arial";
 	font-size: 12px;
 	font-weight: 500;
 	text-shadow: -1px -1px 0 rgba(12,13,13,.5);
@@ -858,7 +863,7 @@ h1 {
 
 .cart-table h3 {
 	color: #656567;
-	font-family: "Novecentowide";
+	font-family: "Arial";
 	font-size: 13px;
 	padding: 5px 0;
 	font-weight: 600;
@@ -918,7 +923,7 @@ h1 {
 	line-height: 36px;
 	padding: 0 0 0 15px;
 	color: #656567;
-	font-family: "Novecentowide";
+	font-family: "Arial";
 	font-size: 12px;
 	font-weight: 500;
 	border: 1px solid #cdcdcd;
@@ -943,7 +948,7 @@ h1 {
 	padding: 0 5px 0 15px;
 	line-height: normal;
 	color: #656567;
-	font-family: "Novecentowide";
+	font-family: "Arial";
 	font-size: 12px;
 	line-height: 36px;
 	font-weight: 500;
@@ -972,8 +977,7 @@ h1 {
 .product .image {
 	float: left;
 	overflow: hidden;
-	width: 570px;
-	height: 470px;
+	height: 100%;
 	margin: 25px 130px 0 0;
 	border: none;
 	background-color: #fff;
@@ -990,7 +994,7 @@ h1 {
 
 .product h1 {
 	color: #656567;
-	font-family: "Novecentowide";
+	font-family: "Arial";
 	font-size: 24px;
 	font-weight: 600;
 	line-height: 30px;
@@ -1060,7 +1064,7 @@ p.otz {
 	height: 38px;
 	text-decoration: none;
 	color: #656567;
-	font-family: "Novecentowide";
+	font-family: "Arial";
 	font-size: 12px;
 	font-weight: 500;
 }
@@ -1114,14 +1118,14 @@ p.otz {
 	line-height: 38px;
 	padding: 0 11px 0 5px;
 	color: #656567;
-	font-family: "Novecentowide";
+	font-family: "Arial";
 	font-size: 12px;
 	font-weight: 500;
 }
 
 .product h4 {
 	color: #939597;
-	font-family: "Novecentowide";
+	font-family: "Arial";
 	font-size: 36px;
 	font-weight: 200;
 	line-height: 40px;
@@ -1167,7 +1171,7 @@ p.otz {
 	vertical-align: top;
 	text-align: center;
 	color: #656567;
-	font-family: "Novecentowide";
+	font-family: "Arial";
 	font-size: 12px;
 	font-weight: 500;
 	line-height: 29px;
@@ -1186,7 +1190,7 @@ p.otz {
 
 #sidebar {
 	float: left;
-	background: #003366;
+	background: #a9a9a9;
 	width: 234px;
 	padding: 28px 30px;
 	padding-bottom: 950px;
@@ -1264,10 +1268,10 @@ p.otz {
 	position: relative;
 }
 
-#sidebar .widget h3 {
+#sidebar .widget h2 {
 	padding-bottom: 10px;
 	color: #fff;
-	font-family: "Novecentowide";
+	font-family: "Arial";
 	font-size: 14px;
 	font-weight: 500;
 }
@@ -1279,15 +1283,18 @@ p.otz {
 #footer {
 	clear: both;
 	background: #003366 url(../images/bg_footer.png);
+	background-repeat:repeat;
 	padding: 27px 0 0;
-	color: #a5a5aa;
+	color: white;
 	font-size: 14px;
-	line-height: 30px;
+	background-size:13%;
+	/*line-height: 30px;*/
 }
 
 #footer h3 {
-	color: #fff;
-	font-family: "Novecentowide";
+	color: white;
+
+	font-family: "Arial";
 	font-size: 14px;
 	text-transform: uppercase;
 	font-weight: 500;
@@ -1299,7 +1306,7 @@ p.otz {
 }
 
 #footer .ico {
-	display: inline-block;
+	/*display: inline-block;*/
 	background: url(../images/ico_footer.png);
 	width: 19px;
 	height: 19px;
@@ -1412,11 +1419,11 @@ p.otz {
 }
 
 #footer a {
-	color: #a5a5aa;
+	color: white;
 }
 
 #footer .copy {
-	color: #a5a5aa;
+	color: white;
 	font-size: 14px;
 	padding: 28px 0;
 	clear: both;
@@ -1526,7 +1533,7 @@ p.otz {
 
 	.pagination span {
 		background-image: url(../images/ico_pagination@2x.png);
-		background-size: 60px 30px;
+		background-size: 80px 50px;
 	}
 
 	#sidebar label.checked:before {
@@ -1662,17 +1669,6 @@ p.otz {
 
 	#slider .btn-more {
 		margin: 10px auto;
-	}
-
-	#slider h3 {
-		padding-top: 10px;
-		font-size: 13px;
-	}
-
-	#slider h2 {
-		font-size: 18px;
-		margin: -14px 0 -10px;
-		letter-spacing: 1px;
 	}
 
 	.quick-links article {

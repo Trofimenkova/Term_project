@@ -4,14 +4,14 @@
         
     $link = db_connect();
     
-    $product['Вид']='';
-    $product['Id_семейство']=1;
-    $product['Размер']='';
-	$product['Размер_взрослой_особи']='';
-    $product['Продолжительность_жизни']='';
-	$product['Место_обитания']='';
-    $product['Уход']='';
-	$product['Цена']=0;
+    $product['Название_товара']='';
+    $product['Id_категория']=1;
+    $product['Цвет']='';
+	$product['Объем_товара']='';
+    $product['Описание']='';
+	$product['Id_производителя']='';
+	$product['Применение']='';
+    $product['Цена']=0;
     $product['Количество']=0;
     $product['Изображение']='';
 
@@ -20,10 +20,10 @@
     
     if($action == "add"){
         if(!empty($_POST)){
-            products_new($link, $_POST['Вид'], $_POST['Id_семейство'], $_POST['Размер'], $_POST['Размер_взрослой_особи'], $_POST['Продолжительность_жизни'], $_POST['Место_обитания'], $_POST['Уход'], $_POST['Цена'], $_POST['Количество'], "images/".$_POST['Изображение']);
+            products_new($link, $_POST['Название_товара'], $_POST['Id_категория'], $_POST['Цвет'], $_POST['Объем_товара'], $_POST['Применение'], $_POST['Описание'], $_POST['Id_производителя'], $_POST['Цена'], $_POST['Количество'], "images/".$_POST['Изображение']);
 			header("Location: index.php");	
         }
-        include("../views/product_admin.php");	
+        include("product_admin.php");	
     }
 	
 	else if($action == "add_from_file"){
@@ -31,7 +31,7 @@
 			import_csv($link, $_POST['CSV']);
 			header("Location: index.php");	
         }
-        include("../views/product_admin.php");	
+        include("product_admin.php");	
     }
 	
 	else if($action == 'edit'){
@@ -40,12 +40,12 @@
         $id = (int)$_GET['id'];
         
         if(!empty($_POST) && $id > 0) {
-            products_edit($link, $id, $_POST['Вид'], $_POST['Id_семейство'], $_POST['Размер'], $_POST['Размер_взрослой_особи'], $_POST['Продолжительность_жизни'], $_POST['Место_обитания'], $_POST['Уход'], $_POST['Цена'], $_POST['Количество'], $_POST['Изображение']);
+            products_edit($link, $id, $_POST['Название_товара'], $_POST['Id_категория'], $_POST['Цвет'], $_POST['Объем_товара'], $_POST['Применение'], $_POST['Описание'], $_POST['Id_производителя'], $_POST['Цена'], $_POST['Количество'], $_POST['Изображение']);
             header("Location: index.php");
         }
         
         $product = product_get($link, $id);
-        include("../views/product_admin.php");  
+        include("product_admin.php");  
     }
 	
 	else if($action == 'delete'){
@@ -56,11 +56,11 @@
 	
     else if($action == 'search'){
         $products = products_search($link, $_POST['search']);
-        include("../views/products_admin.php");        
+        include("products_admin.php");        
     }
 	
 	else {
         $products = products_all($link);
-        include("../views/products_admin.php");        
+        include("products_admin.php");        
     }
 ?>

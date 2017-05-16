@@ -1,4 +1,4 @@
-﻿<?php
+<?php
     require_once("database.php");
 	
     require_once("models/products.php");
@@ -20,7 +20,7 @@
 	   <style>
 	   html { overflow:  hidden;  }
 	   body {
-		   background: url("images/01.jpg") 35%;
+		   background: url("images/04.jpg") 26%;
 		   text-align: center;
 	   }
 	   label {
@@ -36,7 +36,6 @@
 		   right: 15px;
 	   }
 	   </style>
-<link rel="shortcut icon" href="images/fish.png" type="image/png">
 </head> 
 <body>
     <div id="body">
@@ -59,16 +58,10 @@
                         <input type="telephone" name="telephone" value="<?=$_GET['telephone']?>" class="form-control" required size="29">
                     </label>
 					</div>
-					<!--<div class="form-group">
-					<label>
-                        id <br>-->
-                        <input type="text" style="visibility: hidden;" name="id" value="<?=$_GET['id']?>" class="form-control" required size="29">
-                    <!--</label>
-					</div>-->
+					<input type="text" style="visibility: hidden;" name="id" value="<?=$_GET['id']?>" class="form-control" required size="29">
         <p class="submit">
         <input type="submit" name="change" class="btn-grey" value="Сохранить изменения" />
-    </p>
-       
+    </p>     
 </form>
     </div>
 	</body>

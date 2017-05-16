@@ -1,4 +1,4 @@
-﻿<?php include("header.php"); ?>
+﻿<?php include("includes/header.php"); ?>
 
 	<nav id="menu">
 		<div class="container">
@@ -10,6 +10,7 @@
 				<li><a href="dostavka.php">Оплата и доставка</a></li>
 				<li><a href="excel.php">Прайс-лист</a></li>
 				<li><a href="contacts.php">Обратная связь</a></li>
+			  <li><a href="map.php">Контакты</a></li>
 			</ul>
 		</div>
 		<!-- / container -->
@@ -32,7 +33,7 @@
 			<div id="content" class="full">
 				<h1 id="dostavka">Доставка</h1>
 				<div class="entry">
-					<p>Интернет-магазин <q>Рыбин Гуд</q> осуществляет доставку заказов по Минску и Беларуси</p>
+					<p>Интернет-магазин <q>Make-up.buy</q> осуществляет доставку заказов по Минску и Беларуси</p>
 					<h1 style="font-size: 130%">Условия доставки:</h1>
 					<p style="margin-top: -15px;">
 					<ul style="margin-left: 70px;">
@@ -44,7 +45,7 @@
 					</ul>
 					</p>
 					<h1 id="payment">Оплата</h1>
-					<p>Возможные способы оплаты покупки в интернет-магазине <q>Рыбин Гуд</q>:</p>
+					<p>Возможные способы оплаты покупки в интернет-магазине <q>Make-up.buy</q>:</p>
 					<ol>
 						<li>Наличными деньгами</li>
 						<li>Пластиковой банковской картой (к оплате принимаются пластиковые карты всех банков мира, включая белорусские банки)</li>
@@ -61,7 +62,7 @@
 	</div>
 	<!-- / body -->
 
-	<?php include("footer.php"); ?>
+	<?php include("includes/footer.php"); ?>
 
 
 	<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>

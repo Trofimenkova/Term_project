@@ -1,4 +1,4 @@
 ﻿AuthType Basic
 AuthName "Admin Panel"
-AuthUserFile B:/home/localhost/www/mag/admin/.htpasswd
+AuthUserFile B:/home/localhost/www/store/admin/.htpasswd
 Require valid-user

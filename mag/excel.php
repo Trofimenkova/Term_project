@@ -2,7 +2,7 @@
 
 /** Include PHPExcel */
 require_once 'config.php';
-require_once 'functions.php';
+require_once 'models/products.php';
 require_once 'Classes/PHPExcel.php';
 
 
@@ -44,10 +44,10 @@ $active_sheet->getColumnDimension('D')->setWidth(15);
 
 $active_sheet->mergeCells('A1:D1');
 $active_sheet->getRowDimension('1')->setRowHeight(40);
-$active_sheet->setCellValue('A1','Рыбин Гуд');
+$active_sheet->setCellValue('A1','Make-up.buy');
 
 $active_sheet->mergeCells('A2:D2');
-$active_sheet->setCellValue('A2','Интернет-магазин аквариумных рыбок');
+$active_sheet->setCellValue('A2','Интернет-магазин косметики');
 
 $active_sheet->mergeCells('A4:C4');
 $active_sheet->setCellValue('A4','Дата создания прайс-листа:');
@@ -59,7 +59,7 @@ $active_sheet->getStyle('D4')
 			setFormatCode(PHPExcel_Style_NumberFormat::FORMAT_DATE_XLSX14);
 
 $active_sheet->setCellValue('A6','№ п.п');
-$active_sheet->setCellValue('B6','Вид');
+$active_sheet->setCellValue('B6','Название');
 $active_sheet->setCellValue('C6','Цена, BYN');
 $active_sheet->setCellValue('D6','Кол-во, шт');
 
@@ -69,7 +69,7 @@ foreach($price_list as $item) {
 	$row_next = $row_start + $i;
 	
 	$active_sheet->setCellValue('A'.$row_next,$item['Id_товар']);
-	$active_sheet->setCellValue('B'.$row_next,$item['Вид']);
+	$active_sheet->setCellValue('B'.$row_next,$item['Название_товара']);
 	$active_sheet->setCellValue('C'.$row_next,$item['Цена']);
 	$active_sheet->setCellValue('D'.$row_next,$item['Количество']);
 	
@@ -231,7 +231,7 @@ $active_sheet->getStyle('A7:D'.($i+6))->applyFromArray($style_price);
 
 
 header("Content-Type:application/vnd.ms-excel");
-header("Content-Disposition:attachment;filename='rybin_good.xls'");
+header("Content-Disposition:attachment;filename='make-up.xls'");
 
 $objWriter = PHPExcel_IOFactory::createWriter($objPHPExcel, 'Excel5');
 $objWriter->save('php://output');

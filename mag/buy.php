@@ -16,14 +16,21 @@ $_SESSION["session_username"] = ""; }
 <html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<title>Рыбин Гуд</title>
+	<title>Make-up.buy</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
-	<link rel="shortcut icon" href="images/fish.png" type="image/png">
 	<style>
 	.form-group { margin-left:0px!important; }
 	fieldset legend { text-align: center; text-transform: uppercase; }
 	input[type="text"], input[type="email"], input[type="telephone"], input[type="date"], textarea { width: 300px!important; }
 	#dost { margin-top: 30px; margin-bottom: 30px;}
+	input[type=range] {
+-webkit-appearance: none;
+background: brown;
+background: linear-gradient(to right, brown, black);
+cursor: pointer;
+border-radius: 20px;
+height:15px;
+}
 	</style>
 	<link rel="stylesheet" href="css/style.css">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">	
@@ -44,14 +51,14 @@ window.onload = function() {
 }
 
 function get_action(form) {
-	form.action = "addOrder.php?"+window.location.toString().substring(window.location.toString().indexOf("id"));
+	form.action = "actions/addOrder.php?"+window.location.toString().substring(window.location.toString().indexOf("id"));
 }
 </script>
 </head>
 <body>
 	<header id="header">
 		<div class="container">
-			<a href="index.php" id="logo" title="Рыбин Гуд">Рыбин Гуд</a>
+			<a href="index.php" id="logo" title="Make-up.buy">Make-up.buy</a>
 			<div class="right-links">
 				<ul>
 					<li><span class="ico-products"></span><a href="cart.php">Корзина</a></li>
@@ -74,6 +81,7 @@ function get_action(form) {
 				<li><a href="dostavka.php">Оплата и доставка</a></li>
 				<li><a href="excel.php">Прайс-лист</a></li>
 				<li><a href="contacts.php">Обратная связь</a></li>
+				<li><a href="map.php">Контакты</a></li>
 			</ul>
 		</div>
 		<!-- / container -->
@@ -95,7 +103,7 @@ function get_action(form) {
 		<div class="container">
 			<div id="content" class="full">
 				<form method="post" role="form" action="" onsubmit="get_action(this);" class="form-horizontal">
-                    <fieldset><legend>Личные данные*</legend><div class="form-group">
+                    <fieldset><legend>Личные данные</legend><div class="form-group">
 					<label>
                         ФИО:
                         <input type="text" name="full_name" value="<?=$user['full_name']?>" class="form-control">
@@ -115,7 +123,7 @@ function get_action(form) {
 					</div>
 					</fieldset>
 					
-					<fieldset id="dost"><legend>Доставка и оплата*</legend><div class="form-group">
+					<fieldset id="dost"><legend>Доставка и оплата</legend><div class="form-group">
 					<label>
                         Адрес доставки:
                         <input type="text" name="address" value="" class="form-control" required>
@@ -139,12 +147,40 @@ function get_action(form) {
 					</div>
 					<div class="form-group">
 					<label>
+				<p>Вы можете купить товары в рассрочку. Чтобы рассчитать месячный платеж, задайте количество месяцев.</p>
+				<script>
+				var payment=0;
+function computeLoan(){
+	var amount = document.getElementById('amount').value;
+	var interest_rate = 10;
+	var months = document.getElementById('months').value;
+	var interest = (amount * (interest_rate * .01)) / months;
+	payment = ((amount / months) + interest).toFixed(2);
+	payment = payment.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+	document.getElementById('kol').innerHTML = months;
+	document.getElementById('payment').innerHTML = "Месячный платеж = "+payment + " BYN";
+}
+
+
+function use(){
+					  document.getElementById('itogo').innerHTML = "Первый взнос: " + payment + " BYN";
+					}
+
+</script>
+<form>
+<p>Сумма заказа: <input id="amount" type="number" min="<?=$_GET['total']?>" max="<?=$_GET['total']?>" value="<?=$_GET['total']?>"> BYN</p>
+<p>Процент: 10 %</p>
+<p>Количество месяцев: <span id="kol">1</span> <input id="months" type="range" min="1" max="6" value="1" step="1" style="width: 50%;" onchange="computeLoan()"></p>
+<h2 id="payment"></h2>
+<input type="button" class="button" value="Купить в рассрочку" onclick="use();"><br>
+					</form><br>		
+					<label>
                         Комментарий к заказу:
                         <textarea class="form-control" name="comment"></textarea>
                     </label>
 					</div>
 					<div class="total-count">
-					<h3 style="margin-top:-20px;">Итого к оплате: <strong><?=$_GET['total']?> BYN</strong></h3>
+					<h3 style="margin-top:-20px;"><span id="itogo">Итого к оплате: <?=$_GET['total']?> BYN</span></h3>
                     <input type="submit" name="order" value="Подтвердить" class="button" onclick="localStorage.clear();" style="margin-top:-20px;">
 					</div>
 					</fieldset>
@@ -156,7 +192,7 @@ function get_action(form) {
 	</div>
 	<!-- / body -->
 
-	<?php include("footer.php"); ?>
+	<?php include("includes/footer.php"); ?>
 
 
 	<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>

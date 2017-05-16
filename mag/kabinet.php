@@ -1,4 +1,4 @@
-﻿<?php include("header.php"); ?>
+﻿<?php include("includes/header.php"); ?>
 <script>
 function openWindow(url) {
     var features, w = 335, h = 395;
@@ -21,6 +21,7 @@ function openWindow(url) {
 				<li><a href="dostavka.php">Оплата и доставка</a></li>
 				<li><a href="excel.php">Прайс-лист</a></li>
 				<li><a href="contacts.php">Обратная связь</a></li>
+				<li><a href="map.php">Контакты</a></li>
 			</ul>
 		</div>
 		<!-- / container -->
@@ -30,7 +31,7 @@ function openWindow(url) {
 		<div class="container">
 			<ul>
 				<li><a href="#">Главная</a></li>
-				<li>Корзина</li>
+				<li>Личный кабинет</li>
 			</ul>
 		</div>
 		<!-- / container -->
@@ -81,7 +82,7 @@ inner join статусы_заказов on заказы.Id_статус = ст�
 							</td>
 							<td class="iitems">
 							<?php 
-						 $query2 = "select Id_заказ, заказ_товар.Id_товар as id, Вид, заказ_товар.Количество as Заказанное_количество, Цена from заказ_товар inner join товары
+						 $query2 = "select Id_заказ, заказ_товар.Id_товар as id, Название_товара, заказ_товар.Количество as Заказанное_количество, Цена from заказ_товар inner join товары
 on заказ_товар.Id_товар = товары.Id_товар where Id_заказ='".$order['Id_заказ']."'";       
         $rezult2 = mysqli_query($link, $query2);
          if (!$rezult2) {
@@ -89,7 +90,7 @@ on заказ_товар.Id_товар = товары.Id_товар where Id_з�
 		}
         while($tovar = mysqli_fetch_array($rezult2)) { ?>
 		<ul>
-								<li><a href="product.php?id=<?=$tovar['id']?>"><?=$tovar['Вид']?></a> - <?=$tovar['Заказанное_количество']?> шт X <?=$tovar['Цена']?> BYN</li>
+								<li><a href="product.php?id=<?=$tovar['id']?>"><?=$tovar['Название_товара']?></a> - <?=$tovar['Заказанное_количество']?> шт X <?=$tovar['Цена']?> BYN</li>
 								
 								</ul>
 								<?php } ?>
@@ -132,7 +133,7 @@ on заказ_товар.Id_товар = товары.Id_товар where Id_з�
 	</div>
 	<!-- / body -->
 	
-	<?php include("footer.php"); ?>
+	<?php include("includes/footer.php"); ?>
 
 	<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
 	<script>window.jQuery || document.write("<script src='js/jquery-1.11.1.min.js'>\x3C/script>")</script>
