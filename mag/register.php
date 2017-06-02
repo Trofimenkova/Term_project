@@ -2,6 +2,7 @@
 session_start();
 require_once("database.php");
 $link = db_connect();
+$base_url='http://localhost/shop/';
 ?>
 
 <?php include("includes/header_reg.php"); ?>
@@ -21,17 +22,27 @@ if(isset($_POST["register"])){
 		
 		if($numrows==0)
 		{
-			$sql="INSERT INTO users(full_name, email, telephone, username,password) VALUES('$full_name','$email', '$telephone', '$username', '$password')";
+            $activation=md5($email.time()); // email + timestamp
+			$sql="INSERT INTO users(full_name, email, telephone, username,password, activation) VALUES('$full_name','$email', '$telephone', '$username', '$password', '$activation')";
 
 			$result=mysqli_query($link, $sql);
 
-			if($result){ $success = "Account successfully created! Please sign the authorization form."; } 
-			else { $message = "Failed to insert data information!"; }
+			if($result){ 
+                $success = "Account successfully created! Please, activate your account through Email.";
+                include 'Send_Mail.php';
+                $to=$email;
+            $subject="Проверка Email";
+            $body='Здравствуйте, '.$full_name.'!<br/>Пожалуйста перейдите по ссылки для активации Вашего аккаунта. <br/> <br/> <a href="'.$base_url.'activation.php?code='.$activation.'">'.$base_url.'activation.php?code='.$activation.'</a>';
+ 
+            Send_Mail($to,$subject,$body);
+	} else {
+	 $message = "Failed to insert data information!";
+	}
 		} 
 		else { $message = "That username already exists! Please try another one!"; }
 	} 
-	else { $message = "All fields are required!"; }
-}
+	else { $message = "All fields are required!"; } }
+
 ?>
 
 <?php if (!empty($success)) {echo "<p style=\"background: green;\" class=\"error\">" . "MESSAGE: ". $success . "</p>";} ?>	

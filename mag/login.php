@@ -12,7 +12,7 @@ if(isset($_POST["login"])){
 		$username=trim($_POST['username']);
 		$password=trim($_POST['password']);
 
-		$query = mysqli_query($link, "SELECT username, password FROM users WHERE username='".$username."'");
+		$query = mysqli_query($link, "SELECT username, password, status FROM users WHERE username='".$username."'");
 		
 		$numrows=mysqli_num_rows($query);
 		if($numrows!=0)
@@ -20,14 +20,19 @@ if(isset($_POST["login"])){
 			while($row=mysqli_fetch_assoc($query))
 			{
 				$dbpassword=$row['password'];
+				$dbstatus=$row['status'];
 			}
 
 			//if(password_verify($password, $dbpassword))
-			if (crypt($password, $dbpassword) === $dbpassword)
+			if (crypt($password, $dbpassword) === $dbpassword and $dbstatus=='1')
 			{
 				$_SESSION['session_username'] = $username;
 				header("location:index.php");	
 			}
+			else {
+
+ $message =  "Your account is not activated!";
+    }
 		} 
 		else { $message =  "Invalid username and / or password"; }
 	} 
